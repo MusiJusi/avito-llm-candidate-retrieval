@@ -1,0 +1,12 @@
+.inspection_deps/
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+*.parquet
+*.joblib
+*.joblib.tmp
+.env
+.env.*
+!.env.example
+*.log

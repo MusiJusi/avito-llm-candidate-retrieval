@@ -1,0 +1,206 @@
+{
+  "versions": {
+    "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+    "pandas": "3.0.6"
+  },
+  "ram_total_bytes": 33485844480,
+  "ram_available_bytes": 19496325120,
+  "disk_free_bytes": 396803657728,
+  "cpu_physical_cores": 16,
+  "cpu_logical_cores": 32,
+  "baseline_rss_bytes": 92680192,
+  "files": [
+    {
+      "name": "benchmark_queries.parquet",
+      "disk_bytes": 127374,
+      "rows": 2452,
+      "columns": 6,
+      "row_groups": 1,
+      "parquet_uncompressed_bytes": 196295,
+      "read_seconds": 0.289,
+      "dataframe_bytes": 325824,
+      "dtypes": {
+        "query_id": "str",
+        "search_query": "str",
+        "search_location_id": "int64",
+        "search_is_delivery_search": "int32",
+        "search_infm_params_text": "str",
+        "search_category": "int64"
+      },
+      "largest_columns_bytes": {
+        "search_query": 125981,
+        "search_infm_params_text": 91823,
+        "query_id": 58848,
+        "search_location_id": 19616,
+        "search_category": 19616,
+        "search_is_delivery_search": 9808
+      },
+      "text_lengths_chars": {
+        "search_query": {
+          "nulls": 0,
+          "mean": 23.0,
+          "p50": 22.0,
+          "p95": 39.0,
+          "p99": 47.48999999999978,
+          "max": 70.0
+        }
+      },
+      "query_id_unique": 2452,
+      "dataframe_with_object_strings_bytes": 696012
+    },
+    {
+      "name": "benchmark_items.parquet",
+      "disk_bytes": 195679553,
+      "rows": 189212,
+      "columns": 14,
+      "row_groups": 1,
+      "parquet_uncompressed_bytes": 830259752,
+      "read_seconds": 0.841,
+      "dataframe_bytes": 908854705,
+      "dtypes": {
+        "item_title_raw": "str",
+        "item_rating_reviews_count": "float64",
+        "item_rating": "float64",
+        "item_price": "object",
+        "item_microcat_id": "int64",
+        "item_longitude": "object",
+        "item_location_id": "int64",
+        "item_latitude": "object",
+        "item_is_phone_hidden": "bool",
+        "item_is_message_forbidden": "bool",
+        "item_infm_params_text": "str",
+        "item_id": "str",
+        "item_description_raw": "str",
+        "item_category_id": "int64"
+      },
+      "largest_columns_bytes": {
+        "item_description_raw": 479009452,
+        "item_infm_params_text": 331410284,
+        "item_price": 24219136,
+        "item_longitude": 24219032,
+        "item_latitude": 24219032,
+        "item_title_raw": 13289645
+      },
+      "text_lengths_chars": {
+        "item_title_raw": {
+          "nulls": 0,
+          "mean": 33.6,
+          "p50": 35.0,
+          "p95": 50.0,
+          "p99": 53.0,
+          "max": 100.0
+        },
+        "item_description_raw": {
+          "nulls": 35,
+          "mean": 1405.2,
+          "p50": 1054.0,
+          "p95": 4205.1999999999825,
+          "p99": 5541.0,
+          "max": 8494.0
+        },
+        "item_infm_params_text": {
+          "nulls": 0,
+          "mean": 973.9,
+          "p50": 738.0,
+          "p95": 2475.0,
+          "p99": 4687.889999999985,
+          "max": 19068.0
+        }
+      },
+      "item_id_unique": 189212,
+      "dataframe_with_object_strings_bytes": 1437606862
+    },
+    {
+      "name": "train.parquet",
+      "disk_bytes": 490236125,
+      "rows": 497673,
+      "columns": 19,
+      "row_groups": 1,
+      "parquet_uncompressed_bytes": 2230605122,
+      "read_seconds": 2.584,
+      "dataframe_bytes": 2482864448,
+      "dtypes": {
+        "search_query": "str",
+        "search_location_id": "int64",
+        "search_is_delivery_search": "int32",
+        "search_infm_params_text": "str",
+        "search_category": "int64",
+        "item_title_raw": "str",
+        "item_rating_reviews_count": "float64",
+        "item_rating": "float64",
+        "item_price": "object",
+        "item_microcat_id": "int64",
+        "item_longitude": "object",
+        "item_location_id": "int64",
+        "item_latitude": "object",
+        "item_is_phone_hidden": "bool",
+        "item_is_message_forbidden": "bool",
+        "item_infm_params_text": "str",
+        "item_id": "str",
+        "item_description_raw": "str",
+        "item_category_id": "int64"
+      },
+      "largest_columns_bytes": {
+        "item_description_raw": 1146635317,
+        "item_infm_params_text": 1012328806,
+        "item_price": 63702144,
+        "item_longitude": 63701728,
+        "item_latitude": 63701728,
+        "search_infm_params_text": 34696437
+      },
+      "text_lengths_chars": {
+        "search_query": {
+          "nulls": 0,
+          "mean": 17.5,
+          "p50": 17.0,
+          "p95": 31.0,
+          "p99": 39.0,
+          "max": 113.0
+        },
+        "item_title_raw": {
+          "nulls": 0,
+          "mean": 33.3,
+          "p50": 34.0,
+          "p95": 50.0,
+          "p99": 56.0,
+          "max": 100.0
+        },
+        "item_description_raw": {
+          "nulls": 0,
+          "mean": 1281.3,
+          "p50": 920.0,
+          "p95": 3876.0,
+          "p99": 5503.27999999997,
+          "max": 8494.0
+        },
+        "item_infm_params_text": {
+          "nulls": 0,
+          "mean": 1144.6,
+          "p50": 871.0,
+          "p95": 2965.0,
+          "p99": 6504.5599999999395,
+          "max": 11899.0
+        }
+      },
+      "item_id_unique": 344825,
+      "dataframe_with_object_strings_bytes": 3848220962
+    }
+  ],
+  "combined_dataframe_bytes": 3392044977,
+  "combined_object_dataframe_bytes": 5286523836,
+  "final_rss_bytes": 3702087680,
+  "process_memory": {
+    "rss": 3702087680,
+    "vms": 5546205184,
+    "num_page_faults": 3255089,
+    "peak_wset": 6376796160,
+    "wset": 3702087680,
+    "peak_paged_pool": 391128,
+    "paged_pool": 391032,
+    "peak_nonpaged_pool": 107704,
+    "nonpaged_pool": 105120,
+    "pagefile": 5546205184,
+    "peak_pagefile": 8227131392,
+    "private": 5546205184
+  }
+}

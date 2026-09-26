@@ -1,0 +1,11 @@
+# Tested with Python 3.14.6. Install once into the notebook kernel environment.
+# Prediction and evaluation themselves do not require internet access.
+numpy==2.5.3
+pandas==3.0.6
+pyarrow==25.0.1
+scipy==1.18.1
+scikit-learn==1.9.1
+snowballstemmer==3.1.1
+joblib==1.6.0
+threadpoolctl==3.7.0
+ipykernel==7.3.0

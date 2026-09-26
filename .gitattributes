@@ -1,0 +1,12 @@
+# Stable line endings keep the generated submission identical after cloning.
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.ipynb text eol=lf
+*.csv text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+*.parquet binary
+*.joblib binary

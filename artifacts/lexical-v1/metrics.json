@@ -1,0 +1,22 @@
+{
+  "protocol": "cold_query_text_90pct_purged_positive_items_full_benchmark_corpus",
+  "development_queries": 700,
+  "holdout_queries": 700,
+  "development_recall50": 0.8671428571428571,
+  "holdout_recall50": 0.8911904761904762,
+  "holdout_recall50_bootstrap95": [
+    0.8683333333333332,
+    0.9135714285714286
+  ],
+  "holdout_pool_recall": 0.9714285714285714,
+  "mean_pool_size": 1694.7585714285715,
+  "best_config": {
+    "name": "hybrid_19",
+    "title": 0.3,
+    "body": 0.5,
+    "char": 0.2,
+    "filter": 0.03,
+    "geo": 0.5,
+    "micro": 0.5
+  }
+}

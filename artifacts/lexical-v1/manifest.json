@@ -1,0 +1,50 @@
+{
+  "config": {
+    "seed": 260926,
+    "validation_texts": 1400,
+    "development_fraction": 0.5,
+    "cold_item_fraction": 0.9,
+    "description_chars": 4000,
+    "params_chars": 1800,
+    "word_features": 240000,
+    "char_features": 220000,
+    "retrieval_pool": 500,
+    "version": "lexical-v1"
+  },
+  "input_sha256": {
+    "train.parquet": "e150ab7a5c98769f643b95ee3a02dc0f664b647facd69a7d280ec6d48ca554a7",
+    "benchmark_items.parquet": "193b3a3961464620cbf8d8797152b7f90cae1826ca749fb7817a210984a09899",
+    "benchmark_queries.parquet": "e49de4fb76f03979a4af96034817767d39ae5de9f94e254fed028243188dda06"
+  },
+  "fingerprint": "42fc3514dd598e13",
+  "code_sha256": "89b65660cbb17ca05d75b195138de987c14b67e3e6b7fd37a04d382170beba04",
+  "answer_sha256": "6431d618d4e22179fb2d8dd1363d8ee0c7c2d472d66392574ca735b2b69a7695",
+  "metrics": {
+    "protocol": "cold_query_text_90pct_purged_positive_items_full_benchmark_corpus",
+    "development_queries": 700,
+    "holdout_queries": 700,
+    "development_recall50": 0.8671428571428571,
+    "holdout_recall50": 0.8911904761904762,
+    "holdout_recall50_bootstrap95": [
+      0.8683333333333332,
+      0.9135714285714286
+    ],
+    "holdout_pool_recall": 0.9714285714285714,
+    "mean_pool_size": 1694.7585714285715,
+    "best_config": {
+      "name": "hybrid_19",
+      "title": 0.3,
+      "body": 0.5,
+      "char": 0.2,
+      "filter": 0.03,
+      "geo": 0.5,
+      "micro": 0.5
+    }
+  },
+  "versions": {
+    "python": "3.14.6",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3",
+    "sklearn": "1.9.1"
+  }
+}

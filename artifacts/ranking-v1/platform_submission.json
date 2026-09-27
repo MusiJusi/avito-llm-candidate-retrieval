@@ -1,0 +1,11 @@
+{
+  "version": "v0.4.0",
+  "source_commit": "2f50c9693817d167c8bb4a5a120caf197a5947a7",
+  "answer_sha256": "c4e8b4a27c72c3222208bd3563b3d23d9ca3110f3c325332ac9f9baed016672b",
+  "metric": "Recall@50",
+  "value": 0.882692,
+  "previous_v03_value": 0.858569,
+  "absolute_improvement": 0.024123,
+  "source": "user_reported_platform_screenshot",
+  "benchmark_labels_available": false
+}

@@ -1,0 +1,22 @@
+{
+  "contexts": 600,
+  "v4_recall50": 0.94,
+  "selected_recall50": 0.9466666666666667,
+  "delta": 0.006666666666666667,
+  "paired_delta_bootstrap95": [
+    -0.0033333333333333335,
+    0.018333333333333333
+  ],
+  "improved": 7,
+  "worsened": 3,
+  "pool_recall": 0.995,
+  "history_audit": {
+    "contexts": 600,
+    "positive_pairs": 604,
+    "known_text_fraction": 0.0,
+    "positive_item_seen_macro_fraction": 0.0016666666666666668,
+    "own_context_overlap": 0
+  },
+  "used_for_selection": false,
+  "frozen_comparator_limitation": "v4 auxiliary history may have used held control interactions"
+}

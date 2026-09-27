@@ -1,0 +1,32 @@
+{
+  "input_sha256": {
+    "train.parquet": "e150ab7a5c98769f643b95ee3a02dc0f664b647facd69a7d280ec6d48ca554a7",
+    "benchmark_items.parquet": "193b3a3961464620cbf8d8797152b7f90cae1826ca749fb7817a210984a09899",
+    "benchmark_queries.parquet": "e49de4fb76f03979a4af96034817767d39ae5de9f94e254fed028243188dda06"
+  },
+  "frozen_components": {
+    "models/retrieval-priors/evaluation_legacy.joblib": "4a7acbebb558dc468a8818b9a84c8c14fd75da5a7fa562569111054b2d53d42b",
+    "models/retrieval-priors/evaluation_semantic.joblib": "3f8fb1c866065dd83bbe56ccaabd2e4908c8ad6d842b3e7663a5b31b35150d5c",
+    "models/retrieval-priors/final_legacy.joblib": "ab51be56de3611bdf606f6a9e5f88c05dd1747898c1aa5b998e06441baa56b61",
+    "models/retrieval-priors/final_semantic.joblib": "db266fcf96a70459a55967d767a0b0f776228156b36f06a9050b71d9d767a2c0",
+    "artifacts/ranking-v1/lgb_rank_expanded_200_c0442eeba2d244f2.joblib": "27e68f7638ea526efdd89991838d99f4e6637cb8bb6229ff7b6365373b05f8cf",
+    "artifacts/ranking-v1/final_ranker_c0442eeba2d244f2.joblib": "32ce43a18cbfcece8f1290dac8eae9b1369d99f1867db079595b5ee709a3c971",
+    "artifacts/ranking-v5/mixed_wide_e2854ae5a86a1bbf.joblib": "fd95e70cab36639f696378b71e4f683189309543c4a464156c689ce64a1f71fe"
+  },
+  "final_model": {
+    "final_ranker_e2854ae5a86a1bbf.joblib": "5a787bf840f911a6b8c6f16d5a199efc5ca3660cbd21b645d9a8717d472a709d"
+  },
+  "embedding_sha256": {
+    "e5_items_e8fb4d228a18af07.npy": "3e97659a1f191104fdedc5fc63eae651a662d8c3b2e375c97770f676d4f86611",
+    "e5_queries_e8fb4d228a18af07_113d7f38f3ea14d3.npy": "61e19af87c7d4666eec46bf2cbf991911c69b588d9f2d574cad5694f1f508d0c"
+  },
+  "own_mining_pilot": {
+    "file": "mixed_wide_e2854ae5a86a1bbf.joblib",
+    "trained_on_provided_train": true,
+    "contexts": 19031,
+    "trees": 400,
+    "predicted_prefix_for_mining": 200,
+    "development_and_control_labels_excluded": true,
+    "role": "negative selection only, no inference feature"
+  }
+}

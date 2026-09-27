@@ -1,0 +1,71 @@
+{
+  "contexts": 26556,
+  "groups": 52835,
+  "rows": 19827212,
+  "positives": 58841,
+  "mean_group_size": 375.26662250402194,
+  "actual_known_fraction": 0.43213778745149994,
+  "target_known_fraction": 0.3735725938009788,
+  "oof_audits": [
+    {
+      "contexts": 8437,
+      "positive_pairs": 9297,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.05144002889765602,
+      "own_context_overlap": 0,
+      "mode": "unseen_text",
+      "fold": 0,
+      "cold_items": 6679
+    },
+    {
+      "contexts": 9449,
+      "positive_pairs": 10812,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.042896451627534284,
+      "own_context_overlap": 0,
+      "mode": "unseen_text",
+      "fold": 1,
+      "cold_items": 7492
+    },
+    {
+      "contexts": 8670,
+      "positive_pairs": 9463,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.05000315812599549,
+      "own_context_overlap": 0,
+      "mode": "unseen_text",
+      "fold": 2,
+      "cold_items": 6759
+    },
+    {
+      "contexts": 8852,
+      "positive_pairs": 9786,
+      "known_text_fraction": 0.8709896068685042,
+      "positive_item_seen_macro_fraction": 0.04627633249413638,
+      "own_context_overlap": 0,
+      "mode": "held_context",
+      "fold": 0,
+      "cold_items": 7128
+    },
+    {
+      "contexts": 8852,
+      "positive_pairs": 9904,
+      "known_text_fraction": 0.8572074107546317,
+      "positive_item_seen_macro_fraction": 0.05054420487881853,
+      "own_context_overlap": 0,
+      "mode": "held_context",
+      "fold": 1,
+      "cold_items": 7257
+    },
+    {
+      "contexts": 8852,
+      "positive_pairs": 9882,
+      "known_text_fraction": 0.8629688206055128,
+      "positive_item_seen_macro_fraction": 0.04575636211707156,
+      "own_context_overlap": 0,
+      "mode": "held_context",
+      "fold": 2,
+      "cold_items": 7187
+    }
+  ]
+}

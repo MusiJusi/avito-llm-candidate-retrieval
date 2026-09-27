@@ -1,0 +1,14 @@
+{
+  "held_context": {
+    "contexts": 3400,
+    "improved": 27,
+    "worsened": 19,
+    "macro_delta": 0.0025
+  },
+  "unseen_text": {
+    "contexts": 3400,
+    "improved": 25,
+    "worsened": 21,
+    "macro_delta": 0.001176470588235294
+  }
+}

@@ -23,6 +23,9 @@ __pycache__/
 !artifacts/semantic-v1/final_ranker_4dedfcda63b21edd.joblib
 !artifacts/semantic-v1/final_legacy_ranker_4dedfcda63b21edd.joblib
 !artifacts/ranking-v1/final_ranker_c0442eeba2d244f2.joblib
+!artifacts/ranking-v1/lgb_rank_expanded_200_c0442eeba2d244f2.joblib
+!artifacts/ranking-v5/final_ranker_*.joblib
+!artifacts/ranking-v5/mixed_wide_*.joblib
 !models/retrieval-priors/*.joblib
 .env
 .env.*

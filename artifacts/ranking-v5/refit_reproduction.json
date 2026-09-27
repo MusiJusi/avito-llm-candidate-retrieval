@@ -1,0 +1,9 @@
+{
+  "fitted_weights_reused": false,
+  "deterministic_sampled_data_reused": true,
+  "benchmark_pairs_compared": 5390942,
+  "raw_margins_bitwise_equal": true,
+  "booster_model_text_equal": true,
+  "original_answer_unchanged": true,
+  "elapsed_seconds": 284.81
+}

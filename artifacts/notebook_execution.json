@@ -1,0 +1,9 @@
+{
+  "notebook": "Avito.ipynb",
+  "code_cells_executed": 23,
+  "code_sha256": "77e4c286f6683e0928f9d609d6cf4ba42a80a07bb4c2358c15f066a64145ba80",
+  "device": "cuda",
+  "network_connections_disabled": true,
+  "elapsed_seconds": 166.99,
+  "answer_sha256": "7c850c4a8c6d32846bcecd2429c9dd2c8fe205781b352471dd86cbf36e80757d"
+}

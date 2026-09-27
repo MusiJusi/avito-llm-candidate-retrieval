@@ -1,0 +1,9 @@
+{
+  "valid": true,
+  "file": "answer_microcat_v6.csv",
+  "queries": 2452,
+  "candidates_per_query": 50,
+  "ids_utf8_header_and_spacing_valid": true,
+  "answer_sha256": "592e33efa8828f7bd1158de2e7e599c845519d5534e0f16aa9f3b2eb265ef020",
+  "main_v5_answer_unchanged": true
+}

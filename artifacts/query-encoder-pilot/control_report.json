@@ -1,0 +1,33 @@
+{
+  "fingerprint": "2f9b3ff932e04986",
+  "selection": {
+    "variant": "epoch_3",
+    "affinity": "geo",
+    "weight": 0.2,
+    "matched_recall50": 0.9486671406263638,
+    "unseen_macro_recall50": 0.9440441176470589,
+    "actual_known_macro_recall50": 0.952258726899384,
+    "held_context_macro_recall50": 0.945514705882353,
+    "held_actual_known_fraction": 0.7161764705882353
+  },
+  "contexts": 600,
+  "v5_recall50": 0.9466666666666667,
+  "query_encoder_recall50": 0.95,
+  "delta": 0.0033333333333333335,
+  "improved": 3,
+  "worsened": 1,
+  "bootstrap95": [
+    -0.0033333333333333335,
+    0.01
+  ],
+  "used_for_selection": false,
+  "history_audit": {
+    "contexts": 600,
+    "positive_pairs": 604,
+    "known_text_fraction": 0.0,
+    "positive_item_seen_macro_fraction": 0.0016666666666666668,
+    "own_context_overlap": 0
+  },
+  "answer_unchanged": true,
+  "limitation": "Previously viewed control; frozen v4 auxiliary-history limitation. Fixed v5 pools; no OOF downstream refit."
+}

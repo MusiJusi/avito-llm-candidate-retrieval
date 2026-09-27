@@ -1,0 +1,28 @@
+{
+  "held_context": {
+    "positive_pairs": 3480,
+    "missed_pairs": 183,
+    "outside_pool": 28,
+    "ranks51_100": 84,
+    "ranks101_300": 55,
+    "ranks301_plus": 16,
+    "improved_contexts": 28,
+    "worsened_contexts": 19,
+    "same_location_pair_hit50": 0.9712437095614666,
+    "different_location_pair_hit50": 0.8524355300859598
+  },
+  "unseen_text": {
+    "positive_pairs": 3480,
+    "missed_pairs": 188,
+    "outside_pool": 28,
+    "ranks51_100": 82,
+    "ranks101_300": 61,
+    "ranks301_plus": 17,
+    "improved_contexts": 25,
+    "worsened_contexts": 19,
+    "same_location_pair_hit50": 0.9708842559309849,
+    "different_location_pair_hit50": 0.8467048710601719
+  },
+  "note": "Development already used for selection. Location slices are pair hit fractions, not macro query Recall. Gain is descriptive, not causal.",
+  "answer_unchanged": true
+}

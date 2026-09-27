@@ -1,0 +1,58 @@
+{
+  "stage": "microcat-v6",
+  "fingerprint": "5574c871040c0499",
+  "config": {
+    "epochs": 35,
+    "seed": 261827,
+    "classifiers": [
+      "nb",
+      "mlp"
+    ],
+    "cold_fraction": 0.9,
+    "query_filter_input": true,
+    "category_input": false,
+    "encoder_frozen": true
+  },
+  "classifiers": {
+    "unseen_text": {
+      "nb": {
+        "micro_recall1": 0.7335049019607844,
+        "micro_recall3": 0.9056372549019609,
+        "micro_recall5": 0.9388725490196079,
+        "micro_recall10": 0.9652941176470589,
+        "micro_nll": 1.0439231631402597,
+        "unseen_class_fraction": 0.0
+      },
+      "mlp": {
+        "micro_recall1": 0.7430637254901962,
+        "micro_recall3": 0.8960784313725491,
+        "micro_recall5": 0.9310784313725491,
+        "micro_recall10": 0.9614705882352941,
+        "micro_nll": 0.9808052819129407,
+        "unseen_class_fraction": 0.0
+      }
+    },
+    "held_context": {
+      "nb": {
+        "micro_recall1": 0.7593872549019609,
+        "micro_recall3": 0.9178431372549021,
+        "micro_recall5": 0.9514705882352941,
+        "micro_recall10": 0.9714705882352941,
+        "micro_nll": 0.9524585718518072,
+        "unseen_class_fraction": 0.0
+      },
+      "mlp": {
+        "micro_recall1": 0.7589460784313726,
+        "micro_recall3": 0.9075490196078432,
+        "micro_recall5": 0.9390196078431373,
+        "micro_recall10": 0.9661764705882353,
+        "micro_nll": 0.9260028577693811,
+        "unseen_class_fraction": 0.0
+      }
+    }
+  },
+  "base_answer_sha256": "7c850c4a8c6d32846bcecd2429c9dd2c8fe205781b352471dd86cbf36e80757d",
+  "answer_unchanged": true,
+  "control_evaluated": false,
+  "next": "OOF candidate features and ranker ablation"
+}

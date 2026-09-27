@@ -1,0 +1,21 @@
+{
+  "v5_recall50": 0.9466666666666667,
+  "micro_recall50": 0.945,
+  "delta": -0.0016666666666666668,
+  "improved": 1,
+  "worsened": 2,
+  "paired_bootstrap95": [
+    -0.008333333333333333,
+    0.0033333333333333335
+  ],
+  "contexts": 600,
+  "used_for_selection": false,
+  "history_audit": {
+    "contexts": 600,
+    "positive_pairs": 604,
+    "known_text_fraction": 0.0,
+    "positive_item_seen_macro_fraction": 0.0016666666666666668,
+    "own_context_overlap": 0
+  },
+  "limitation": "Control has already been evaluated in v5; frozen v4 priors also have an auxiliary-history limitation."
+}

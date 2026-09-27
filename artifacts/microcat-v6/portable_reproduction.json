@@ -1,0 +1,12 @@
+{
+  "fresh_extracted_directory": true,
+  "original_pool_caches_available": false,
+  "device": "cpu",
+  "network_connections_disabled": true,
+  "candidate_bytes_equal": true,
+  "main_v5_answer_unchanged": true,
+  "answer_sha256": "592e33efa8828f7bd1158de2e7e599c845519d5534e0f16aa9f3b2eb265ef020",
+  "notebook_code_sha256": "6a49a8a5bdddd6b5516564bda1bb9c238b43d31bcb6628981647aab5a5d92a31",
+  "code_cells_executed": 29,
+  "elapsed_seconds": 303.48
+}

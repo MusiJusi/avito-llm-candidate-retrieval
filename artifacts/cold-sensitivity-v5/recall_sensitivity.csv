@@ -1,0 +1,9 @@
+mode,cold_fraction,contexts,recall50,pool_recall,actually_known_recall50,positive_pairs,known_text_fraction,positive_item_seen_macro_fraction,own_context_overlap
+unseen_text,0.0,400,0.9275,0.9875,,412,0.0,0.31875,0
+unseen_text,0.5,400,0.9275,0.9875,,412,0.0,0.1625,0
+unseen_text,0.9,400,0.9275,0.9875,,412,0.0,0.02375,0
+unseen_text,1.0,400,0.9275,0.9875,,412,0.0,0.0,0
+held_context,0.0,400,0.9275,0.9875,0.9460431654676259,412,0.695,0.365,0
+held_context,0.5,400,0.9275,0.9875,0.9460431654676259,412,0.695,0.195,0
+held_context,0.9,400,0.9275,0.9875,0.9460431654676259,412,0.695,0.02375,0
+held_context,1.0,400,0.9275,0.9875,0.9460431654676259,412,0.695,0.0,0

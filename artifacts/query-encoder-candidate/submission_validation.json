@@ -1,0 +1,9 @@
+{
+  "valid": true,
+  "file": "answer_query_encoder.csv",
+  "queries": 2452,
+  "candidates_per_query": 50,
+  "ids_utf8_header_and_spacing_valid": true,
+  "answer_sha256": "a256639b72ef3bd515bf5118c5e337aee23a34c9e0b261da580b1c852411a6b2",
+  "main_v5_answer_unchanged": true
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "mode": "unseen_text",
+    "fold": 0,
+    "classifier_pairs": 364075,
+    "classifier_history_sha256": "7a2d8d183fea669558f1c3a59b9f53db561f9e646b864b955ef612cd5f40ab9b",
+    "own_context_overlap": 0
+  },
+  {
+    "mode": "unseen_text",
+    "fold": 1,
+    "classifier_pairs": 331378,
+    "classifier_history_sha256": "6dfe36df94b4346f3fca0f4f66f2c9850c3df2292826c308ee4372502a5e1e00",
+    "own_context_overlap": 0
+  },
+  {
+    "mode": "unseen_text",
+    "fold": 2,
+    "classifier_pairs": 355703,
+    "classifier_history_sha256": "bc36eb835047d6e047bfbdf4802b612e8bd4047fd35ef7253a29438c1954fbd7",
+    "own_context_overlap": 0
+  },
+  {
+    "mode": "held_context",
+    "fold": 0,
+    "classifier_pairs": 442109,
+    "classifier_history_sha256": "9e86a34e742c3262d5ec1ab4bf58f63990ba10ed27783b03c4d65c113e176373",
+    "own_context_overlap": 0
+  },
+  {
+    "mode": "held_context",
+    "fold": 1,
+    "classifier_pairs": 440893,
+    "classifier_history_sha256": "144e1827d8f8846b6eedbd39022a2b4d1bab896b815fbe0ef85f319de7b0b089",
+    "own_context_overlap": 0
+  },
+  {
+    "mode": "held_context",
+    "fold": 2,
+    "classifier_pairs": 441461,
+    "classifier_history_sha256": "cc686c5e103ed4694f2373e1369383728c8fce75c1e773a1633e3c12d784f3dd",
+    "own_context_overlap": 0
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "winner": {
+    "variant": "query_ranker",
+    "trees": 400,
+    "weight": 0.75,
+    "matched_recall50": 0.9501708535101647,
+    "unseen_macro_recall50": 0.9453676470588235,
+    "actual_known_macro_recall50": 0.9530800821355236,
+    "held_context_macro_recall50": 0.9466911764705882,
+    "held_actual_known_fraction": 0.7161764705882353
+  },
+  "baseline": {
+    "matched_recall50": 0.9476002382121281,
+    "unseen_macro_recall50": 0.9434558823529412,
+    "actual_known_macro_recall50": 0.9504106776180699,
+    "held_context_macro_recall50": 0.9441911764705883,
+    "held_actual_known_fraction": 0.7161764705882353
+  },
+  "fingerprint": "bf872e8b9abbb368",
+  "control_used_for_selection": false,
+  "feature_names": [
+    "learned_cosine",
+    "learned_geo",
+    "learned_cosine_delta",
+    "learned_geo_delta",
+    "learned_log_cosine_rank",
+    "learned_log_geo_rank"
+  ],
+  "limitation": "Evaluation encoder excludes all dev/control query texts; held-mode features are conservative."
+}

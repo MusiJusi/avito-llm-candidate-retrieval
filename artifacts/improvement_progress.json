@@ -1,0 +1,13 @@
+{
+  "updated_utc": "2026-09-27T13:34:37.914657+00:00",
+  "primary": "v5",
+  "recommended_next_submission": "query-encoder-candidate",
+  "microcat": "experimental_candidate",
+  "query_encoder_pilot": "completed",
+  "query_ranker": "completed",
+  "service_geo": "completed",
+  "neural_final_refit": "completed",
+  "neural_cpu_offline_reproduced": true,
+  "ce_trained_feature_completed": false,
+  "whole_plan_completed": false
+}

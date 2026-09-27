@@ -1,0 +1,39 @@
+{
+  "pilot_only": true,
+  "fingerprint": "2f9b3ff932e04986",
+  "baseline": {
+    "variant": "epoch_1",
+    "affinity": "cosine",
+    "weight": 0.0,
+    "matched_recall50": 0.9476002382121281,
+    "unseen_macro_recall50": 0.9434558823529412,
+    "actual_known_macro_recall50": 0.9504106776180699,
+    "held_context_macro_recall50": 0.9441911764705883,
+    "held_actual_known_fraction": 0.7161764705882353
+  },
+  "winner": {
+    "variant": "epoch_3",
+    "affinity": "geo",
+    "weight": 0.2,
+    "matched_recall50": 0.9486671406263638,
+    "unseen_macro_recall50": 0.9440441176470589,
+    "actual_known_macro_recall50": 0.952258726899384,
+    "held_context_macro_recall50": 0.945514705882353,
+    "held_actual_known_fraction": 0.7161764705882353
+  },
+  "best_frozen_score_blend": {
+    "variant": "frozen",
+    "affinity": "cosine",
+    "weight": 0.0,
+    "matched_recall50": 0.9476002382121281,
+    "unseen_macro_recall50": 0.9434558823529412,
+    "actual_known_macro_recall50": 0.9504106776180699,
+    "held_context_macro_recall50": 0.9441911764705883,
+    "held_actual_known_fraction": 0.7161764705882353
+  },
+  "delta_vs_v5": 0.001066902414235682,
+  "control_evaluated": false,
+  "answer_unchanged": true,
+  "limitation": "Direct score blends on previously-viewed full development; no downstream ranker trained on encoder scores.",
+  "next": "If useful beyond the frozen blend, produce OOF encoder features and refit the selector."
+}

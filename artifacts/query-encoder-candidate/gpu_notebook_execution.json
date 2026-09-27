@@ -1,0 +1,9 @@
+{
+  "notebook": "Avito_query_encoder_candidate.ipynb",
+  "code_cells_executed": 28,
+  "code_sha256": "351eb337430054983b1cf11659b434453ca44f0eab14bb86da452684733789ae",
+  "device": "cuda",
+  "network_connections_disabled": false,
+  "elapsed_seconds": 158.25,
+  "answer_sha256": "7c850c4a8c6d32846bcecd2429c9dd2c8fe205781b352471dd86cbf36e80757d"
+}

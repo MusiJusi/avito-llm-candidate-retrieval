@@ -1,0 +1,72 @@
+{
+  "pilot_only": true,
+  "fingerprint": "bb3d663d6b186022",
+  "model": {
+    "model_id": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+    "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+    "license": "Apache-2.0",
+    "publisher_weights_sha256": "5daeca2481a76b5976a2bdc32f0a78532b6716da4f8cd3ff59460ef8d2f359b4",
+    "transport_host": "https://hf-mirror.com",
+    "sha256": {
+      "config.json": "cc2cfe51aa3fd759d21d21acf5dfd6994aa67a3c9210636d22e143699d336c77",
+      "tokenizer_config.json": "e7fbfbfa6347b4e414c1cee50d142e2c2f9a895dad68b068ae83a8b564c3837e",
+      "special_tokens_map.json": "378eb3bf733eb16e65792d7e3fda5b8a4631387ca04d2015199c4d4f22ae554d",
+      "tokenizer.json": "62c24cdc13d4c9952d63718d6c9fa4c287974249e16b7ade6d5a85e7bbb75626",
+      "model.safetensors": "5daeca2481a76b5976a2bdc32f0a78532b6716da4f8cd3ff59460ef8d2f359b4",
+      "README.md": "474736a65d6393a060119a8dc304563af67af4d8d86ccfee4a05dd0df107fc11"
+    },
+    "external_inference_api": false
+  },
+  "config": {
+    "max_length": 192,
+    "batch_size": 64,
+    "seed": 261829,
+    "unseen_contexts": 600,
+    "known_contexts": 400,
+    "params_chars": 256,
+    "description_chars": 1200,
+    "filter_chars": 120,
+    "shortlists": [
+      300,
+      500
+    ],
+    "dtype": "float16"
+  },
+  "winner": {
+    "shortlist": 300.0,
+    "weight": 0.0,
+    "unseen_text_recall50": 0.9358333333333333,
+    "unseen_text_shortlist_recall": 0.9825,
+    "held_context_recall50": 0.9525,
+    "held_context_shortlist_recall": 0.9925,
+    "mixed_recall50": 0.9420595432300163
+  },
+  "baseline": {
+    "shortlist": 300.0,
+    "weight": 0.0,
+    "unseen_text_recall50": 0.9358333333333333,
+    "unseen_text_shortlist_recall": 0.9825,
+    "held_context_recall50": 0.9525,
+    "held_context_shortlist_recall": 0.9925,
+    "mixed_recall50": 0.9420595432300163
+  },
+  "delta": 0.0,
+  "performance": {
+    "unseen_text": {
+      "pairs": 300000,
+      "seconds": 381.2,
+      "pairs_per_second": 787.0,
+      "gpu_peak_allocated_MiB": 484.4
+    },
+    "held_context": {
+      "pairs": 200000,
+      "seconds": 305.84,
+      "pairs_per_second": 653.9,
+      "gpu_peak_allocated_MiB": 484.4
+    }
+  },
+  "control_evaluated": false,
+  "answer_unchanged": true,
+  "limitation": "Small previously-viewed development subsets; direct score blend, not a trained ranker feature.",
+  "next": "If useful, train a selector with the CE score and verify on the full development set."
+}

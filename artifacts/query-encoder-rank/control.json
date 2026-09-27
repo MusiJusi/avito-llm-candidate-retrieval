@@ -1,0 +1,21 @@
+{
+  "v5_recall50": 0.9466666666666667,
+  "selected_recall50": 0.9533333333333334,
+  "delta": 0.006666666666666667,
+  "improved": 5,
+  "worsened": 1,
+  "bootstrap95": [
+    0.0,
+    0.015
+  ],
+  "used_for_selection": false,
+  "history_audit": {
+    "contexts": 600,
+    "positive_pairs": 604,
+    "known_text_fraction": 0.0,
+    "positive_item_seen_macro_fraction": 0.0016666666666666668,
+    "own_context_overlap": 0
+  },
+  "answer_unchanged": true,
+  "limitation": "Previously viewed control; frozen v4 auxiliary-history limitation."
+}

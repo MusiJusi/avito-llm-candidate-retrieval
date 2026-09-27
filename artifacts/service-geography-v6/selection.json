@@ -1,0 +1,38 @@
+{
+  "winner": {
+    "variant": "micro",
+    "trees": 200,
+    "weight": 0.75,
+    "matched_recall50": 0.9495279867465303,
+    "unseen_macro_recall50": 0.9450735294117647,
+    "actual_known_macro_recall50": 0.9536960985626284,
+    "held_context_macro_recall50": 0.9453676470588235,
+    "held_actual_known_fraction": 0.7161764705882353
+  },
+  "baseline": {
+    "matched_recall50": 0.9476002382121281,
+    "unseen_macro_recall50": 0.9434558823529412,
+    "actual_known_macro_recall50": 0.9504106776180699,
+    "held_context_macro_recall50": 0.9441911764705883,
+    "held_actual_known_fraction": 0.7161764705882353
+  },
+  "fingerprint": "3a206d9460cea8d8",
+  "control_used_for_selection": false,
+  "feature_names": [
+    "service_same_location_probability",
+    "service_location_transition_probability",
+    "service_log_support",
+    "service_local_log_support",
+    "service_geo_supported"
+  ],
+  "base_micro_selection": {
+    "variant": "both",
+    "trees": 200,
+    "weight": 0.75,
+    "matched_recall50": 0.9495279867465303,
+    "unseen_macro_recall50": 0.9450735294117647,
+    "actual_known_macro_recall50": 0.9536960985626284,
+    "held_context_macro_recall50": 0.9453676470588235,
+    "held_actual_known_fraction": 0.7161764705882353
+  }
+}

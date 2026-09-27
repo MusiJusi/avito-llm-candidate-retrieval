@@ -1,0 +1,46 @@
+{
+  "fingerprint": "2f9b3ff932e04986",
+  "config": {
+    "epochs": 3,
+    "checkpoints": [
+      1,
+      3
+    ],
+    "batch_size": 128,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "temperature": 0.05,
+    "teacher_weight": 0.2,
+    "max_query_length": 64,
+    "seed": 261831,
+    "document_encoder_frozen": true,
+    "negative_source": "in-batch",
+    "multiple_positive_mask": true,
+    "filters_in_encoder": false
+  },
+  "training_pairs_available": 379988,
+  "training_query_texts": 69710,
+  "document_vectors": 292210,
+  "sampled_pairs": 209130,
+  "development_text_overlap": 0,
+  "document_vectors_sha256": "10c041daa3e5cf0b220e644a451636ea03622a2ceaa14b2058be348d654ed516",
+  "original_encoder_weights_sha256": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477",
+  "gpu_peak_allocated_MiB": 4038.6,
+  "logs": [
+    {
+      "epoch": 1,
+      "mean_loss": 1.9330714328573384,
+      "elapsed_seconds": 37.41
+    },
+    {
+      "epoch": 2,
+      "mean_loss": 1.734135108694024,
+      "elapsed_seconds": 73.5
+    },
+    {
+      "epoch": 3,
+      "mean_loss": 1.660725629220315,
+      "elapsed_seconds": 110.33
+    }
+  ]
+}

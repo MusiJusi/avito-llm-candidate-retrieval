@@ -1,0 +1,13 @@
+{
+  "fresh_extraction": true,
+  "original_pool_caches_available": false,
+  "existing_candidate_csv_removed": true,
+  "device": "cpu",
+  "network_connections_disabled": true,
+  "candidate_bytes_equal": true,
+  "main_v5_answer_unchanged": true,
+  "answer_sha256": "a256639b72ef3bd515bf5118c5e337aee23a34c9e0b261da580b1c852411a6b2",
+  "notebook_code_sha256": "351eb337430054983b1cf11659b434453ca44f0eab14bb86da452684733789ae",
+  "code_cells_executed": 28,
+  "elapsed_seconds": 263.26
+}

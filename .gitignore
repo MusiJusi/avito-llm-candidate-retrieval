@@ -11,6 +11,7 @@ models/**/sentencepiece.bpe.model
 models/**/*.tmp
 *.npy
 *.npz
+*.safetensors
 .venv/
 venv/
 __pycache__/
@@ -26,6 +27,9 @@ __pycache__/
 !artifacts/ranking-v1/lgb_rank_expanded_200_c0442eeba2d244f2.joblib
 !artifacts/ranking-v5/final_ranker_*.joblib
 !artifacts/ranking-v5/mixed_wide_*.joblib
+!artifacts/microcat-v6/final_rank_*.joblib
+!artifacts/microcat-v6/final_all_*.joblib
+!artifacts/query-encoder-candidate/final_ranker_*.joblib
 !models/retrieval-priors/*.joblib
 .env
 .env.*

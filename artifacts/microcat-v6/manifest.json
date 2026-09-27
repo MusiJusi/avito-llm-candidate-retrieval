@@ -1,0 +1,93 @@
+{
+  "stage": "microcat-v6",
+  "selection": {
+    "winner": {
+      "variant": "both",
+      "trees": 200,
+      "weight": 0.75,
+      "matched_recall50": 0.9495279867465303,
+      "unseen_macro_recall50": 0.9450735294117647,
+      "actual_known_macro_recall50": 0.9536960985626284,
+      "held_context_macro_recall50": 0.9453676470588235,
+      "held_actual_known_fraction": 0.7161764705882353
+    },
+    "baseline": {
+      "matched_recall50": 0.9476002382121281,
+      "unseen_macro_recall50": 0.9434558823529412,
+      "actual_known_macro_recall50": 0.9504106776180699,
+      "held_context_macro_recall50": 0.9441911764705883,
+      "held_actual_known_fraction": 0.7161764705882353
+    },
+    "micro_fingerprint": "5574c871040c0499",
+    "rank_fingerprint": "aaaaa99c5d06b5a8",
+    "control_used_for_selection": false,
+    "base_answer_sha256": "7c850c4a8c6d32846bcecd2429c9dd2c8fe205781b352471dd86cbf36e80757d",
+    "v5_comparator_limitation": "v4 auxiliary history may have used held control interactions",
+    "feature_families": {
+      "nb": [
+        "nb_micro_probability",
+        "nb_micro_log_probability",
+        "nb_micro_log_rank",
+        "nb_micro_peak",
+        "nb_micro_entropy",
+        "nb_micro_margin",
+        "nb_micro_supported"
+      ],
+      "mlp": [
+        "mlp_micro_probability",
+        "mlp_micro_log_probability",
+        "mlp_micro_log_rank",
+        "mlp_micro_peak",
+        "mlp_micro_entropy",
+        "mlp_micro_margin",
+        "mlp_micro_supported"
+      ]
+    },
+    "ablation": "Same mined candidate groups, positives, weights and ranker hyperparameters; only microcat features differ."
+  },
+  "control": {
+    "v5_recall50": 0.9466666666666667,
+    "micro_recall50": 0.945,
+    "delta": -0.0016666666666666668,
+    "improved": 1,
+    "worsened": 2,
+    "paired_bootstrap95": [
+      -0.008333333333333333,
+      0.0033333333333333335
+    ],
+    "contexts": 600,
+    "used_for_selection": false,
+    "history_audit": {
+      "contexts": 600,
+      "positive_pairs": 604,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.0016666666666666668,
+      "own_context_overlap": 0
+    },
+    "limitation": "Control has already been evaluated in v5; frozen v4 priors also have an auxiliary-history limitation."
+  },
+  "micro_fingerprint": "5574c871040c0499",
+  "rank_fingerprint": "aaaaa99c5d06b5a8",
+  "input_sha256": {
+    "train.parquet": "e150ab7a5c98769f643b95ee3a02dc0f664b647facd69a7d280ec6d48ca554a7",
+    "benchmark_items.parquet": "193b3a3961464620cbf8d8797152b7f90cae1826ca749fb7817a210984a09899",
+    "benchmark_queries.parquet": "e49de4fb76f03979a4af96034817767d39ae5de9f94e254fed028243188dda06"
+  },
+  "answer_file": "answer_microcat_v6.csv",
+  "answer_sha256": "592e33efa8828f7bd1158de2e7e599c845519d5534e0f16aa9f3b2eb265ef020",
+  "previous_answer_sha256": "7c850c4a8c6d32846bcecd2429c9dd2c8fe205781b352471dd86cbf36e80757d",
+  "final_ranker": "final_rank_both_aaaaa99c5d06b5a8.joblib",
+  "final_classifiers": {
+    "nb": "final_all_nb_5574c871040c0499.joblib",
+    "mlp": "final_all_mlp_5574c871040c0499.joblib"
+  },
+  "input_vectors": "input_vectors_5574c871040c0499.npy",
+  "final_contexts": 26556,
+  "classifier_training_pairs": 467054,
+  "feature_count": 59,
+  "frozen_v5_fingerprint": "e2854ae5a86a1bbf",
+  "encoder_finetuned": false,
+  "external_api_used": false,
+  "main_answer_unchanged": true,
+  "status": "experimental candidate; development improved, held-control evidence mixed"
+}

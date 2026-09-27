@@ -1,0 +1,29 @@
+{
+  "winner": {
+    "micro_weight": 0.3,
+    "matched_recall50": 0.9507099515715803,
+    "unseen_macro_recall50": 0.9459558823529411,
+    "actual_known_macro_recall50": 0.9534907597535934,
+    "held_context_macro_recall50": 0.9469852941176471,
+    "held_actual_known_fraction": 0.7161764705882353
+  },
+  "baseline": {
+    "micro_weight": 0.0,
+    "matched_recall50": 0.9501708535101647,
+    "unseen_macro_recall50": 0.9453676470588235,
+    "actual_known_macro_recall50": 0.9530800821355236,
+    "held_context_macro_recall50": 0.9466911764705882,
+    "held_actual_known_fraction": 0.7161764705882353
+  },
+  "control_used_for_selection": false,
+  "query_rank_fingerprint": "bf872e8b9abbb368",
+  "micro_rank_fingerprint": "aaaaa99c5d06b5a8",
+  "answer_unchanged": true,
+  "control": {
+    "query_only": 0.9533333333333334,
+    "blend": 0.9466666666666667,
+    "improved": 0,
+    "worsened": 4,
+    "limitation": "Previously viewed control; frozen v4 auxiliary-history limitation."
+  }
+}

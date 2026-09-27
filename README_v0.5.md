@@ -1,11 +1,3 @@
-<!-- learned-query-candidate -->
-**Новый кандидат с дообученной E5:** [README_query_encoder.md](README_query_encoder.md).
-Его код — `Avito_query_encoder_candidate.ipynb`; файл для отправки —
-`deliverables/query_encoder_submission/answer.csv` (также `answer_query_encoder.csv`).
-Архив с весами — `deliverables/avito_query_encoder_solution.zip`.
-Ниже сохранено описание основной v5: её `Avito.ipynb` и корневой `answer.csv`
-оставлены резервными. Для neural-ответа воспроизводите именно новый notebook.
-
 # Кандидатогенерация услуг Авито, v0.5.0
 
 Самостоятельный Jupyter Notebook **Avito.ipynb** создаёт кандидатов с помощью BM25,

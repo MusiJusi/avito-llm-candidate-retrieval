@@ -1,0 +1,72 @@
+{
+  "fingerprint": "7890451c02cfdedd",
+  "query_pilot_fingerprint": "2f9b3ff932e04986",
+  "query_rank_fingerprint": "bf872e8b9abbb368",
+  "selection": {
+    "winner": {
+      "variant": "query_ranker",
+      "trees": 400,
+      "weight": 0.75,
+      "matched_recall50": 0.9501708535101647,
+      "unseen_macro_recall50": 0.9453676470588235,
+      "actual_known_macro_recall50": 0.9530800821355236,
+      "held_context_macro_recall50": 0.9466911764705882,
+      "held_actual_known_fraction": 0.7161764705882353
+    },
+    "baseline": {
+      "matched_recall50": 0.9476002382121281,
+      "unseen_macro_recall50": 0.9434558823529412,
+      "actual_known_macro_recall50": 0.9504106776180699,
+      "held_context_macro_recall50": 0.9441911764705883,
+      "held_actual_known_fraction": 0.7161764705882353
+    },
+    "fingerprint": "bf872e8b9abbb368",
+    "control_used_for_selection": false,
+    "feature_names": [
+      "learned_cosine",
+      "learned_geo",
+      "learned_cosine_delta",
+      "learned_geo_delta",
+      "learned_log_cosine_rank",
+      "learned_log_geo_rank"
+    ],
+    "limitation": "Evaluation encoder excludes all dev/control query texts; held-mode features are conservative."
+  },
+  "control": {
+    "v5_recall50": 0.9466666666666667,
+    "selected_recall50": 0.9533333333333334,
+    "delta": 0.006666666666666667,
+    "improved": 5,
+    "worsened": 1,
+    "bootstrap95": [
+      0.0,
+      0.015
+    ],
+    "used_for_selection": false,
+    "history_audit": {
+      "contexts": 600,
+      "positive_pairs": 604,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.0016666666666666668,
+      "own_context_overlap": 0
+    },
+    "answer_unchanged": true,
+    "limitation": "Previously viewed control; frozen v4 auxiliary-history limitation."
+  },
+  "answer_file": "answer_query_encoder.csv",
+  "answer_sha256": "a256639b72ef3bd515bf5118c5e337aee23a34c9e0b261da580b1c852411a6b2",
+  "input_sha256": {
+    "train.parquet": "e150ab7a5c98769f643b95ee3a02dc0f664b647facd69a7d280ec6d48ca554a7",
+    "benchmark_items.parquet": "193b3a3961464620cbf8d8797152b7f90cae1826ca749fb7817a210984a09899",
+    "benchmark_queries.parquet": "e49de4fb76f03979a4af96034817767d39ae5de9f94e254fed028243188dda06"
+  },
+  "encoder": "artifacts/query-encoder-candidate/epoch_3_2f9b3ff932e04986",
+  "query_vectors": "artifacts/query-encoder-candidate/queries_epoch_3_2f9b3ff932e04986.npy",
+  "encoder_sha256": "a3449fa7f6720ffe877d3b0603ad985b4ec8d3d2df15b1dade9130f4c391e911",
+  "query_vectors_sha256": "67cc05398e7754347eb22f3af1b1e0523196bd5c5b044cbef8ec1419cfc78f7e",
+  "final_ranker": "artifacts/query-encoder-candidate/final_ranker_7890451c02cfdedd.joblib",
+  "final_ranker_sha256": "5dd4a837eb61018db6c044934b690fd5e285a064f8828c349adae0a4a6d69674",
+  "document_encoder_frozen": true,
+  "training_pairs": 467054,
+  "main_answer_unchanged": true
+}

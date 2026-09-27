@@ -1,0 +1,229 @@
+{
+  "config": {
+    "seed": 260926,
+    "validation_texts": 1400,
+    "development_fraction": 0.5,
+    "cold_item_fraction": 0.9,
+    "description_chars": 4000,
+    "params_chars": 1800,
+    "word_features": 240000,
+    "char_features": 220000,
+    "retrieval_pool": 500,
+    "version": "semantic-v1"
+  },
+  "ranker_config": {
+    "training_queries": 4000,
+    "audit_queries": 600,
+    "folds": 3,
+    "hard_negatives": 100,
+    "random_negatives": 60,
+    "iterations": [
+      120,
+      240
+    ],
+    "leaf_options": [
+      15,
+      31
+    ],
+    "learning_rate": 0.08,
+    "l2_regularization": 10.0,
+    "blend_options": [
+      0.5,
+      0.75,
+      1.0
+    ],
+    "feature_version": 1
+  },
+  "ranker_choice": {
+    "model": "semantic_hgb_leaves15_trees120",
+    "leaves": 15,
+    "iterations": 120,
+    "alpha": 0.75,
+    "development_recall50": 0.9207142857142857
+  },
+  "semantic_config": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "max_length": 192,
+    "description_chars": 1200,
+    "params_chars": 256,
+    "batch_size": 128,
+    "retrieval_pool": 500,
+    "temperature": 0.05,
+    "dtype": "float32"
+  },
+  "semantic_enabled": true,
+  "model_manifest": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "license": "MIT",
+    "sha256": {
+      "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+      "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+      "special_tokens_map.json": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7",
+      "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+      "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+    }
+  },
+  "embedding_sha256": {
+    "items": "3e97659a1f191104fdedc5fc63eae651a662d8c3b2e375c97770f676d4f86611",
+    "queries": "bf680e8803fbfe9dc19583634eb1829f13d6c0cc6245dfc19876e73b783794b3"
+  },
+  "input_sha256": {
+    "train.parquet": "e150ab7a5c98769f643b95ee3a02dc0f664b647facd69a7d280ec6d48ca554a7",
+    "benchmark_items.parquet": "193b3a3961464620cbf8d8797152b7f90cae1826ca749fb7817a210984a09899",
+    "benchmark_queries.parquet": "e49de4fb76f03979a4af96034817767d39ae5de9f94e254fed028243188dda06"
+  },
+  "fingerprint": "096600ceda822a38",
+  "code_sha256": "8fa74bfdc0588efde86cdacc088e210b897926fedde1f61eda08436dfced2989",
+  "answer_sha256": "afc7dc62c7da9e7f1b3bf761aad2766603beca4e6b959f7490072e548ab453cc",
+  "metrics": {
+    "protocol": "cold_query_text_90pct_purged_positive_items_full_benchmark_corpus",
+    "previous_version": {
+      "protocol": "cold_query_text_90pct_purged_positive_items_full_benchmark_corpus",
+      "development_queries": 700,
+      "holdout_queries": 700,
+      "development_recall50": 0.9042857142857142,
+      "baseline_development_recall50": 0.8671428571428571,
+      "baseline_holdout_recall50": 0.8911904761904762,
+      "holdout_recall50": 0.9178571428571428,
+      "holdout_recall50_bootstrap95": [
+        0.8971428571428571,
+        0.9371428571428572
+      ],
+      "holdout_pool_recall": 0.9714285714285714,
+      "mean_pool_size": 1694.7585714285715,
+      "best_config": {
+        "name": "hybrid_19",
+        "title": 0.3,
+        "body": 0.5,
+        "char": 0.2,
+        "filter": 0.03,
+        "geo": 0.5,
+        "micro": 0.5
+      },
+      "ranker_choice": {
+        "model": "hgb_leaves15_trees120",
+        "leaves": 15,
+        "iterations": 120,
+        "alpha": 0.5,
+        "development_recall50": 0.9042857142857142
+      },
+      "fresh_audit": {
+        "queries": 600,
+        "baseline_recall50": 0.8983333333333333,
+        "selected_recall50": 0.9233333333333333,
+        "delta": 0.025,
+        "paired_delta_bootstrap95": [
+          0.006666666666666667,
+          0.043333333333333335
+        ],
+        "improved_queries": 26,
+        "worsened_queries": 10,
+        "pool_recall": 0.98,
+        "used_for_model_selection": false
+      }
+    },
+    "semantic_config": {
+      "model_id": "intfloat/multilingual-e5-small",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "max_length": 192,
+      "description_chars": 1200,
+      "params_chars": 256,
+      "batch_size": 128,
+      "retrieval_pool": 500,
+      "temperature": 0.05,
+      "dtype": "float32"
+    },
+    "semantic_enabled": true,
+    "development_recall50": 0.9207142857142857,
+    "holdout_recall50": 0.9142857142857143,
+    "holdout_pool_recall": 0.99,
+    "holdout": {
+      "queries": 700,
+      "previous_recall50": 0.9178571428571428,
+      "recall50": 0.9142857142857143,
+      "delta": -0.0035714285714285713,
+      "paired_delta_bootstrap95": [
+        -0.02142857142857143,
+        0.013571428571428571
+      ],
+      "improved_queries": 18,
+      "worsened_queries": 21,
+      "pool_recall": 0.99,
+      "mean_pool_size": 2198.157142857143,
+      "positives_only_in_semantic_pool": 13,
+      "semantic_only_positives_in_top50": 6,
+      "lost_before_pool": 7,
+      "lost_at_selection": 54,
+      "used_for_model_selection": false,
+      "control_previously_reported_in_v020": true,
+      "ablation": {
+        "previous_model_on_hybrid_pool_recall50": 0.9221428571428572,
+        "new_model_restricted_to_lexical_pool_recall50": 0.9057142857142857,
+        "restricted_model_features_use_full_hybrid_pool_ranks": true,
+        "used_for_model_selection": false
+      }
+    },
+    "audit": {
+      "queries": 600,
+      "previous_recall50": 0.9233333333333333,
+      "recall50": 0.9116666666666666,
+      "delta": -0.011666666666666667,
+      "paired_delta_bootstrap95": [
+        -0.029166666666666667,
+        0.006666666666666667
+      ],
+      "improved_queries": 12,
+      "worsened_queries": 20,
+      "pool_recall": 0.995,
+      "mean_pool_size": 2191.491666666667,
+      "positives_only_in_semantic_pool": 9,
+      "semantic_only_positives_in_top50": 6,
+      "lost_before_pool": 3,
+      "lost_at_selection": 51,
+      "used_for_model_selection": false,
+      "control_previously_reported_in_v020": true,
+      "ablation": {
+        "previous_model_on_hybrid_pool_recall50": 0.93,
+        "new_model_restricted_to_lexical_pool_recall50": 0.9016666666666666,
+        "restricted_model_features_use_full_hybrid_pool_ranks": true,
+        "used_for_model_selection": false
+      }
+    },
+    "ranker_choice": {
+      "model": "semantic_hgb_leaves15_trees120",
+      "leaves": 15,
+      "iterations": 120,
+      "alpha": 0.75,
+      "development_recall50": 0.9207142857142857
+    },
+    "development_sources": [
+      {
+        "source": "e5_cosine",
+        "development_recall50": 0.38942857142857146
+      },
+      {
+        "source": "e5_with_geography",
+        "development_recall50": 0.7940476190476189
+      },
+      {
+        "source": "lexical_pool_upper_bound",
+        "development_recall50": 0.98
+      },
+      {
+        "source": "hybrid_pool_upper_bound",
+        "development_recall50": 0.9942857142857143
+      }
+    ]
+  },
+  "versions": {
+    "python": "3.14.6",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3",
+    "sklearn": "1.9.1",
+    "torch": "2.10.0+cu130",
+    "transformers": "4.57.6",
+    "device": "cuda"
+  }
+}

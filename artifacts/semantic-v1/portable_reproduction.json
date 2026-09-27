@@ -1,0 +1,13 @@
+{
+  "fresh_extracted_directory": true,
+  "device": "cpu",
+  "cuda_visible_devices": "-1",
+  "python_network_connections_disabled": true,
+  "original_search_caches_available": false,
+  "declared_frozen_e5_vectors_used": true,
+  "declared_final_model_used": true,
+  "answer_bytes_equal": true,
+  "metrics_equal": true,
+  "answer_sha256": "0fea0cfc8e71f7cc2d978df8eb7fd3a2dcaabac51dbe03c0ea78550cfb430de4",
+  "elapsed_seconds": 512.55
+}

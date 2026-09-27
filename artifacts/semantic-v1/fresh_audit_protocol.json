@@ -1,0 +1,10 @@
+{
+  "fresh_queries": 600,
+  "development_queries": 2000,
+  "training_queries": 4000,
+  "query_text_overlap": 0,
+  "purged_item_overlap": 0,
+  "old_training_query_text_overlap": 0,
+  "purged_positive_items": 533,
+  "used_for_model_selection": false
+}

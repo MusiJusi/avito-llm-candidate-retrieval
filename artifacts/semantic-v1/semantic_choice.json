@@ -1,0 +1,20 @@
+{
+  "enabled": true,
+  "selected": {
+    "family": "ensemble",
+    "model": "semantic_hgb_leaves15_trees120",
+    "leaves": 15,
+    "iterations": 120,
+    "alpha": 0.25,
+    "feature_count": 38,
+    "development_recall50": 0.9265,
+    "development_queries": 2000
+  },
+  "legacy": {
+    "model": "hgb_leaves15_trees120",
+    "leaves": 15,
+    "iterations": 120,
+    "alpha": 0.5,
+    "development_recall50": 0.9128571428571428
+  }
+}

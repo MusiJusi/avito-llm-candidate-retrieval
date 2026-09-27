@@ -12,6 +12,16 @@ import traceback
 import types
 import nbformat
 
+# Reproduction can explicitly reject network connections while executing cells.
+# Model loading must work from local files, not from an existing HF online cache.
+if os.environ.get("AVITO_DISABLE_NETWORK") == "1":
+    import socket
+    def reject_network(*args, **kwargs):
+        raise RuntimeError("Network access is disabled for offline reproduction")
+    socket.socket.connect = reject_network
+    socket.socket.connect_ex = reject_network
+    socket.create_connection = reject_network
+
 root = Path(__file__).resolve().parents[1]
 os.chdir(root)
 nb = nbformat.read(root / "Avito.ipynb", as_version=4)

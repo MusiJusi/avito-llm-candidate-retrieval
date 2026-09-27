@@ -1,0 +1,14 @@
+{
+  "full_rebuild_without_cache": true,
+  "fresh_python_process": true,
+  "network_connections_disabled": true,
+  "embedding_bytes_equal": true,
+  "all_models_retrained": true,
+  "answer_bytes_equal": true,
+  "metrics_equal": true,
+  "answer_sha256": "0fea0cfc8e71f7cc2d978df8eb7fd3a2dcaabac51dbe03c0ea78550cfb430de4",
+  "code_sha256": "135258dc1337584d396735648624b90111b66492d7dc20b04ba55f99af154e7a",
+  "reference_code_sha256": "8f434842c8ac3ffa14dc2e81a033761e1de51f1fbdd67935aa8a662247c6c371",
+  "executed_code_cells": 17,
+  "elapsed_seconds": 1185.68
+}

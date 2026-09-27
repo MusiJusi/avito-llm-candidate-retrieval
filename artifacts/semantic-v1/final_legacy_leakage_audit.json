@@ -1,0 +1,32 @@
+[
+  {
+    "fold": 0,
+    "queries": 2200,
+    "history_pairs": 408946,
+    "purged_positive_item_ids": 1984,
+    "query_text_overlap": 0,
+    "purged_item_overlap": 0,
+    "queries_without_retrieved_positive": 42,
+    "pool_recall": 0.980909090909091
+  },
+  {
+    "fold": 1,
+    "queries": 2200,
+    "history_pairs": 403928,
+    "purged_positive_item_ids": 1975,
+    "query_text_overlap": 0,
+    "purged_item_overlap": 0,
+    "queries_without_retrieved_positive": 47,
+    "pool_recall": 0.9786363636363636
+  },
+  {
+    "fold": 2,
+    "queries": 2200,
+    "history_pairs": 395344,
+    "purged_positive_item_ids": 1971,
+    "query_text_overlap": 0,
+    "purged_item_overlap": 0,
+    "queries_without_retrieved_positive": 55,
+    "pool_recall": 0.975
+  }
+]

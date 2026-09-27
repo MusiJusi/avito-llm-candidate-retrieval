@@ -2,8 +2,8 @@
 # # Кандидатогенерация объявлений услуг Авито
 #
 # **Цель:** вернуть 50 уникальных `item_id` для каждого запроса; метрика — macro Recall@50.
-# Версия с обучаемым отбором: прежние BM25/TF-IDF источники создают кандидатов,
-# градиентный бустинг выбирает 50 с учётом текстовых и структурных признаков.
+# Гибридная версия: BM25/TF-IDF и multilingual E5 создают кандидатов;
+# градиентный бустинг выбирает 50 с учётом текстовых, семантических и структурных признаков.
 # Все вычисления локальные. Внешние API и разметка benchmark не используются.
 #
 # **Запуск:** положить три исходных Parquet рядом с ноутбуком, установить
@@ -12,8 +12,9 @@
 # Ноутбук сам строит индексы и сохраняет `answer.csv`, отчёт и анализ ошибок.
 # Кеш ускоряет повторный запуск; его можно удалить и пересчитать всё из исходных файлов.
 #
-# Обучение и поиск выполняются на CPU. Семантического поиска в этой версии нет.
-# `search_category` не используется в scoring; алгоритм создания пула не изменён.
+# E5 кодирует тексты на GPU (или CPU), бустинг обучается на CPU.
+# Перед запуском подготовить локальную папку models/multilingual-e5-small (см. README).
+# `search_category` не используется в scoring. Семантика расширяет прежний пул.
 
 # %%
 from pathlib import Path
@@ -51,14 +52,20 @@ CONFIG = {
     "cold_item_fraction": 0.9, "description_chars": 4000,
     "params_chars": 1800, "word_features": 240_000,
     "char_features": 220_000, "retrieval_pool": 500,
-    "version": "learned-selection-v1",
+    "version": "semantic-v1",
 }
 RANKER_CONFIG = {
-    "training_queries": 4000, "audit_queries": 600, "folds": 3,
+    "training_queries": 4000, "audit_queries": 600, "fresh_audit_queries": 600, "folds": 3,
     "hard_negatives": 100, "random_negatives": 60,
     "iterations": [120, 240], "leaf_options": [15, 31],
     "learning_rate": 0.08, "l2_regularization": 10.0,
     "blend_options": [0.5, 0.75, 1.0], "feature_version": 1,
+}
+SEMANTIC_CONFIG = {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "max_length": 192, "description_chars": 1200, "params_chars": 256, "batch_size": 128,
+    "retrieval_pool": 500, "temperature": 0.05, "dtype": "float32",
 }
 CACHE = ROOT / "artifacts" / CONFIG["version"]
 CACHE.mkdir(parents=True, exist_ok=True)
@@ -150,8 +157,10 @@ print(items[["item_title_raw", "item_description_raw", "item_infm_params_text"]]
 # Дополнительно удаляем из истории взаимодействия с 90% выбранных положительных
 # item_id, чтобы проверить обобщение на новые объявления, а не запоминание ID.
 #
-# 700 запросов — development для выбора весов; 700 — отложенный holdout для одной
-# итоговой оценки. Обе части исключены из обучающей истории с самого начала.
+# Сохраняем историческое разделение 700/700 для диагностических таблиц baseline.
+# В семантической версии обе эти части и прежние 600 audit-запросов входят в
+# development; итоговый контроль — ещё 600 заранее зарезервированных текстов.
+# Все эти части исключены из обучающей истории до обучения сравниваемых моделей.
 # Тексты и метаданные **всего корпуса** доступны для построения поискового индекса:
 # это соответствует задаче. В holdout не подмешиваем релевантные объявления в выдачу.
 #
@@ -240,7 +249,7 @@ notebook_document = json.loads((ROOT / "Avito.ipynb").read_text(encoding="utf-8"
 code_source = "\n".join("".join(cell["source"]) for cell in notebook_document["cells"] if cell["cell_type"] == "code")
 code_hash = hashlib.sha256(code_source.encode("utf-8")).hexdigest()
 fingerprint = hashlib.sha256(json.dumps({"inputs": input_hashes, "config": CONFIG,
-                                        "ranker": RANKER_CONFIG,
+                                        "ranker": RANKER_CONFIG, "semantic": SEMANTIC_CONFIG,
                                         "code": code_hash}, sort_keys=True).encode()).hexdigest()[:16]
 index_path = CACHE / f"lexical_{fingerprint}.joblib"
 
@@ -395,8 +404,58 @@ class HistorySignals:
             result[:] = 1
         return result
 
+def select_query_contexts(history, count, seed):
+    eligible_pairs = history[history.item_id.isin(ITEM_TO_ROW)]
+    local_rng = np.random.default_rng(seed)
+    texts = np.sort(eligible_pairs.query_norm.unique().astype(str))
+    chosen_texts = local_rng.choice(texts, min(count, len(texts)), replace=False)
+    contexts = eligible_pairs[eligible_pairs.query_norm.isin(chosen_texts)].drop_duplicates("context_key")
+    chosen = []
+    for _, group in contexts.sort_values("context_key").groupby("query_norm", sort=True):
+        chosen.append(group.iloc[int(local_rng.integers(len(group)))])
+    return pd.DataFrame(chosen)[[*QUERY_COLS, "query_norm", "context_key"]].sort_values("context_key").reset_index(drop=True)
+
+def query_labels(history, query_frame):
+    pairs = history[history.context_key.isin(query_frame.context_key) & history.item_id.isin(ITEM_TO_ROW)]
+    grouped = pairs.groupby("context_key").item_id.agg(lambda s: set(ITEM_TO_ROW[x] for x in s))
+    return [grouped.get(key, set()) for key in query_frame.context_key]
+
+def purge_history(history, query_frame, relevant, seed):
+    positives = np.array(sorted({ITEM_IDS[i] for truth in relevant for i in truth}))
+    local_rng = np.random.default_rng(seed)
+    cold_ids = set(local_rng.choice(positives, int(CONFIG["cold_item_fraction"] * len(positives)), replace=False))
+    clean = history[~history.query_norm.isin(query_frame.query_norm) & ~history.item_id.isin(cold_ids)].copy()
+    assert not set(query_frame.query_norm) & set(clean.query_norm)
+    assert not cold_ids & set(clean.item_id)
+    return clean, cold_ids
+
+audit_queries = select_query_contexts(history_fit, RANKER_CONFIG["audit_queries"], SEED + 101)
+audit_labels = query_labels(history_fit, audit_queries)
+ranker_history, audit_cold_ids = purge_history(history_fit, audit_queries, audit_labels, SEED + 102)
+original_training_queries = select_query_contexts(ranker_history, RANKER_CONFIG["training_queries"], SEED + 103)
+# These 600 texts were not direct training queries in the already inspected v0.2
+# model. Remove their labels from all history before fitting the new comparison.
+fresh_source = ranker_history[~ranker_history.query_norm.isin(original_training_queries.query_norm)]
+fresh_queries = select_query_contexts(fresh_source, RANKER_CONFIG["fresh_audit_queries"], SEED + 501)
+fresh_labels = query_labels(ranker_history, fresh_queries)
+ranker_history, fresh_cold_ids = purge_history(ranker_history, fresh_queries, fresh_labels, SEED + 502)
+training_queries = select_query_contexts(ranker_history, RANKER_CONFIG["training_queries"], SEED + 103)
+assert all(fresh_labels)
+assert not set(fresh_queries.query_norm) & set(original_training_queries.query_norm)
+assert not set(fresh_queries.query_norm) & set(training_queries.query_norm)
+assert not set(fresh_queries.query_norm) & set(validation.query_norm)
+assert not set(fresh_queries.query_norm) & set(audit_queries.query_norm)
+assert not set(fresh_queries.query_norm) & set(ranker_history.query_norm)
+assert not fresh_cold_ids & set(ranker_history.item_id)
+fresh_protocol = {"fresh_queries": len(fresh_queries), "development_queries": len(validation) + len(audit_queries),
+    "training_queries": len(training_queries), "query_text_overlap": 0, "purged_item_overlap": 0,
+    "old_training_query_text_overlap": 0, "purged_positive_items": len(fresh_cold_ids),
+    "used_for_model_selection": False}
+(CACHE / "fresh_audit_protocol.json").write_text(json.dumps(fresh_protocol, indent=2), encoding="utf-8")
+del fresh_source
+
 started = time.perf_counter()
-history_model = HistorySignals(history_fit)
+history_model = HistorySignals(ranker_history)
 print("History signals prepared in", round(time.perf_counter() - started, 1), "seconds")
 
 # %% [markdown]
@@ -501,12 +560,14 @@ print(results[results.name.isin(["title_bm25", "body_bm25", "char_tfidf"])].to_s
 print("Development pool recall:", per_query_recall([r[0] for r in dev_records], dev_labels).mean())
 
 # %% [markdown]
-# ## 7. Независимые обучающие запросы и новая контрольная выборка
+# ## 7. Обучающие запросы и проверки разделения данных
 #
-# Старые 700 holdout-запросов уже анализировались при создании baseline. Сохраняем
-# их для парного сравнения, но дополнительно резервируем 600 новых audit-запросов.
-# Их тексты и 90% положительных item_id исключаем из истории до подготовки ranker.
-# Audit не используется для выбора моделей, весов или количества деревьев.
+# В этой версии прежние 1400 validation и 600 audit-запросов входят в development.
+# Разделы 9–11 воспроизводят диагностические сравнения прежнего алгоритма;
+# их результаты уже не являются независимой итоговой оценкой семантической версии.
+# До нового обучения отдельно резервируются fresh_queries: ещё 600 текстов.
+# Их тексты и 90% положительных item_id исключены из истории. Только этот свежий
+# срез не используется для выбора моделей, весов или количества деревьев.
 #
 # Из оставшейся истории выбираем до 4 000 текстов, по одному контексту на текст.
 # Три OOF-группы разделены по нормализованному тексту. При создании признаков группы
@@ -515,43 +576,13 @@ print("Development pool recall:", per_query_recall([r[0] for r in dev_records], 
 # Пропущенные retrieval-пулом положительные объявления **не добавляем** в пул.
 
 # %%
-def select_query_contexts(history, count, seed):
-    eligible_pairs = history[history.item_id.isin(ITEM_TO_ROW)]
-    local_rng = np.random.default_rng(seed)
-    texts = np.sort(eligible_pairs.query_norm.unique().astype(str))
-    chosen_texts = local_rng.choice(texts, min(count, len(texts)), replace=False)
-    contexts = eligible_pairs[eligible_pairs.query_norm.isin(chosen_texts)].drop_duplicates("context_key")
-    chosen = []
-    for _, group in contexts.sort_values("context_key").groupby("query_norm", sort=True):
-        chosen.append(group.iloc[int(local_rng.integers(len(group)))])
-    return pd.DataFrame(chosen)[[*QUERY_COLS, "query_norm", "context_key"]].sort_values("context_key").reset_index(drop=True)
-
-def query_labels(history, query_frame):
-    pairs = history[history.context_key.isin(query_frame.context_key) & history.item_id.isin(ITEM_TO_ROW)]
-    grouped = pairs.groupby("context_key").item_id.agg(lambda s: set(ITEM_TO_ROW[x] for x in s))
-    return [grouped.get(key, set()) for key in query_frame.context_key]
-
-def purge_history(history, query_frame, relevant, seed):
-    positives = np.array(sorted({ITEM_IDS[i] for truth in relevant for i in truth}))
-    local_rng = np.random.default_rng(seed)
-    cold_ids = set(local_rng.choice(positives, int(CONFIG["cold_item_fraction"] * len(positives)), replace=False))
-    clean = history[~history.query_norm.isin(query_frame.query_norm) & ~history.item_id.isin(cold_ids)].copy()
-    assert not set(query_frame.query_norm) & set(clean.query_norm)
-    assert not cold_ids & set(clean.item_id)
-    return clean, cold_ids
-
-audit_queries = select_query_contexts(history_fit, RANKER_CONFIG["audit_queries"], SEED + 101)
-audit_labels = query_labels(history_fit, audit_queries)
-ranker_history, audit_cold_ids = purge_history(history_fit, audit_queries, audit_labels, SEED + 102)
-training_queries = select_query_contexts(ranker_history, RANKER_CONFIG["training_queries"], SEED + 103)
-assert not set(training_queries.query_norm) & set(validation.query_norm)
-assert not set(training_queries.query_norm) & set(audit_queries.query_norm)
-assert not set(ranker_history.query_norm) & set(validation.query_norm)
-assert all(audit_labels)
 training_queries.to_parquet(CACHE / "ranker_training_queries.parquet", index=False)
 audit_queries.to_parquet(CACHE / "audit_queries.parquet", index=False)
-print("Ranker training queries:", len(training_queries), "; fresh audit queries:", len(audit_queries))
-print("Training/validation/audit text intersections: 0")
+fresh_queries.to_parquet(CACHE / "fresh_semantic_audit_queries.parquet", index=False)
+print("Training:", len(training_queries), "; development audit:", len(audit_queries), "; new final audit:", len(fresh_queries))
+assert not set(training_queries.query_norm) & set(fresh_queries.query_norm)
+assert not set(ranker_history.query_norm) & set(fresh_queries.query_norm)
+assert not fresh_cold_ids & set(ranker_history.item_id)
 
 # %% [markdown]
 # ## 8. Признаки обучаемого отбора
@@ -629,7 +660,7 @@ def rank_features(query, record):
         substring, exact, query_constants, item_quality[candidates, 0] - required_rating,
         item_quality[candidates],
     ]).astype(np.float32)
-    assert result.shape == (n, len(RANK_FEATURE_NAMES))
+    assert result.shape == (n, 32)
     assert not np.isinf(result).any()
     return result
 
@@ -702,7 +733,7 @@ training_data = build_oof_training(ranker_history, training_queries, "evaluation
 print("Features:", len(RANK_FEATURE_NAMES), "; training examples:", len(training_data["y"]))
 
 # %% [markdown]
-# ## 9. Выбор модели только по development
+# ## 9. Сравнение и воспроизведение прежнего обучаемого отбора
 #
 # Используем HistGradientBoostingClassifier с взвешенной бинарной log-loss.
 # Это pointwise-обучение отбора, а не прямая оптимизация Recall@50. Неизвестные
@@ -711,9 +742,10 @@ print("Features:", len(RANK_FEATURE_NAMES), "; training examples:", len(training
 # делят положительную часть веса. Случайный row-wise early stopping выключен.
 #
 # Проверяем 15/31 лист и 120/240 деревьев. Дополнительно сравниваем смешивание рангов
-# модели и baseline (RRF, константа 60). Выбор — только по macro Recall@50 development.
-# Пул и знаменатель Recall неизменны. Если обучение не улучшит development,
-# экспорт автоматически сохранит baseline. Старый holdout и новый audit здесь не читаются.
+# модели и baseline (RRF, константа 60). Для сравнения с новой семантической версией
+# фиксируем архитектуру v0.2.0: 15 листьев, 120 деревьев, RRF 50/50; переобучаем её
+# на очищенной истории. Здесь сохраняем диагностическую таблицу прежних вариантов.
+# Итоговый выбор семантической конфигурации выполняется в разделе 14 на 2000 текстах.
 
 # %%
 def build_rank_feature_records(query_frame, records, stage):
@@ -776,9 +808,10 @@ for leaves in RANKER_CONFIG["leaf_options"]:
               "best development recall:", max(x["development_recall50"] for x in ranker_experiments if x["model"] == name), flush=True)
 ranker_results = pd.DataFrame(ranker_experiments).sort_values(
     ["development_recall50", "iterations", "leaves", "alpha"], ascending=[False, True, True, True])
-ranker_choice = {"model": str(ranker_results.iloc[0].model), "leaves": int(ranker_results.iloc[0].leaves),
-                 "iterations": int(ranker_results.iloc[0].iterations), "alpha": float(ranker_results.iloc[0].alpha),
-                 "development_recall50": float(ranker_results.iloc[0].development_recall50)}
+fixed_legacy_row = ranker_results[(ranker_results.model == "hgb_leaves15_trees120") & (ranker_results.alpha == .5)].iloc[0]
+ranker_choice = {"model": str(fixed_legacy_row.model), "leaves": int(fixed_legacy_row.leaves),
+                 "iterations": int(fixed_legacy_row.iterations), "alpha": float(fixed_legacy_row.alpha),
+                 "development_recall50": float(fixed_legacy_row.development_recall50)}
 evaluation_ranker = None if ranker_choice["model"] == "baseline" else joblib.load(model_paths[ranker_choice["model"]])
 ranker_results.to_csv(CACHE / "ranker_development_experiments.csv", index=False)
 (CACHE / "ranker_choice.json").write_text(json.dumps(ranker_choice, indent=2), encoding="utf-8")
@@ -793,10 +826,10 @@ def selected_predictions(query_frame, records, model, stage):
     return blend_predictions(records, scores, ranker_choice["alpha"])
 
 # %% [markdown]
-# ## 10. Отложенная оценка и анализ ошибок
+# ## 10. Диагностика на прежнем holdout и анализ ошибок
 #
-# Конфигурация уже выбрана на development. Holdout используется для итоговой оценки,
-# а не перебора весов. Доверительный интервал получаем bootstrap по запросам.
+# Здесь исторический holdout служит диагностикой прежнего алгоритма; в текущей
+# версии эти запросы входят в development. Доверительный интервал — bootstrap.
 # В таблице ошибок различаем потерю при создании пула и при отборе 50 кандидатов.
 # Для ручного анализа сохраняем текст запроса и заголовки пропущенных объявлений.
 
@@ -851,9 +884,10 @@ print(error_analysis[error_analysis.recall50 < 1][["search_query", "recall50", "
 (CACHE / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
 
 # %% [markdown]
-# ## 11. Дополнительная проверка на новых 600 audit-запросах
+# ## 11. Диагностика на прежних 600 audit-запросах
 #
-# Модель и смешивание уже зафиксированы. Этот срез не используется для настройки.
+# Прежняя архитектура и смешивание зафиксированы. Срез служит диагностикой, а
+# затем входит в расширенный development для выбора семантической конфигурации.
 # Baseline и ranker получают один и тот же пул, построенный без audit-взаимодействий.
 # Bootstrap разницы считается парно по запросам, а не по строкам кандидатов.
 
@@ -892,7 +926,461 @@ del training_data, audit_history_model
 gc.collect()
 
 # %% [markdown]
-# ## 12. Финальное переобучение и ответ для benchmark
+# ## 12. Семантический индекс E5: только локальные файлы
+#
+# `intfloat/multilingual-e5-small` — открытый multilingual retrieval encoder (MIT).
+# Ревизия и SHA-256 файлов зафиксированы в `models/multilingual-e5-small/manifest.json`.
+# До запуска нужно подготовить эту папку; здесь загрузка исключительно offline.
+# Префиксы `query:` / `passage:`, mean pooling по непустым токенам и L2-нормировка
+# соответствуют [инструкции авторов](https://huggingface.co/intfloat/multilingual-e5-small).
+#
+# Документ: заголовок, первые 256 символов параметров и 1200 символов описания;
+# максимум 192 токена. Ограничение параметров оставляет место самому описанию.
+# Это ограничивает стоимость и уменьшает влияние длинных прайс-листов. Запрос — его
+# текст: фильтры и география учитываются отдельно. Энкодер не дообучается на train,
+# поэтому его эмбеддинги можно переиспользовать между OOF-группами без утечки меток.
+# GPU ускоряет кодирование; CPU также поддерживается. Поиск точный по всем 189 212
+# векторам на CPU с float64-накоплением скалярных произведений: это уменьшает
+# зависимость поиска от GPU/TF32. ANN при таком размере не добавляем.
+
+# %%
+os.environ["HF_HUB_OFFLINE"] = "1"
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
+if (ROOT / ".semantic_deps").is_dir():
+    sys.path.insert(0, str(ROOT / ".semantic_deps"))
+import torch
+import transformers
+from transformers import AutoModel, AutoTokenizer
+
+torch.set_num_threads(8)
+torch.manual_seed(SEED)
+torch.use_deterministic_algorithms(True)
+torch.backends.cuda.matmul.allow_tf32 = False
+torch.backends.cudnn.allow_tf32 = False
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+MODEL_DIR = ROOT / "models" / "multilingual-e5-small"
+if not (MODEL_DIR / "manifest.json").exists():
+    raise FileNotFoundError("Prepare models/multilingual-e5-small before offline execution; see README")
+model_manifest = json.loads((MODEL_DIR / "manifest.json").read_text(encoding="utf-8"))
+assert model_manifest["revision"] == SEMANTIC_CONFIG["revision"]
+for name, expected in model_manifest["sha256"].items():
+    assert (MODEL_DIR / name).exists(), f"Missing local model file: {name}"
+    assert sha256_file(MODEL_DIR / name) == expected, f"Modified model file: {name}"
+
+def save_array(array, path):
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    with temporary.open("wb") as stream:
+        np.save(stream, array, allow_pickle=False)
+    temporary.replace(path)
+
+class SemanticIndex:
+    def __init__(self):
+        self.tokenizer = None
+        self.encoder = None
+
+    def encode(self, texts, prefix):
+        if self.encoder is None:
+            self.tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR, local_files_only=True, use_fast=True)
+            self.encoder = AutoModel.from_pretrained(MODEL_DIR, local_files_only=True,
+                                                     attn_implementation="eager").to(DEVICE).eval()
+        # A stable length order reduces padding without changing document IDs.
+        order = np.argsort(np.array([len(text) for text in texts]), kind="stable")
+        output = np.empty((len(texts), 384), dtype=np.float32)
+        started = time.perf_counter()
+        with torch.inference_mode():
+            for start in range(0, len(order), SEMANTIC_CONFIG["batch_size"]):
+                positions = order[start:start + SEMANTIC_CONFIG["batch_size"]]
+                batch = self.tokenizer([prefix + texts[i] for i in positions], padding=True,
+                    truncation=True, max_length=SEMANTIC_CONFIG["max_length"], return_tensors="pt")
+                batch = {key: value.to(DEVICE) for key, value in batch.items()}
+                hidden = self.encoder(**batch).last_hidden_state
+                mask = batch["attention_mask"].unsqueeze(-1)
+                pooled = (hidden * mask).sum(dim=1) / mask.sum(dim=1).clamp(min=1)
+                embeddings = torch.nn.functional.normalize(pooled, p=2, dim=1)
+                output[positions] = embeddings.cpu().numpy()
+                completed = min(start + len(positions), len(order))
+                if completed % (SEMANTIC_CONFIG["batch_size"] * 50) == 0 or completed == len(order):
+                    elapsed = time.perf_counter() - started
+                    print(f"E5 {prefix.strip()} {completed}/{len(order)}; {elapsed:.1f}s; {completed / max(elapsed, .01):.0f} texts/s", flush=True)
+        assert np.isfinite(output).all()
+        assert np.allclose(np.linalg.norm(output, axis=1), 1, atol=2e-5)
+        return output
+
+    def prepare(self, query_texts):
+        documents = (items.item_title_raw + ". " + items.item_infm_params_text.str.slice(0, SEMANTIC_CONFIG["params_chars"])
+                     + ". " + items.item_description_raw.str.slice(0, SEMANTIC_CONFIG["description_chars"]))
+        # Encoder caches depend on text, model, input order and encoding parameters,
+        # rather than the ranker code. AVITO_REBUILD_CACHE=1 still rebuilds everything.
+        payload = {"model": model_manifest, "encoding": SEMANTIC_CONFIG, "items": input_hashes["benchmark_items.parquet"]}
+        key = hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()[:16]
+        self.item_path = CACHE / f"e5_items_{key}.npy"
+        if USE_CACHE and self.item_path.exists():
+            self.items = np.load(self.item_path, allow_pickle=False)
+            print("Loaded E5 document embeddings")
+        else:
+            self.items = self.encode(documents.astype(str).tolist(), "passage: ")
+            save_array(self.items, self.item_path)
+        texts = sorted(set(map(str, query_texts)))
+        text_hash = hashlib.sha256(json.dumps(texts, ensure_ascii=False).encode()).hexdigest()[:16]
+        self.query_path = CACHE / f"e5_queries_{key}_{text_hash}.npy"
+        if USE_CACHE and self.query_path.exists():
+            self.queries = np.load(self.query_path, allow_pickle=False)
+        else:
+            self.queries = self.encode(texts, "query: ")
+            save_array(self.queries, self.query_path)
+        self.query_to_row = {text: i for i, text in enumerate(texts)}
+        assert self.items.shape == (len(items), 384)
+        assert self.queries.shape == (len(texts), 384)
+        del self.encoder, self.tokenizer
+        self.encoder = self.tokenizer = None
+        gc.collect()
+        if DEVICE == "cuda":
+            torch.cuda.empty_cache()
+        self.item_transpose = self.items.astype(np.float64).T
+
+    def scores(self, texts):
+        # Also support new queries outside the notebook's prepared evaluation set.
+        missing = sorted(set(map(str, texts)) - self.query_to_row.keys())
+        if missing:
+            additional = self.encode(missing, "query: ")
+            offset = len(self.queries)
+            self.queries = np.concatenate([self.queries, additional])
+            self.query_to_row.update({text: offset + i for i, text in enumerate(missing)})
+        vectors = self.queries[[self.query_to_row[str(text)] for text in texts]]
+        return (vectors.astype(np.float64) @ self.item_transpose).astype(np.float32)
+
+semantic_index = SemanticIndex()
+all_encoder_queries = pd.concat([training_queries.query_norm, validation.query_norm,
+                                 audit_queries.query_norm, fresh_queries.query_norm, queries.query_norm], ignore_index=True)
+print("Semantic device:", DEVICE, "; versions:", torch.__version__, transformers.__version__)
+semantic_index.prepare(all_encoder_queries)
+embedding_checksums = {"items": sha256_file(semantic_index.item_path),
+                       "queries": sha256_file(semantic_index.query_path)}
+(CACHE / "embedding_manifest.json").write_text(json.dumps({"model": model_manifest,
+    "config": SEMANTIC_CONFIG, "sha256": embedding_checksums}, indent=2), encoding="utf-8")
+print("Document vectors MiB:", round(semantic_index.items.nbytes / 2**20, 1))
+
+# %% [markdown]
+# ## 13. Расширение пула и признаков обучаемого отбора
+#
+# Сохраняем все прежние кандидаты и добавляем top-500 E5 без географии и top-500
+# с мягким географическим множителем. Для географического источника преобразуем
+# cosine в положительную близость `exp((cosine - 1) / 0.05)`: так география не
+# подавляет различия между косинусами, которые у E5 часто находятся близко друг к другу.
+# Это не вероятности. Жёстких фильтров и доступа к релевантным меткам при поиске нет.
+#
+# К прежним 32 признакам добавляем cosine, географическую E5-близость, их ранги
+# и признаки попадания в лексический/семантический источник. Ранги вычисляются
+# по полному объединённому пулу, до отрицательного семплирования. Половина трудных
+# negatives отбирается прежним scoring, половина — семантикой с географией.
+# Энкодер неизменен; история географии/подкатегории очищается отдельно в каждом OOF.
+
+# %%
+legacy_retrieve_features = retrieve_features
+legacy_rank_features = rank_features
+legacy_score_candidates = score_candidates
+legacy_negative_sample = hard_negative_sample
+legacy_ranker_choice = dict(ranker_choice)
+legacy_evaluation_ranker = evaluation_ranker
+legacy_metrics = json.loads(json.dumps(metrics))
+legacy_dev_predictions = selected_predictions(validation.iloc[dev_indices], dev_records, evaluation_ranker, "legacy_development")
+legacy_holdout_predictions = holdout_predictions
+legacy_audit_predictions = audit_predictions
+LEGACY_FEATURE_NAMES = list(RANK_FEATURE_NAMES)
+SEMANTIC_FEATURE_NAMES = ["e5_cosine", "e5_geo_affinity", "from_lexical_pool", "from_semantic_pool",
+                        "log_e5_rank", "log_e5_geo_rank"]
+
+def semantic_affinity(cosine, geography):
+    return np.exp((cosine - 1) / SEMANTIC_CONFIG["temperature"]) * (0.03 + 0.97 * geography)
+
+def retrieve_semantic_features(query_frame, history_model, progress_every=200):
+    texts = query_frame.query_norm.astype(str).tolist()
+    title_queries = lexical["title"].query_matrix(texts)
+    body_queries = lexical["body"].query_matrix(texts)
+    filter_queries = lexical["body"].query_matrix(query_frame.search_infm_params_text.astype(str).tolist())
+    char_queries = lexical["char_vectorizer"].transform(texts)
+    micro_predictions = history_model.micro_predictions(texts)
+    outputs, geo_cache = [], {}
+    started = time.perf_counter()
+    dense_block = None
+    for i, query in enumerate(query_frame.itertuples(index=False)):
+        if i % 64 == 0:
+            dense_block = semantic_index.scores(texts[i:i + 64])
+        cosine = dense_block[i % 64]
+        title = normalized_scores((title_queries[i] @ lexical["title"].transpose).toarray().ravel())
+        body = normalized_scores((body_queries[i] @ lexical["body"].transpose).toarray().ravel())
+        chars = normalized_scores((char_queries[i] @ lexical["char_transpose"]).toarray().ravel())
+        filters = normalized_scores((filter_queries[i] @ lexical["body"].transpose).toarray().ravel())
+        loc = int(query.search_location_id)
+        if loc not in geo_cache:
+            geo_cache[loc] = history_model.geography(loc)
+        geo = geo_cache[loc]
+        micro = micro_predictions[i][ITEM_MICRO_COLS]
+        candidate_parts = []
+        for source in [title, body, chars]:
+            candidate_parts.append(stable_topk(source, CONFIG["retrieval_pool"]))
+            candidate_parts.append(stable_topk(source * (0.03 + 0.97 * geo), CONFIG["retrieval_pool"]))
+        mixed = 0.5 * title + 0.3 * body + 0.2 * chars
+        candidate_parts.append(stable_topk(mixed * (0.03 + 0.97 * geo) * (0.2 + 0.8 * micro), CONFIG["retrieval_pool"]))
+        lexical_candidates = np.unique(np.concatenate(candidate_parts))
+        affinity = semantic_affinity(cosine, geo)
+        semantic_candidates = np.union1d(stable_topk(cosine, SEMANTIC_CONFIG["retrieval_pool"]),
+                                          stable_topk(affinity, SEMANTIC_CONFIG["retrieval_pool"]))
+        candidates = np.union1d(lexical_candidates, semantic_candidates)
+        features = np.column_stack([title[candidates], body[candidates], chars[candidates],
+            filters[candidates], geo[candidates], micro[candidates], cosine[candidates], affinity[candidates],
+            np.isin(candidates, lexical_candidates), np.isin(candidates, semantic_candidates)]).astype(np.float32)
+        outputs.append((candidates, features))
+        if (i + 1) % progress_every == 0 or i + 1 == len(query_frame):
+            print(f"Hybrid retrieved {i + 1}/{len(query_frame)}; {time.perf_counter() - started:.1f}s", flush=True)
+    return outputs
+
+def score_lexical_columns(features, config):
+    return legacy_score_candidates(features[:, :6], config)
+
+def rank_semantic_features(query, record):
+    candidates, features = record
+    original = legacy_rank_features(query, (candidates, features[:, :6]))
+    semantic = features[:, 6:10]
+    ranks = np.column_stack([np.log1p(rankdata(-values, method="min"))
+                             for values in [semantic[:, 0], semantic[:, 1]]])
+    result = np.column_stack([original, semantic, ranks]).astype(np.float32)
+    assert result.shape == (len(candidates), len(RANK_FEATURE_NAMES))
+    return result
+
+def semantic_negative_sample(candidates, features, truth, local_rng):
+    target = np.isin(candidates, list(truth))
+    positive, negative = np.flatnonzero(target), np.flatnonzero(~target)
+    if not len(positive) or not len(negative):
+        return np.array([], dtype=int), target
+    half = RANKER_CONFIG["hard_negatives"] // 2
+    lexical_hard = negative[stable_topk(score_candidates(features[negative], best_config), half)]
+    semantic_hard = negative[stable_topk(features[negative, 7], half)]
+    hard = np.union1d(lexical_hard, semantic_hard)
+    tail = np.setdiff1d(negative, hard)
+    random_tail = local_rng.choice(tail, min(len(tail), RANKER_CONFIG["random_negatives"]), replace=False)
+    selected = np.sort(np.concatenate([positive, hard, random_tail]))
+    assert not set(candidates[selected[~target[selected]]]) & truth
+    return selected, target
+
+retrieve_features = retrieve_semantic_features
+score_candidates = score_lexical_columns
+rank_features = rank_semantic_features
+hard_negative_sample = semantic_negative_sample
+RANK_FEATURE_NAMES = LEGACY_FEATURE_NAMES + SEMANTIC_FEATURE_NAMES
+
+def cached_hybrid_records(query_frame, history, stage):
+    path = CACHE / f"{stage}_hybrid_{fingerprint}.joblib"
+    if USE_CACHE and path.exists():
+        return joblib.load(path)
+    # Always measure the expanded pool, even if selection falls back to lexical.
+    records = retrieve_semantic_features(query_frame, history)
+    save_cache(records, path)
+    return records
+
+# Training texts and OOF partitions stay identical to the v0.2.0 comparison.
+training_data = build_oof_training(ranker_history, training_queries, "semantic_evaluation")
+hybrid_validation = cached_hybrid_records(validation, history_model, "semantic_validation")
+hybrid_dev = [hybrid_validation[i] for i in dev_indices]
+development_sources = []
+for source, column in [("e5_cosine", 6), ("e5_with_geography", 7)]:
+    source_predictions = [candidates[stable_topk(features[:, column], 50)] for candidates, features in hybrid_dev]
+    development_sources.append({"source": source,
+        "development_recall50": float(per_query_recall(source_predictions, dev_labels).mean())})
+development_sources.append({"source": "lexical_pool_upper_bound",
+    "development_recall50": float(per_query_recall([r[0] for r in dev_records], dev_labels).mean())})
+development_sources.append({"source": "hybrid_pool_upper_bound",
+    "development_recall50": float(per_query_recall([r[0] for r in hybrid_dev], dev_labels).mean())})
+source_results = pd.DataFrame(development_sources)
+source_results.to_csv(CACHE / "semantic_source_development.csv", index=False)
+print(source_results.to_string(index=False))
+
+# %% [markdown]
+# ## 14. Выбор на расширенном development: 2000 уже просмотренных запросов
+#
+# Первый эксперимент с 38 признаками улучшил прежний development, но ухудшил оба
+# прежних контрольных среза. Полнота пула при этом выросла. Эти срезы теперь честно
+# считаем development, а не независимым тестом. Для итоговой оценки заранее
+# зарезервированы ещё 600 текстов; их строки и 90% положительных item_id исключены
+# из истории до обучения всех сравниваемых моделей.
+#
+# Сравниваем: лексический контроль; тот же отбор на расширенном пуле; новый бустинг;
+# смешивание нового бустинга с прежним обучаемым отбором. Последний вариант сохраняет
+# сильную модель v0.2.0 в качестве приоритета, вместо её полной замены. Все параметры
+# выбираются только по macro Recall@50 на 2000 development-запросах.
+
+# %%
+selection_queries = pd.concat([validation[[*QUERY_COLS, "query_norm", "context_key"]], audit_queries], ignore_index=True)
+selection_labels = labels + audit_labels
+selection_history_model = HistorySignals(ranker_history)
+hybrid_audit = cached_hybrid_records(audit_queries, selection_history_model, "semantic_audit")
+selection_records = hybrid_validation + hybrid_audit
+selection_legacy_records = validation_features + audit_records
+selection_matrices = build_rank_feature_records(selection_queries, selection_records, "expanded_development")
+legacy_hybrid_scores = model_scores(legacy_evaluation_ranker, [x[:, :32] for x in selection_matrices])
+legacy_selection_predictions = legacy_holdout_predictions  # replaced below with all 2000 predictions
+legacy_selection_matrices = [legacy_rank_features(query, record) for query, record
+    in zip(selection_queries.itertuples(index=False), selection_legacy_records)]
+legacy_selection_scores = model_scores(legacy_evaluation_ranker, legacy_selection_matrices)
+legacy_selection_predictions = blend_predictions(selection_legacy_records, legacy_selection_scores, legacy_ranker_choice["alpha"])
+
+def ensemble_predictions(records, semantic_scores, legacy_scores, weight, k=50):
+    if weight == 0:
+        return blend_predictions(records, legacy_scores, legacy_ranker_choice["alpha"], k)
+    output = []
+    for (candidates, features), semantic, legacy in zip(records, semantic_scores, legacy_scores):
+        baseline = score_candidates(features, best_config)
+        a = legacy_ranker_choice["alpha"]
+        prior = a / (60 + rankdata(-legacy, method="min")) + (1 - a) / (60 + rankdata(-baseline, method="min"))
+        score = weight / (60 + rankdata(-semantic, method="min")) + (1 - weight) / (60 + rankdata(-prior, method="min"))
+        output.append(candidates[stable_topk(score, k)])
+    return output
+
+semantic_experiments = []
+for family, records, scores in [("lexical", selection_legacy_records, legacy_selection_scores),
+                                ("pool_expansion", selection_records, legacy_hybrid_scores)]:
+    predictions = blend_predictions(records, scores, legacy_ranker_choice["alpha"])
+    semantic_experiments.append({"family": family, "model": legacy_ranker_choice["model"],
+        "leaves": legacy_ranker_choice["leaves"], "iterations": legacy_ranker_choice["iterations"],
+        "alpha": legacy_ranker_choice["alpha"], "feature_count": 32,
+        "development_recall50": float(per_query_recall(predictions, selection_labels).mean())})
+semantic_model_paths = {}
+for leaves in RANKER_CONFIG["leaf_options"]:
+    model = HistGradientBoostingClassifier(learning_rate=RANKER_CONFIG["learning_rate"],
+        max_leaf_nodes=leaves, min_samples_leaf=30, l2_regularization=RANKER_CONFIG["l2_regularization"],
+        max_bins=127, early_stopping=False, warm_start=True, random_state=SEED)
+    for iterations in RANKER_CONFIG["iterations"]:
+        name = f"semantic_hgb_leaves{leaves}_trees{iterations}"
+        path = CACHE / f"{name}_{fingerprint}.joblib"
+        if USE_CACHE and path.exists():
+            model = joblib.load(path)
+        else:
+            model.set_params(max_iter=iterations)
+            model.fit(training_data["X"], training_data["y"], sample_weight=training_data["weight"])
+            save_cache(model, path)
+        semantic_model_paths[name] = path
+        scores = model_scores(model, selection_matrices)
+        for alpha in RANKER_CONFIG["blend_options"]:
+            predictions = blend_predictions(selection_records, scores, alpha)
+            semantic_experiments.append({"family": "semantic", "model": name, "leaves": leaves,
+                "iterations": iterations, "alpha": alpha, "feature_count": 38,
+                "development_recall50": float(per_query_recall(predictions, selection_labels).mean())})
+        for weight in [.25, .5, .75]:
+            predictions = ensemble_predictions(selection_records, scores, legacy_hybrid_scores, weight)
+            semantic_experiments.append({"family": "ensemble", "model": name, "leaves": leaves,
+                "iterations": iterations, "alpha": weight, "feature_count": 38,
+                "development_recall50": float(per_query_recall(predictions, selection_labels).mean())})
+        print(name, "best expanded development:", max(x["development_recall50"] for x in semantic_experiments if x["model"] == name), flush=True)
+semantic_results = pd.DataFrame(semantic_experiments).sort_values(
+    ["development_recall50", "feature_count", "iterations", "leaves", "family", "alpha"],
+    ascending=[False, True, True, True, True, True])
+row = semantic_results.iloc[0]
+ranker_choice = {"family": str(row.family), "model": str(row.model), "leaves": int(row.leaves),
+    "iterations": int(row.iterations), "alpha": float(row.alpha), "feature_count": int(row.feature_count),
+    "development_recall50": float(row.development_recall50), "development_queries": len(selection_queries)}
+use_semantic_selection = ranker_choice["family"] != "lexical"
+evaluation_ranker = {"legacy": legacy_evaluation_ranker, "semantic": None}
+if ranker_choice["family"] in ["semantic", "ensemble"]:
+    evaluation_ranker["semantic"] = joblib.load(semantic_model_paths[ranker_choice["model"]])
+if not use_semantic_selection:
+    retrieve_features = legacy_retrieve_features
+    score_candidates = legacy_score_candidates
+    rank_features = legacy_rank_features
+    hard_negative_sample = legacy_negative_sample
+    RANK_FEATURE_NAMES = LEGACY_FEATURE_NAMES
+semantic_results.to_csv(CACHE / "semantic_development_experiments.csv", index=False)
+(CACHE / "ranker_choice.json").write_text(json.dumps(ranker_choice, indent=2), encoding="utf-8")
+(CACHE / "semantic_choice.json").write_text(json.dumps({"enabled": use_semantic_selection,
+    "selected": ranker_choice, "legacy": legacy_ranker_choice}, indent=2), encoding="utf-8")
+(CACHE / "feature_names.json").write_text(json.dumps({"legacy": LEGACY_FEATURE_NAMES,
+    "semantic": LEGACY_FEATURE_NAMES + SEMANTIC_FEATURE_NAMES}, indent=2), encoding="utf-8")
+print(semantic_results.to_string(index=False))
+print("Frozen selection:", ranker_choice)
+
+def selected_predictions(query_frame, records, models, stage):
+    matrices = build_rank_feature_records(query_frame, records, stage)
+    family = ranker_choice["family"]
+    if family in ["lexical", "pool_expansion"]:
+        scores = model_scores(models["legacy"], [x[:, :32] for x in matrices])
+        return blend_predictions(records, scores, legacy_ranker_choice["alpha"])
+    semantic_scores = model_scores(models["semantic"], matrices)
+    if family == "semantic":
+        return blend_predictions(records, semantic_scores, ranker_choice["alpha"])
+    prior_scores = model_scores(models["legacy"], [x[:, :32] for x in matrices])
+    return ensemble_predictions(records, semantic_scores, prior_scores, ranker_choice["alpha"])
+
+# %% [markdown]
+# ## 15. Единственная итоговая оценка: новые 600 запросов
+#
+# Их тексты и 90% положительных item_id удалены из истории до обучения и выбора
+# модели. Прежние 2000 запросов использованы для выбора и больше не называются
+# holdout. Сравниваем выбранную систему с тем же лексическим алгоритмом v0.2.0,
+# переобученным на том же очищенном train. Bootstrap разницы считается парно.
+# После этой оценки параметры не меняются. Финальное обучение вернёт все строки.
+
+# %%
+fresh_history_model = HistorySignals(ranker_history)
+fresh_lexical_records = legacy_retrieve_features(fresh_queries, fresh_history_model)
+fresh_hybrid_records = cached_hybrid_records(fresh_queries, fresh_history_model, "fresh_semantic_audit")
+fresh_legacy_matrices = [legacy_rank_features(query, record) for query, record
+    in zip(fresh_queries.itertuples(index=False), fresh_lexical_records)]
+fresh_legacy_scores = model_scores(legacy_evaluation_ranker, fresh_legacy_matrices)
+fresh_baseline_predictions = blend_predictions(fresh_lexical_records, fresh_legacy_scores, legacy_ranker_choice["alpha"])
+fresh_records = fresh_hybrid_records if use_semantic_selection else fresh_lexical_records
+fresh_predictions = selected_predictions(fresh_queries, fresh_records, evaluation_ranker, "fresh_audit_selected")
+baseline_recall = per_query_recall(fresh_baseline_predictions, fresh_labels)
+selected_recall = per_query_recall(fresh_predictions, fresh_labels)
+difference = selected_recall - baseline_recall
+fresh_rng = np.random.default_rng(SEED + 504)
+bootstrap_difference = fresh_rng.choice(difference, size=(3000, len(difference)), replace=True).mean(axis=1)
+lexical_pool_recall = per_query_recall([r[0] for r in fresh_lexical_records], fresh_labels)
+hybrid_pool_recall = per_query_recall([r[0] for r in fresh_hybrid_records], fresh_labels)
+rows = []
+rescued_in_pool = rescued_in_answer = lost_pool = lost_selection = 0
+for query, truth, old, predicted, lexical_record, hybrid_record in zip(fresh_queries.itertuples(index=False),
+        fresh_labels, fresh_baseline_predictions, fresh_predictions, fresh_lexical_records, fresh_hybrid_records):
+    old_set, predicted_set = set(map(int, old)), set(map(int, predicted))
+    original_pool, expanded_pool = set(map(int, lexical_record[0])), set(map(int, hybrid_record[0]))
+    semantic_only = truth & (expanded_pool - original_pool)
+    active_pool = expanded_pool if use_semantic_selection else original_pool
+    gained, missed = sorted((truth & predicted_set) - old_set), sorted(truth - predicted_set)
+    rescued_in_pool += len(semantic_only)
+    rescued_in_answer += len(semantic_only & predicted_set)
+    lost_pool += len(truth - active_pool)
+    lost_selection += len((truth & active_pool) - predicted_set)
+    rows.append({"search_query": query.search_query, "search_location_id": int(query.search_location_id),
+        "context_key": query.context_key, "baseline_recall50": len(truth & old_set) / len(truth),
+        "selected_recall50": len(truth & predicted_set) / len(truth),
+        "lexical_pool_recall": len(truth & original_pool) / len(truth),
+        "hybrid_pool_recall": len(truth & expanded_pool) / len(truth),
+        "gained_ids": " ".join(ITEM_IDS[gained]), "gained_titles": " | ".join(items.item_title_raw.iloc[gained].astype(str)),
+        "missed_ids": " ".join(ITEM_IDS[missed]), "missed_titles": " | ".join(items.item_title_raw.iloc[missed].astype(str))})
+pd.DataFrame(rows).to_csv(CACHE / "fresh_audit_query_comparison.csv", index=False, encoding="utf-8")
+fresh_metrics = {"queries": len(fresh_queries), "baseline_recall50": float(baseline_recall.mean()),
+    "selected_recall50": float(selected_recall.mean()), "delta": float(difference.mean()),
+    "paired_delta_bootstrap95": np.quantile(bootstrap_difference, [.025, .975]).tolist(),
+    "improved_queries": int((difference > 0).sum()), "worsened_queries": int((difference < 0).sum()),
+    "lexical_pool_recall": float(lexical_pool_recall.mean()), "hybrid_pool_recall": float(hybrid_pool_recall.mean()),
+    "semantic_only_positives_in_pool": rescued_in_pool, "semantic_only_positives_in_top50": rescued_in_answer,
+    "lost_before_pool": lost_pool, "lost_at_selection": lost_selection,
+    "mean_hybrid_pool_size": float(np.mean([len(r[0]) for r in fresh_hybrid_records])),
+    "used_for_model_selection": False, "old_training_query_text_overlap": 0,
+    "fit_query_text_overlap": 0, "purged_item_overlap": 0}
+metrics = {"protocol": "2000_reused_development_texts_600_new_texts_90pct_cold_items",
+    "development_queries": len(selection_queries), "development_recall50": ranker_choice["development_recall50"],
+    "lexical_development_recall50": float(per_query_recall(legacy_selection_predictions, selection_labels).mean()),
+    "fresh_audit": fresh_metrics, "semantic_config": SEMANTIC_CONFIG,
+    "semantic_enabled": use_semantic_selection, "ranker_choice": ranker_choice,
+    "legacy_ranker_choice": legacy_ranker_choice, "development_sources_700": development_sources}
+(CACHE / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+print("Fresh untouched audit:", json.dumps(fresh_metrics, indent=2), flush=True)
+del training_data, selection_matrices, legacy_selection_matrices, selection_history_model, fresh_history_model
+gc.collect()
+
+# %% [markdown]
+# ## 16. Финальное переобучение и ответ для benchmark
 #
 # После выбора параметров возвращаем всю обучающую историю, включая локальную
 # валидацию: это допустимо, поскольку benchmark-разметка неизвестна и не используется.
@@ -906,28 +1394,53 @@ gc.collect()
 # %%
 del history_model
 gc.collect()
-final_ranker = None
-if ranker_choice["alpha"] > 0:
-    final_training_queries = pd.concat([training_queries, validation, audit_queries], ignore_index=True)
-    final_training_queries = final_training_queries[[*QUERY_COLS, "query_norm", "context_key"]].drop_duplicates("query_norm").sort_values("context_key").reset_index(drop=True)
-    final_model_path = CACHE / f"final_ranker_{fingerprint}.joblib"
-    if USE_CACHE and final_model_path.exists():
-        final_ranker = joblib.load(final_model_path)
+final_training_queries = pd.concat([training_queries, validation, audit_queries, fresh_queries], ignore_index=True)
+final_training_queries = final_training_queries[[*QUERY_COLS, "query_norm", "context_key"]].drop_duplicates("query_norm").sort_values("context_key").reset_index(drop=True)
+final_ranker = {"legacy": None, "semantic": None}
+final_model_files = []
+
+def fit_final_model(dataset, choice, path):
+    model = HistGradientBoostingClassifier(learning_rate=RANKER_CONFIG["learning_rate"],
+        max_iter=choice["iterations"], max_leaf_nodes=choice["leaves"], min_samples_leaf=30,
+        l2_regularization=RANKER_CONFIG["l2_regularization"], max_bins=127, early_stopping=False, random_state=SEED)
+    model.fit(dataset["X"], dataset["y"], sample_weight=dataset["weight"])
+    save_cache(model, path)
+    return model
+
+if ranker_choice["family"] in ["semantic", "ensemble"]:
+    path = CACHE / f"final_ranker_{fingerprint}.joblib"
+    if USE_CACHE and path.exists():
+        final_ranker["semantic"] = joblib.load(path)
     else:
-        final_training_data = build_oof_training(history_all, final_training_queries, "final")
-        final_ranker = HistGradientBoostingClassifier(learning_rate=RANKER_CONFIG["learning_rate"],
-            max_iter=ranker_choice["iterations"], max_leaf_nodes=ranker_choice["leaves"], min_samples_leaf=30,
-            l2_regularization=RANKER_CONFIG["l2_regularization"], max_bins=127, early_stopping=False, random_state=SEED)
-        final_ranker.fit(final_training_data["X"], final_training_data["y"], sample_weight=final_training_data["weight"])
-        save_cache(final_ranker, final_model_path)
-        del final_training_data
+        dataset = build_oof_training(history_all, final_training_queries, "final_semantic")
+        final_ranker["semantic"] = fit_final_model(dataset, ranker_choice, path)
+        del dataset
         gc.collect()
-    print("Final ranker queries:", len(final_training_queries))
+    final_model_files.append(path.name)
+if ranker_choice["family"] in ["lexical", "pool_expansion", "ensemble"]:
+    path = CACHE / f"final_legacy_ranker_{fingerprint}.joblib"
+    if USE_CACHE and path.exists():
+        final_ranker["legacy"] = joblib.load(path)
+    else:
+        # The prior remains trained on lexical pools, matching its evaluation
+        # model. Only inference expands its pool with semantic candidates.
+        active = retrieve_features, score_candidates, rank_features, hard_negative_sample, RANK_FEATURE_NAMES
+        retrieve_features, score_candidates = legacy_retrieve_features, legacy_score_candidates
+        rank_features, hard_negative_sample = legacy_rank_features, legacy_negative_sample
+        RANK_FEATURE_NAMES = LEGACY_FEATURE_NAMES
+        try:
+            dataset = build_oof_training(history_all, final_training_queries, "final_legacy")
+            final_ranker["legacy"] = fit_final_model(dataset, legacy_ranker_choice, path)
+            del dataset
+        finally:
+            retrieve_features, score_candidates, rank_features, hard_negative_sample, RANK_FEATURE_NAMES = active
+        gc.collect()
+    final_model_files.append(path.name)
+print("Final queries:", len(final_training_queries), "; model family:", ranker_choice["family"])
 final_history_model = HistorySignals(history_all)
 benchmark_cache = CACHE / f"benchmark_features_{fingerprint}.joblib"
 if USE_CACHE and benchmark_cache.exists():
     benchmark_features = joblib.load(benchmark_cache)
-    print("Loaded benchmark features")
 else:
     benchmark_features = retrieve_features(queries, final_history_model)
     save_cache(benchmark_features, benchmark_cache)
@@ -970,27 +1483,31 @@ repeat = pd.DataFrame({"query_id": queries.query_id.astype(str), "answer": [
 expected_bytes = repeat.to_csv(index=False, lineterminator="\n").encode("utf-8")
 assert expected_bytes == (ROOT / "answer.csv").read_bytes()
 manifest = {"config": CONFIG, "ranker_config": RANKER_CONFIG, "ranker_choice": ranker_choice,
+            "semantic_config": SEMANTIC_CONFIG, "semantic_enabled": use_semantic_selection,
+            "final_model_files": final_model_files, "fresh_audit_protocol": fresh_protocol,
+            "model_manifest": model_manifest, "embedding_sha256": embedding_checksums,
             "input_sha256": input_hashes, "fingerprint": fingerprint,
             "code_sha256": code_hash,
             "answer_sha256": sha256_file(ROOT / "answer.csv"), "metrics": metrics,
             "versions": {"python": sys.version.split()[0], "pandas": pd.__version__,
-                         "numpy": np.__version__, "sklearn": sklearn.__version__}}
+                         "numpy": np.__version__, "sklearn": sklearn.__version__,
+                         "torch": torch.__version__, "transformers": transformers.__version__, "device": DEVICE}}
 (CACHE / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 print("Saved:", ROOT / "answer.csv")
 print("Validated:", len(answer), "queries, 50 unique IDs each")
 print("SHA-256:", manifest["answer_sha256"])
 
 # %% [markdown]
-# ## 13. Что сдавать и как интерпретировать результат
+# ## 17. Что сдавать и как интерпретировать результат
 #
 # Файл для платформы — `answer.csv`. Код решения целиком находится в этом ноутбуке.
 # Для воспроизведения нужны исходные три Parquet и окружение из `requirements.txt`.
-# В `artifacts/learned-selection-v1/` сохраняются конфигурация, протокол валидации, результаты
+# В `artifacts/semantic-v1/` сохраняются конфигурация, протокол валидации, результаты
 # экспериментов, анализ ошибок и контрольные суммы. Кеш индексов необязателен.
 #
 # Использованы открытые библиотеки pandas, NumPy, SciPy, scikit-learn, PyArrow,
 # Snowball stemmer и joblib. HistGradientBoostingClassifier обучается на CPU;
-# нейросетевые веса в этой версии не используются.
+# дополнительно используется локальный encoder multilingual-e5-small (MIT), PyTorch и Transformers.
 # Алгоритмы: BM25, TF-IDF по символьным n-граммам, поиск похожих запросов,
 # сглаженные географические признаки и подбор весов на development.
 #
@@ -1001,7 +1518,7 @@ print("SHA-256:", manifest["answer_sha256"])
 # - [HistGradientBoostingClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html)
 #
 # Ограничения: неполная поведенческая разметка, смещение валидации к пересечению
-# корпусов, отсутствие семантического энкодера и ограничения длины текстов.
+# корпусов, усечение текстов E5 и отсутствие дообучения энкодера на домене.
 # Следующее улучшение нужно выбирать по сохранённому анализу ошибок и полноте пула.
 #
 # ### Результаты baseline v0.1.0 для сравнения
@@ -1051,5 +1568,26 @@ print("SHA-256:", manifest["answer_sha256"])
 # ухудшились 12. Это результат всего набора признаков; отдельная причинная роль
 # рейтинга или цены без ablation не утверждается.
 #
-# Следующий отдельный эксперимент — семантический поиск с измерением полноты пула
-# и переобучением отбора на изменившихся кандидатах. `search_category` не меняли.
+# ### Семантический поиск v0.3.0
+#
+# Выбран ансамбль двух бустингов (120 деревьев, до 15 листьев): прежние 32 признака
+# и новые 38. Внешнее RRF даёт 25% веса новой модели, 75% прежнему отбору;
+# прежний отбор сам смешивает свой бустинг и лексические оценки поровну.
+#
+# | Срез | Прежний алгоритм отбора | С семантическим поиском |
+# |---|---:|---:|
+# | Development, 2000 | 0.916000 | **0.926500** |
+# | Новые контрольные запросы, 600 | 0.903333 | **0.908333** |
+# | Полнота пула на новых 600 | 0.980000 | **0.991667** |
+#
+# Контрольный прирост +0.50 п.п.; парный bootstrap 95%: **[-0.83; +1.67] п.п.**
+# Интервал включает ноль: устойчивое улучшение итогового Recall пока не доказано.
+# Улучшены 9 запросов, ухудшены 6; семантика добавила в пул 7 пропущенных positives,
+# 3 из них прошли в итоговые 50. Осталось 5 потерь до пула и 50 при отборе.
+# Следующий эксперимент должен улучшать отбор из расширенного пула.
+# Финальные модели переобучаются на OOF-признаках 6600 запросов после всех оценок.
+# Значения v0.2.0 выше исторические: у версий разные контрольные срезы.
+# `search_category` не меняли. Воспроизведение и зависимости описаны в README.
+# Полный повторный расчёт без кешей и сети воспроизвёл векторы, метрики и CSV;
+# время — около 20 минут. Архив отдельно проверен на CPU без исходных поисковых
+# кешей: те же метрики и байты CSV за 8.5 минуты. Отчёты приложены к решению.

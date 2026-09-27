@@ -1,0 +1,140 @@
+{
+  "protocol": "cold_query_text_90pct_purged_positive_items_full_benchmark_corpus",
+  "previous_version": {
+    "protocol": "cold_query_text_90pct_purged_positive_items_full_benchmark_corpus",
+    "development_queries": 700,
+    "holdout_queries": 700,
+    "development_recall50": 0.9042857142857142,
+    "baseline_development_recall50": 0.8671428571428571,
+    "baseline_holdout_recall50": 0.8911904761904762,
+    "holdout_recall50": 0.9178571428571428,
+    "holdout_recall50_bootstrap95": [
+      0.8971428571428571,
+      0.9371428571428572
+    ],
+    "holdout_pool_recall": 0.9714285714285714,
+    "mean_pool_size": 1694.7585714285715,
+    "best_config": {
+      "name": "hybrid_19",
+      "title": 0.3,
+      "body": 0.5,
+      "char": 0.2,
+      "filter": 0.03,
+      "geo": 0.5,
+      "micro": 0.5
+    },
+    "ranker_choice": {
+      "model": "hgb_leaves15_trees120",
+      "leaves": 15,
+      "iterations": 120,
+      "alpha": 0.5,
+      "development_recall50": 0.9042857142857142
+    },
+    "fresh_audit": {
+      "queries": 600,
+      "baseline_recall50": 0.8983333333333333,
+      "selected_recall50": 0.9233333333333333,
+      "delta": 0.025,
+      "paired_delta_bootstrap95": [
+        0.006666666666666667,
+        0.043333333333333335
+      ],
+      "improved_queries": 26,
+      "worsened_queries": 10,
+      "pool_recall": 0.98,
+      "used_for_model_selection": false
+    }
+  },
+  "semantic_config": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "max_length": 192,
+    "description_chars": 1200,
+    "params_chars": 256,
+    "batch_size": 128,
+    "retrieval_pool": 500,
+    "temperature": 0.05,
+    "dtype": "float32"
+  },
+  "semantic_enabled": true,
+  "development_recall50": 0.9207142857142857,
+  "holdout_recall50": 0.9142857142857143,
+  "holdout_pool_recall": 0.99,
+  "holdout": {
+    "queries": 700,
+    "previous_recall50": 0.9178571428571428,
+    "recall50": 0.9142857142857143,
+    "delta": -0.0035714285714285713,
+    "paired_delta_bootstrap95": [
+      -0.02142857142857143,
+      0.013571428571428571
+    ],
+    "improved_queries": 18,
+    "worsened_queries": 21,
+    "pool_recall": 0.99,
+    "mean_pool_size": 2198.157142857143,
+    "positives_only_in_semantic_pool": 13,
+    "semantic_only_positives_in_top50": 6,
+    "lost_before_pool": 7,
+    "lost_at_selection": 54,
+    "used_for_model_selection": false,
+    "control_previously_reported_in_v020": true,
+    "ablation": {
+      "previous_model_on_hybrid_pool_recall50": 0.9221428571428572,
+      "new_model_restricted_to_lexical_pool_recall50": 0.9057142857142857,
+      "restricted_model_features_use_full_hybrid_pool_ranks": true,
+      "used_for_model_selection": false
+    }
+  },
+  "audit": {
+    "queries": 600,
+    "previous_recall50": 0.9233333333333333,
+    "recall50": 0.9116666666666666,
+    "delta": -0.011666666666666667,
+    "paired_delta_bootstrap95": [
+      -0.029166666666666667,
+      0.006666666666666667
+    ],
+    "improved_queries": 12,
+    "worsened_queries": 20,
+    "pool_recall": 0.995,
+    "mean_pool_size": 2191.491666666667,
+    "positives_only_in_semantic_pool": 9,
+    "semantic_only_positives_in_top50": 6,
+    "lost_before_pool": 3,
+    "lost_at_selection": 51,
+    "used_for_model_selection": false,
+    "control_previously_reported_in_v020": true,
+    "ablation": {
+      "previous_model_on_hybrid_pool_recall50": 0.93,
+      "new_model_restricted_to_lexical_pool_recall50": 0.9016666666666666,
+      "restricted_model_features_use_full_hybrid_pool_ranks": true,
+      "used_for_model_selection": false
+    }
+  },
+  "ranker_choice": {
+    "model": "semantic_hgb_leaves15_trees120",
+    "leaves": 15,
+    "iterations": 120,
+    "alpha": 0.75,
+    "development_recall50": 0.9207142857142857
+  },
+  "development_sources": [
+    {
+      "source": "e5_cosine",
+      "development_recall50": 0.38942857142857146
+    },
+    {
+      "source": "e5_with_geography",
+      "development_recall50": 0.7940476190476189
+    },
+    {
+      "source": "lexical_pool_upper_bound",
+      "development_recall50": 0.98
+    },
+    {
+      "source": "hybrid_pool_upper_bound",
+      "development_recall50": 0.9942857142857143
+    }
+  ]
+}

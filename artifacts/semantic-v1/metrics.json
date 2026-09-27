@@ -1,0 +1,76 @@
+{
+  "protocol": "2000_reused_development_texts_600_new_texts_90pct_cold_items",
+  "development_queries": 2000,
+  "development_recall50": 0.9265,
+  "lexical_development_recall50": 0.916,
+  "fresh_audit": {
+    "queries": 600,
+    "baseline_recall50": 0.9033333333333333,
+    "selected_recall50": 0.9083333333333333,
+    "delta": 0.005,
+    "paired_delta_bootstrap95": [
+      -0.008333333333333333,
+      0.016666666666666666
+    ],
+    "improved_queries": 9,
+    "worsened_queries": 6,
+    "lexical_pool_recall": 0.98,
+    "hybrid_pool_recall": 0.9916666666666667,
+    "semantic_only_positives_in_pool": 7,
+    "semantic_only_positives_in_top50": 3,
+    "lost_before_pool": 5,
+    "lost_at_selection": 50,
+    "mean_hybrid_pool_size": 2168.98,
+    "used_for_model_selection": false,
+    "old_training_query_text_overlap": 0,
+    "fit_query_text_overlap": 0,
+    "purged_item_overlap": 0
+  },
+  "semantic_config": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "max_length": 192,
+    "description_chars": 1200,
+    "params_chars": 256,
+    "batch_size": 128,
+    "retrieval_pool": 500,
+    "temperature": 0.05,
+    "dtype": "float32"
+  },
+  "semantic_enabled": true,
+  "ranker_choice": {
+    "family": "ensemble",
+    "model": "semantic_hgb_leaves15_trees120",
+    "leaves": 15,
+    "iterations": 120,
+    "alpha": 0.25,
+    "feature_count": 38,
+    "development_recall50": 0.9265,
+    "development_queries": 2000
+  },
+  "legacy_ranker_choice": {
+    "model": "hgb_leaves15_trees120",
+    "leaves": 15,
+    "iterations": 120,
+    "alpha": 0.5,
+    "development_recall50": 0.9128571428571428
+  },
+  "development_sources_700": [
+    {
+      "source": "e5_cosine",
+      "development_recall50": 0.38942857142857146
+    },
+    {
+      "source": "e5_with_geography",
+      "development_recall50": 0.7954761904761903
+    },
+    {
+      "source": "lexical_pool_upper_bound",
+      "development_recall50": 0.98
+    },
+    {
+      "source": "hybrid_pool_upper_bound",
+      "development_recall50": 0.9942857142857143
+    }
+  ]
+}

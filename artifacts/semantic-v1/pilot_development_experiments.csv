@@ -1,0 +1,13 @@
+model,leaves,iterations,alpha,development_recall50
+semantic_hgb_leaves15_trees120,15,120,0.75,0.9207142857142857
+semantic_hgb_leaves31_trees120,31,120,0.5,0.9171428571428571
+semantic_hgb_leaves31_trees240,31,240,0.5,0.9171428571428571
+semantic_hgb_leaves15_trees240,15,240,0.75,0.9159523809523809
+semantic_hgb_leaves31_trees120,31,120,0.75,0.9157142857142857
+semantic_hgb_leaves15_trees120,15,120,0.5,0.915
+semantic_hgb_leaves31_trees240,31,240,0.75,0.9133333333333332
+semantic_hgb_leaves15_trees240,15,240,0.5,0.91
+semantic_hgb_leaves15_trees120,15,120,1.0,0.9061904761904761
+semantic_hgb_leaves31_trees120,31,120,1.0,0.9054761904761903
+semantic_hgb_leaves15_trees240,15,240,1.0,0.9011904761904761
+semantic_hgb_leaves31_trees240,31,240,1.0,0.8976190476190475

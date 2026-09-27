@@ -1,0 +1,5 @@
+source,development_recall50
+e5_cosine,0.38942857142857146
+e5_with_geography,0.7954761904761903
+lexical_pool_upper_bound,0.98
+hybrid_pool_upper_bound,0.9942857142857143

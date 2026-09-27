@@ -1,0 +1,178 @@
+{
+  "stage": "validation-v5",
+  "gold_source": "complete unpurged train, corpus positives only",
+  "gold_contexts": 26556,
+  "gold_positive_pairs": 29572,
+  "label_correction": {
+    "old_new_audit_positives": 815,
+    "full_new_audit_positives": 822,
+    "affected_new_audit_contexts": 6
+  },
+  "benchmark_regimes": {
+    "unseen_text_fraction": 0.6264274061990212,
+    "known_text_new_context_fraction": 0.3295269168026101,
+    "exact_context_fraction": 0.04404567699836868,
+    "exact_context_evaluation_limitation": "No timestamps or independent repeated events"
+  },
+  "development_contexts": 3400,
+  "development_role": "previously viewed development",
+  "held_control_contexts": 600,
+  "held_control_direct_text_overlap": 0,
+  "held_control_limitation": "Frozen v4 priors may have used these interactions in auxiliary history; strict validation requires refitting affected priors",
+  "training_contexts": 19031,
+  "training_texts": 8174,
+  "training_positives": 21480,
+  "oof_audits": [
+    {
+      "contexts": 6506,
+      "positive_pairs": 7391,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.02909111979662241,
+      "own_context_overlap": 0,
+      "mode": "unseen_text",
+      "fold": 0,
+      "cold_items": 5414,
+      "history_pairs": 288754
+    },
+    {
+      "contexts": 5987,
+      "positive_pairs": 6694,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.03332498190523912,
+      "own_context_overlap": 0,
+      "mode": "unseen_text",
+      "fold": 1,
+      "cold_items": 4978,
+      "history_pairs": 307950
+    },
+    {
+      "contexts": 6538,
+      "positive_pairs": 7395,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.030927071042549777,
+      "own_context_overlap": 0,
+      "mode": "unseen_text",
+      "fold": 2,
+      "cold_items": 5434,
+      "history_pairs": 288273
+    },
+    {
+      "contexts": 6344,
+      "positive_pairs": 7102,
+      "known_text_fraction": 0.8757881462799496,
+      "positive_item_seen_macro_fraction": 0.034567976422484624,
+      "own_context_overlap": 0,
+      "mode": "held_context",
+      "fold": 0,
+      "cold_items": 5449,
+      "history_pairs": 362625
+    },
+    {
+      "contexts": 6344,
+      "positive_pairs": 7212,
+      "known_text_fraction": 0.8761034047919294,
+      "positive_item_seen_macro_fraction": 0.03566797471294883,
+      "own_context_overlap": 0,
+      "mode": "held_context",
+      "fold": 1,
+      "cold_items": 5486,
+      "history_pairs": 362151
+    },
+    {
+      "contexts": 6343,
+      "positive_pairs": 7166,
+      "known_text_fraction": 0.8803405328708813,
+      "positive_item_seen_macro_fraction": 0.03499702777646968,
+      "own_context_overlap": 0,
+      "mode": "held_context",
+      "fold": 2,
+      "cold_items": 5429,
+      "history_pairs": 362691
+    }
+  ],
+  "evaluation_history_profiles": [
+    {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.456,
+      "own_context_overlap": 0,
+      "mode": "unseen_text",
+      "cold_fraction": 0.0,
+      "cold_items": 0
+    },
+    {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.23295098039215686,
+      "own_context_overlap": 0,
+      "mode": "unseen_text",
+      "cold_fraction": 0.5,
+      "cold_items": 1683
+    },
+    {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.0455392156862745,
+      "own_context_overlap": 0,
+      "mode": "unseen_text",
+      "cold_fraction": 0.9,
+      "cold_items": 3029
+    },
+    {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.0,
+      "own_context_overlap": 0,
+      "mode": "unseen_text",
+      "cold_fraction": 1.0,
+      "cold_items": 3366
+    },
+    {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.7197058823529412,
+      "positive_item_seen_macro_fraction": 0.5088137254901961,
+      "own_context_overlap": 0,
+      "mode": "held_context",
+      "cold_fraction": 0.0,
+      "cold_items": 0
+    },
+    {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.7164705882352941,
+      "positive_item_seen_macro_fraction": 0.25809803921568625,
+      "own_context_overlap": 0,
+      "mode": "held_context",
+      "cold_fraction": 0.5,
+      "cold_items": 1683
+    },
+    {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.7161764705882353,
+      "positive_item_seen_macro_fraction": 0.049509803921568625,
+      "own_context_overlap": 0,
+      "mode": "held_context",
+      "cold_fraction": 0.9,
+      "cold_items": 3029
+    },
+    {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.7152941176470589,
+      "positive_item_seen_macro_fraction": 0.0,
+      "own_context_overlap": 0,
+      "mode": "held_context",
+      "cold_fraction": 1.0,
+      "cold_items": 3366
+    }
+  ],
+  "new_models_fitted": false,
+  "answer_csv_modified": false,
+  "next_stage": "full-pool retrieval, stronger hard negatives, mixed-regime ranker training"
+}

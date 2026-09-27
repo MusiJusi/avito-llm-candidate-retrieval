@@ -1,0 +1,68 @@
+{
+  "data": {
+    "raw_train_pairs": 497673,
+    "deduplicated_train_pairs": 467054,
+    "train_unique_items": 344825,
+    "raw_pairs_with_item_in_corpus": 33010,
+    "deduplicated_pairs_with_item_in_corpus": 29572,
+    "eligible_normalized_texts": 12174,
+    "eligible_contexts": 26556,
+    "query_contexts_total": 354463,
+    "benchmark_known_text_fraction": 0.3735725938009788,
+    "benchmark_known_context_fraction": 0.04404567699836868,
+    "benchmark_text_with_corpus_positive_fraction": 0.14804241435562807,
+    "corpus_microcategories": 752
+  },
+  "geography": {
+    "benchmark_queries_without_corpus_center": 427,
+    "recoverable_with_train_item_centers": 2
+  },
+  "validation": {
+    "nominal_seen_regime_actual_known_text_fraction": 0.7184615384615385,
+    "audit_positive_ids": 815,
+    "audit_positive_ids_from_full_labels": 822,
+    "audit_contexts_with_truncated_labels": 6,
+    "audit_macro_seen_positive_fraction": 0.030625
+  },
+  "audit_recall_curve": {
+    "10": 0.74875,
+    "20": 0.8539583333333334,
+    "50": 0.9325,
+    "75": 0.9525,
+    "100": 0.955,
+    "150": 0.96875,
+    "200": 0.9775,
+    "300": 0.9825,
+    "500": 0.98875,
+    "1000": 0.99
+  },
+  "audit_full_label_recall50": 0.9321875,
+  "audit_full_label_recall_curve": {
+    "10": 0.75,
+    "20": 0.8539583333333334,
+    "50": 0.9321875,
+    "75": 0.9525,
+    "100": 0.955,
+    "150": 0.96875,
+    "200": 0.9775,
+    "300": 0.9825,
+    "500": 0.98875,
+    "1000": 0.99
+  },
+  "audit_losses": {
+    "outside_pool": 8,
+    "rank51_100": 19,
+    "rank101_300": 22,
+    "rank301_plus": 6,
+    "same_location_positive_pairs": 660,
+    "different_location_positive_pairs": 162,
+    "same_location_pair_hit50": 0.9621212121212122,
+    "different_location_pair_hit50": 0.8148148148148148
+  },
+  "training": {
+    "groups": 11874,
+    "mean_group_size": 182.95401718039415,
+    "median_group_size": 184.0,
+    "mean_audit_candidate_pool": 2193.26875
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "version": "v9",
+  "reported_date": "2026-09-27",
+  "source": "User-reported platform score, screenshot",
+  "recall50": 0.900753,
+  "previous_confirmed_recall50": 0.897443,
+  "absolute_gain": 0.003310,
+  "answer_file": "experiments/results/v9/answer.csv",
+  "answer_sha256": "a78cd853793bcba0087573333d830d439c5e94dbae9b3d23fc3eecc2c35fee82",
+  "attribution": "Combined v8/v9 changes; individual platform contributions were not measured"
+}

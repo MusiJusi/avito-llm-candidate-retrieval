@@ -9,6 +9,10 @@ assert proof['answer_bytes_equal'] and proof['network_connections_disabled']
 assert proof['answer_sha256']==manifest['answer_sha256']
 winner=manifest['context_selection']['winner']
 control=manifest['context_control']['selected_recall50']
+platform_path=ROOT/'artifacts/context-v9/platform_result.json'
+platform=json.loads(platform_path.read_text()) if platform_path.exists() else None
+platform_label=f"**{platform['recall50']:.6f}**" if platform else 'Не отправлена'
+if platform:assert platform['answer_sha256']==manifest['answer_sha256']
 readme=ROOT/'README.md'
 text=readme.read_text(encoding='utf-8')
 title='## Как работаем дальше' if '## Как работаем дальше' in text else '## Как работать с текущими версиями'
@@ -20,13 +24,13 @@ replacement=f'''## Как работать с текущими версиями
 | --- | --- | --- | --- |
 | v7, подтверждённая | `answer.csv` | **0.897443** | 0.950171 / 0.953333 |
 | v8, отдельный кандидат | `experiments/results/v8/answer.csv` | Не отправлена | 0.952815 / 0.953333 |
-| v9, новый кандидат | `{manifest['answer_file']}` | Не отправлена | {winner['matched_recall50']:.6f} / {control:.6f} |
+| v9, {'лучшая подтверждённая' if platform else 'новый кандидат'} | `{manifest['answer_file']}` | {platform_label} | {winner['matched_recall50']:.6f} / {control:.6f} |
 
 Для проверки v9 на платформе используйте только `experiments/results/v9/answer.csv`.
 Его notebook — `experiments/Avito_v9_candidate.ipynb`, комплект с локальными весами —
 `deliverables/avito_v9_solution.zip`. Свежий запуск на CPU без сети получил
 побайтово тот же CSV за {proof['elapsed_seconds']:.2f} секунд.
-Контроль v9 ухудшился: локальный выигрыш небольшой и не гарантирует роста платформы.
+{'Платформа подтвердила рост до ' + platform_label + '; локальный контроль при этом ухудшился.' if platform else 'Контроль v9 ухудшился: локальный выигрыш небольшой и не гарантирует роста платформы.'}
 Подтверждённые корневые notebook и CSV сохраняют v7.
 
 Ветка v9 — `feature/context-v9`, подробный отчёт —
@@ -47,7 +51,7 @@ entry=f'''## v0.9.0-candidate — контекстные признаки и б�
   12000 контекстов и 17 814 268 OOF-парах. В итог выбран `{winner['variant']}`
   с весом {winner['weight']}; остальные варианты не включены.
 - Matched development: 0.952815 → {winner['matched_recall50']:.6f}; ранее просмотренный
-  контроль: 0.953333 → {control:.6f}. На платформе v9 пока не проверен.
+  контроль: 0.953333 → {control:.6f}. {'Платформа: ' + platform_label + ' (результат сообщил пользователь).' if platform else 'На платформе v9 пока не проверен.'}
 - CPU без сети и без готового CSV: {proof['elapsed_seconds']:.2f} секунд,
   {proof['code_cells_executed']} выполненных ячеек, побайтовое совпадение.
 - Ответ `{manifest['answer_file']}`, notebook `experiments/Avito_v9_candidate.ipynb`,

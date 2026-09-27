@@ -9,6 +9,7 @@ def read(name):
     return json.loads(path.read_text(encoding='utf-8')) if path.exists() else None
 def report():
     selection=read('selection.json');control=read('control.json');manifest=read('manifest.json');proof=read('reproduction.json')
+    platform=read('platform_result.json')
     data={'selection':selection,'control':control,'manifest':manifest,'reproduction':proof,
         'training_reports':[json.loads(p.read_text()) for p in CACHE.glob('*_training_*.json')]}
     (CACHE/'progress.json').write_text(json.dumps(data,indent=2),encoding='utf-8')
@@ -102,6 +103,14 @@ def report():
         'Mining выполняет ранее обученный v7-ранкер; это обычный training-mining, '
         'но не независимый OOF-miner. Невыбранные объявления остаются неразмеченными. '
         'Точность на платформе нельзя вывести из локальной оценки.\n']
+    if platform:
+        assert manifest['answer_sha256']==platform['answer_sha256']
+        lines.append(f"\n## Результат платформы\n\n{platform['reported_date']}: пользователь сообщил "
+            f"**Recall@50 = {platform['recall50']:.6f}**, против "
+            f"{platform['previous_confirmed_recall50']:.6f} у v7. "
+            f"Прирост {platform['absolute_gain']*100:.3f} процентного пункта. "
+            "Это результат совокупности изменений v8/v9; отдельный вклад каждого изменения "
+            "на платформе не измерен. Исходные локальные оценки выше сохранены без изменений.\n")
     (ROOT/'docs/EXPERIMENTS_V9.md').write_text('\n'.join(lines).rstrip()+'\n',encoding='utf-8')
     print('Context v9 report updated.')
 if __name__=='__main__':report()

@@ -1,0 +1,57 @@
+mode,context_key,query,missing_pairs,rescued500,rescued1000
+unseen_text,00c92de694656fcb7d1c2840,старокорсунская,1,0,0
+unseen_text,0a8aafc722e29a3c611586c5,аренда гуся,1,0,0
+unseen_text,1888088e0b69ce1078f4a1eb,ремонт автомобильных колонок,1,1,1
+unseen_text,259dce478f7a63cc3927195d,тепловизор,1,0,0
+unseen_text,3c253c317d8283d41ef95ee3,эндоскоп,1,1,1
+unseen_text,4116e7362653682ae4d8c486,кровля,1,0,0
+unseen_text,481d52e8e14b69338a2a1395,баня аренда,1,1,1
+unseen_text,dce9ea233e34ec83c4b2ad15,домик на берегу,1,1,1
+unseen_text,e68ad82f577438addb0d4d23,вышибала,1,0,0
+unseen_text,f0b478ddadf46c51cfbf061c,краскопульт,1,1,1
+unseen_text,f39748c268d4bdcd3d1b0bd0,пилатес зеленогорск,1,1,1
+unseen_text,fe7b7aabf3c00faaffc95131,заказ минивэна,1,1,1
+unseen_text,1011ab44fa3e040af501b4fa,установка опалубки,1,0,0
+unseen_text,48ca1e77f386f2a8934ba183,строительство домов семейная ипотека,1,0,0
+unseen_text,aa7522790fe287e3808af96e,а фрейм,1,0,0
+unseen_text,1de8fffbabb3c847b4619def,место под вендинг,1,1,1
+unseen_text,944a4d95f2d06bb2e9ed38d8,восстановление резьбы,1,1,1
+unseen_text,aca4ab664e1e6d2936c90faf,портниха,1,1,1
+unseen_text,aead07d44491ca88acb3a961,саларьево,1,0,0
+unseen_text,f757e04daec9846e259c9a34,айклауд создать,1,0,1
+unseen_text,1f995fcbe1c58c8f71640571,илосос,1,1,1
+unseen_text,2eaf36d2076020c259ffdede,покраска решеток на окнах,1,0,0
+unseen_text,631d92a2acb02e1d4a141b7e,сантехнические перегородки,1,0,1
+unseen_text,8b01d1a9f85a9d6dae786fbc,детали машин,1,0,0
+unseen_text,d2bd7dfd3da3448aa4362955,чистка компьютеров,1,0,1
+unseen_text,d66b6aed8e56e9cc597dbac6,ул российская,1,0,0
+unseen_text,d975aba8a72384f46274b71b,гараж сборный из сип панели,1,0,0
+unseen_text,ef33d70b2c5eaf90d3399cfd,резьба по дереву,1,0,0
+held_context,00c92de694656fcb7d1c2840,старокорсунская,1,0,0
+held_context,0a8aafc722e29a3c611586c5,аренда гуся,1,0,0
+held_context,1888088e0b69ce1078f4a1eb,ремонт автомобильных колонок,1,1,1
+held_context,259dce478f7a63cc3927195d,тепловизор,1,0,0
+held_context,3c253c317d8283d41ef95ee3,эндоскоп,1,1,1
+held_context,4116e7362653682ae4d8c486,кровля,1,0,0
+held_context,481d52e8e14b69338a2a1395,баня аренда,1,1,1
+held_context,dce9ea233e34ec83c4b2ad15,домик на берегу,1,1,1
+held_context,e68ad82f577438addb0d4d23,вышибала,1,0,0
+held_context,f0b478ddadf46c51cfbf061c,краскопульт,1,1,1
+held_context,f39748c268d4bdcd3d1b0bd0,пилатес зеленогорск,1,1,1
+held_context,fe7b7aabf3c00faaffc95131,заказ минивэна,1,1,1
+held_context,1011ab44fa3e040af501b4fa,установка опалубки,1,0,0
+held_context,48ca1e77f386f2a8934ba183,строительство домов семейная ипотека,1,0,0
+held_context,aa7522790fe287e3808af96e,а фрейм,1,0,0
+held_context,1de8fffbabb3c847b4619def,место под вендинг,1,1,1
+held_context,944a4d95f2d06bb2e9ed38d8,восстановление резьбы,1,1,1
+held_context,aca4ab664e1e6d2936c90faf,портниха,1,1,1
+held_context,aead07d44491ca88acb3a961,саларьево,1,0,0
+held_context,f757e04daec9846e259c9a34,айклауд создать,1,0,1
+held_context,1f995fcbe1c58c8f71640571,илосос,1,1,1
+held_context,2eaf36d2076020c259ffdede,покраска решеток на окнах,1,0,0
+held_context,631d92a2acb02e1d4a141b7e,сантехнические перегородки,1,0,1
+held_context,8b01d1a9f85a9d6dae786fbc,детали машин,1,0,0
+held_context,d2bd7dfd3da3448aa4362955,чистка компьютеров,1,0,1
+held_context,d66b6aed8e56e9cc597dbac6,ул российская,1,0,0
+held_context,d975aba8a72384f46274b71b,гараж сборный из сип панели,1,0,0
+held_context,ef33d70b2c5eaf90d3399cfd,резьба по дереву,1,0,0

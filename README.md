@@ -36,6 +36,13 @@ SHA-256 ответа:
 
 ## Как работаем дальше
 
+Следующий кандидат v8 разрабатывается в ветке `feature/ranker-v8`.
+Отчёт: [docs/EXPERIMENTS_V8.md](docs/EXPERIMENTS_V8.md).
+Его отдельный ответ — `experiments/results/v8/answer.csv`, notebook —
+`experiments/Avito_v8_candidate.ipynb`, комплект для воспроизведения —
+`deliverables/avito_v8_solution.zip`. Метрика v8 на платформе пока неизвестна;
+корневые notebook и CSV остаются подтверждённой версией v7.
+
 Основной notebook и ответ представляют подтверждённую лучшую версию. Новые
 эксперименты запускаем через notebook в `experiments/`, сравниваем на том же
 development, записываем результаты и только после проверки переносим улучшение

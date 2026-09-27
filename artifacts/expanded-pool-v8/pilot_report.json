@@ -1,0 +1,27 @@
+{
+  "before_matched_recall50": 0.9501708535101647,
+  "after_matched_recall50": 0.9528152912874686,
+  "statistics": [
+    {
+      "mode": "unseen_text",
+      "before_macro_recall50": 0.9453676470588235,
+      "after_macro_recall50": 0.9478676470588235,
+      "improved": 11,
+      "worsened": 2,
+      "pool_recall": 0.995,
+      "mean_pool_size": 2397.765588235294
+    },
+    {
+      "mode": "held_context",
+      "before_macro_recall50": 0.9466911764705882,
+      "after_macro_recall50": 0.9490441176470589,
+      "improved": 10,
+      "worsened": 2,
+      "pool_recall": 0.995,
+      "mean_pool_size": 2398.625882352941
+    }
+  ],
+  "control_evaluated": false,
+  "main_answer_unchanged": true,
+  "limitation": "Fixed v7 selector applied to expanded pools; OOF pool refit not performed."
+}

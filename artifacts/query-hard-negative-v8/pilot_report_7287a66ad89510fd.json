@@ -1,0 +1,12 @@
+{
+  "fingerprint": "7287a66ad89510fd",
+  "winner": {
+    "hard_encoder_weight": 1.0,
+    "matched_recall50": 0.9503844542530111,
+    "unseen_recall50": 0.9453676470588235,
+    "held_recall50": 0.9478676470588235
+  },
+  "control_evaluated": false,
+  "main_answer_unchanged": true,
+  "limitation": "Fixed v7 ranker; positive result requires isolated OOF features and refit."
+}

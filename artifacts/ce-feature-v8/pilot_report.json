@@ -1,0 +1,38 @@
+{
+  "training_contexts": 701,
+  "validation_contexts": 299,
+  "validation_texts": 282,
+  "own_text_overlap": 0,
+  "baseline": {
+    "variant": "v7",
+    "weight": 0.0,
+    "mixed_recall50": 0.9610009093360019,
+    "unseen_recall50": 0.9527777777777777,
+    "held_recall50": 0.9747899159663865,
+    "improved": 0,
+    "worsened": 0
+  },
+  "best_without_ce": {
+    "variant": "v7",
+    "weight": 0.0,
+    "mixed_recall50": 0.9610009093360019,
+    "unseen_recall50": 0.9527777777777777,
+    "held_recall50": 0.9747899159663865,
+    "improved": 0,
+    "worsened": 0
+  },
+  "best_with_ce": {
+    "variant": "expanded",
+    "weight": 0.25,
+    "mixed_recall50": 0.9610009093360019,
+    "unseen_recall50": 0.9527777777777777,
+    "held_recall50": 0.9747899159663865,
+    "improved": 0,
+    "worsened": 0
+  },
+  "ce_delta_vs_best_without": 0.0,
+  "mean_ce_score_coverage": 0.9730323299888519,
+  "control_evaluated": false,
+  "main_answer_unchanged": true,
+  "limitation": "Small grouped split of previously viewed development; score coverage follows v5 top500; pilot only."
+}

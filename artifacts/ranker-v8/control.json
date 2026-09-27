@@ -1,0 +1,16 @@
+{
+  "v7_recall50": 0.9533333333333334,
+  "selected_recall50": 0.955,
+  "delta": 0.0016666666666666668,
+  "improved": 4,
+  "worsened": 3,
+  "history_audit": {
+    "contexts": 600,
+    "positive_pairs": 604,
+    "known_text_fraction": 0.0,
+    "positive_item_seen_macro_fraction": 0.0016666666666666668,
+    "own_context_overlap": 0
+  },
+  "used_for_configuration_selection": false,
+  "main_answer_unchanged": true
+}

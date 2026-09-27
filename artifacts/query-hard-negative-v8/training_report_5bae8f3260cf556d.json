@@ -1,0 +1,21 @@
+{
+  "fingerprint": "5bae8f3260cf556d",
+  "config": {
+    "epochs": 1,
+    "learning_rate": 1e-05,
+    "negatives": 4,
+    "retrieve": 64,
+    "skip_nearest": 8,
+    "hard_weight": 0.0,
+    "seed": 261928
+  },
+  "training_pairs_available": 379988,
+  "sampled_pairs": 69710,
+  "development_text_overlap": 0,
+  "known_positives_in_negatives": 0,
+  "initial_checkpoint": "artifacts\\query-encoder-pilot\\epoch_3_2f9b3ff932e04986",
+  "mean_loss": 1.6076905753634392,
+  "seconds": 53.33,
+  "gpu_peak_allocated_MiB": 4037.4,
+  "limitation": "Mined non-selected items remain unjudged; conservative auxiliary loss."
+}

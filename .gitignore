@@ -31,6 +31,7 @@ __pycache__/
 !artifacts/microcat-v6/final_rank_*.joblib
 !artifacts/microcat-v6/final_all_*.joblib
 !artifacts/query-encoder-candidate/final_ranker_*.joblib
+!artifacts/ranker-v8/final_*.joblib
 !models/retrieval-priors/*.joblib
 .env
 .env.*

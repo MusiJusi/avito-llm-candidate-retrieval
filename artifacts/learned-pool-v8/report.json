@@ -1,0 +1,61 @@
+{
+  "results": [
+    {
+      "mode": "unseen_text",
+      "added_per_channel": 0,
+      "pool_recall": 0.991764705882353,
+      "mean_pool_size": 2194.4182352941175,
+      "outside_positive_pairs": 28,
+      "rescued_positive_pairs": 0,
+      "own_context_overlap": 0
+    },
+    {
+      "mode": "unseen_text",
+      "added_per_channel": 500,
+      "pool_recall": 0.995,
+      "mean_pool_size": 2397.765588235294,
+      "outside_positive_pairs": 28,
+      "rescued_positive_pairs": 11,
+      "own_context_overlap": 0
+    },
+    {
+      "mode": "unseen_text",
+      "added_per_channel": 1000,
+      "pool_recall": 0.9958823529411764,
+      "mean_pool_size": 2861.899705882353,
+      "outside_positive_pairs": 28,
+      "rescued_positive_pairs": 14,
+      "own_context_overlap": 0
+    },
+    {
+      "mode": "held_context",
+      "added_per_channel": 0,
+      "pool_recall": 0.991764705882353,
+      "mean_pool_size": 2195.985294117647,
+      "outside_positive_pairs": 28,
+      "rescued_positive_pairs": 0,
+      "own_context_overlap": 0
+    },
+    {
+      "mode": "held_context",
+      "added_per_channel": 500,
+      "pool_recall": 0.995,
+      "mean_pool_size": 2398.6261764705882,
+      "outside_positive_pairs": 28,
+      "rescued_positive_pairs": 11,
+      "own_context_overlap": 0
+    },
+    {
+      "mode": "held_context",
+      "added_per_channel": 1000,
+      "pool_recall": 0.9958823529411764,
+      "mean_pool_size": 2861.6511764705883,
+      "outside_positive_pairs": 28,
+      "rescued_positive_pairs": 14,
+      "own_context_overlap": 0
+    }
+  ],
+  "main_answer_unchanged": true,
+  "control_evaluated": false,
+  "limitation": "Candidate pool only; a trained selector must validate Recall@50."
+}

@@ -1,0 +1,63 @@
+{
+  "winner": {
+    "strong_ranker_weight": 0.0,
+    "matched_recall50": 0.9528152912874686,
+    "unseen_macro": 0.9478676470588235,
+    "held_macro": 0.9490441176470589
+  },
+  "ranker_selection": {
+    "fingerprint": "40e4aef25adc0919",
+    "winner": {
+      "model": "regularized",
+      "trees": 600,
+      "weight": 1.0,
+      "matched_recall50": 0.951065578232884,
+      "unseen_macro_recall50": 0.94625,
+      "held_context_macro_recall50": 0.9478676470588235,
+      "actual_known_macro_recall50": 0.9530800821355236
+    },
+    "baseline": {
+      "model": "v7",
+      "trees": 400,
+      "weight": 0.75,
+      "matched_recall50": 0.9501708535101647,
+      "unseen_macro_recall50": 0.9453676470588235,
+      "held_context_macro_recall50": 0.9466911764705882,
+      "actual_known_macro_recall50": 0.9530800821355236
+    },
+    "configuration": {
+      "n_estimators": 600,
+      "num_leaves": 31,
+      "learning_rate": 0.04,
+      "reg_lambda": 30.0,
+      "cutoff": 55
+    },
+    "control_used_for_selection": false,
+    "development_pair_delta_bootstrap95": [
+      -0.0009744746185586796,
+      0.003015905383360523
+    ],
+    "unseen_history": {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.03200980392156862,
+      "own_context_overlap": 0
+    },
+    "held_history": {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.7161764705882353,
+      "positive_item_seen_macro_fraction": 0.036274509803921565,
+      "own_context_overlap": 0
+    },
+    "limitations": [
+      "Repeatedly viewed development/control.",
+      "Frozen v4 auxiliary priors limitation.",
+      "Evaluation query encoder excludes all development texts."
+    ]
+  },
+  "control_used_for_selection": false,
+  "baseline_v7_matched": 0.9501708535101647,
+  "expanded_v7_matched": 0.9528152912874686
+}

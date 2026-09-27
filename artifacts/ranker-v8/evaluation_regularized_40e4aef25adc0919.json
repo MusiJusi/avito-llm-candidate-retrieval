@@ -1,0 +1,14 @@
+{
+  "stage": "evaluation",
+  "configuration": {
+    "n_estimators": 600,
+    "num_leaves": 31,
+    "learning_rate": 0.04,
+    "reg_lambda": 30.0,
+    "cutoff": 55
+  },
+  "rows": 14222085,
+  "groups": 37862,
+  "seconds": 309.28,
+  "model_sha256": "6e494751bc4c0188fbe5521097099d383878bf1ed4361aa19f21f1dbd6a49b8e"
+}

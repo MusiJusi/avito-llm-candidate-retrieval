@@ -1,7 +1,8 @@
 """Rebuild the complete notebook in a fresh process and compare the submission.
 
 Run after an initial successful execution. Search indexes, OOF examples and all
-models are rebuilt: the check does not merely load the previously fitted model.
+new models are rebuilt: the check does not merely load the final fitted model.
+Declared frozen v0.3 priors remain fixed and their hashes are checked separately.
 """
 import hashlib
 import json
@@ -40,6 +41,7 @@ assert expected_hash == actual_hash, "Full rebuild changed the submitted CSV"
 assert expected_code_hash == after["code_sha256"], "Rebuild did not execute the current submitted code"
 assert before["metrics"] == after["metrics"], "Full rebuild changed experiment results"
 assert before.get("embedding_sha256") == after.get("embedding_sha256"), "Full rebuild changed E5 vectors"
+assert before.get("prior_manifest") == after.get("prior_manifest"), "Frozen priors changed"
 notebook = nbformat.read(root / "Avito.ipynb", as_version=4)
 nbformat.validate(notebook)
 code_cells = [cell for cell in notebook.cells if cell.cell_type == "code"]
@@ -47,7 +49,9 @@ assert all(cell.execution_count is not None for cell in code_cells)
 assert not any(output.output_type == "error" for cell in code_cells for output in cell.outputs)
 report = {"full_rebuild_without_cache": True, "fresh_python_process": True,
           "network_connections_disabled": True, "embedding_bytes_equal": before.get("embedding_sha256") == after.get("embedding_sha256"),
-          "all_models_retrained": True, "answer_bytes_equal": True, "metrics_equal": True,
+          "all_models_retrained": not before.get("frozen_priors", False),
+          "all_new_models_retrained": True, "frozen_priors_equal": before.get("prior_manifest") == after.get("prior_manifest"),
+          "answer_bytes_equal": True, "metrics_equal": True,
           "answer_sha256": actual_hash, "code_sha256": after["code_sha256"],
           "reference_code_sha256": before["code_sha256"],
           "executed_code_cells": len(code_cells), "elapsed_seconds": round(time.perf_counter() - started, 2)}

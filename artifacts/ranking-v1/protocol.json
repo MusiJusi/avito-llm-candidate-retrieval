@@ -1,0 +1,9 @@
+{
+  "training_contexts": 11949,
+  "training_texts": 7796,
+  "development_contexts": 2600,
+  "new_audit_texts": 800,
+  "direct_training_text_overlap": 0,
+  "direct_training_positive_item_overlap": 0,
+  "purged_item_overlap": 0
+}

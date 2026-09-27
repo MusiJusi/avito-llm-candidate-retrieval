@@ -15,7 +15,8 @@ import numpy as np
 import pandas as pd
 from scipy.stats import rankdata
 
-notebook = json.loads((root / "Avito.ipynb").read_text(encoding="utf-8"))
+recipe = root / "Avito_v0.3.ipynb"
+notebook = json.loads((recipe if recipe.exists() else root / "Avito.ipynb").read_text(encoding="utf-8"))
 functions = {}
 for cell in notebook["cells"]:
     if cell["cell_type"] == "code":

@@ -1,4 +1,4 @@
-"""Check exact cosine, pool expansion, ID alignment and negative sampling."""
+"""Check v0.3 exact cosine, pool expansion, ID alignment and negative sampling."""
 import ast
 import json
 from pathlib import Path
@@ -13,7 +13,8 @@ import pandas as pd
 import scipy.sparse as sp
 from scipy.stats import rankdata
 
-document = json.loads((root / "Avito.ipynb").read_text(encoding="utf-8"))
+recipe = root / "Avito_v0.3.ipynb"
+document = json.loads((recipe if recipe.exists() else root / "Avito.ipynb").read_text(encoding="utf-8"))
 definitions = {}
 for cell in document["cells"]:
     if cell["cell_type"] == "code":

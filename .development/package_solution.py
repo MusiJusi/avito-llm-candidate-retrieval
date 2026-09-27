@@ -9,13 +9,14 @@ from pathlib import Path
 import zipfile
 
 root = Path(__file__).resolve().parents[1]
-manifest = json.loads((root / "artifacts" / "semantic-v1" / "manifest.json").read_text(encoding="utf-8"))
+version = "ranking-v1"
+manifest = json.loads((root / "artifacts" / version / "manifest.json").read_text(encoding="utf-8"))
 assert hashlib.sha256((root / "answer.csv").read_bytes()).hexdigest() == manifest["answer_sha256"]
-destination = root / "deliverables" / "avito_semantic_solution.zip"
+destination = root / "deliverables" / "avito_ranking_solution.zip"
 destination.parent.mkdir(parents=True, exist_ok=True)
-paths = [root / name for name in ["Avito.ipynb", "README.md", "requirements.txt", "CHANGELOG.md", "answer.csv"]]
+paths = [root / name for name in ["Avito.ipynb", "Avito_v0.3.ipynb", "README.md", "README_v0.3.md", "requirements.txt", "CHANGELOG.md", "answer.csv"]]
 paths += sorted((root / "models").rglob("*"))
-paths += [path for path in (root / "artifacts" / "semantic-v1").iterdir()
+paths += [path for path in (root / "artifacts" / version).iterdir()
           if path.suffix in {".json", ".csv"} or path.name in manifest["final_model_files"]
           or path.name.startswith(("e5_items_", "e5_queries_"))]
 paths += [root / ".development" / name for name in ["download_semantic_model.py", "verify_reproduction.py", "run_notebook.py"]]

@@ -1,5 +1,6 @@
 .inspection_deps/
 .semantic_deps/
+.ranking_deps/
 .downloads/
 deliverables/
 .verification/
@@ -21,6 +22,8 @@ __pycache__/
 !artifacts/learned-selection-v1/final_ranker_*.joblib
 !artifacts/semantic-v1/final_ranker_4dedfcda63b21edd.joblib
 !artifacts/semantic-v1/final_legacy_ranker_4dedfcda63b21edd.joblib
+!artifacts/ranking-v1/final_ranker_c0442eeba2d244f2.joblib
+!models/retrieval-priors/*.joblib
 .env
 .env.*
 !.env.example

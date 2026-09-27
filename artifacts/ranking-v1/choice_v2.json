@@ -1,0 +1,35 @@
+{
+  "selected": {
+    "model": "lgb_rank_expanded",
+    "family": "lgb_rank",
+    "scale": "expanded",
+    "trees": 200,
+    "weight": 0.75,
+    "development_recall50": 0.9481414562464411,
+    "unknown_macro_recall50": 0.9451923076923077,
+    "known_macro_recall50": 0.9461538461538461
+  },
+  "model_paths": {
+    "lgb_rank_expanded": "D:\\JupyterProjects\\AvitoTest\\artifacts\\ranking-v1\\lgb_rank_expanded_200_c0442eeba2d244f2.joblib"
+  },
+  "protocol": {
+    "training_contexts": 11949,
+    "training_texts": 7796,
+    "development_contexts": 2600,
+    "new_audit_texts": 800,
+    "direct_training_text_overlap": 0,
+    "direct_training_positive_item_overlap": 0,
+    "purged_item_overlap": 0
+  },
+  "config": {
+    "contexts": 20000,
+    "contexts_per_text": 4,
+    "audit_texts": 800,
+    "hard_source": 40,
+    "hard_model": 80,
+    "random_tail": 64,
+    "folds": 3,
+    "seed": 261627
+  },
+  "known_query_fraction": 0.3735725938009788
+}

@@ -1,0 +1,156 @@
+{
+  "config": {
+    "seed": 260926,
+    "validation_texts": 1400,
+    "development_fraction": 0.5,
+    "cold_item_fraction": 0.9,
+    "description_chars": 4000,
+    "params_chars": 1800,
+    "word_features": 240000,
+    "char_features": 220000,
+    "retrieval_pool": 500,
+    "version": "ranking-v1"
+  },
+  "experiment_config": {
+    "contexts": 20000,
+    "contexts_per_text": 4,
+    "audit_texts": 800,
+    "hard_source": 40,
+    "hard_model": 80,
+    "random_tail": 64,
+    "folds": 3,
+    "seed": 261627
+  },
+  "ranker_choice": {
+    "model": "lgb_rank_expanded",
+    "family": "lgb_rank",
+    "scale": "expanded",
+    "trees": 200,
+    "weight": 0.75,
+    "development_recall50": 0.9481414562464411,
+    "unknown_macro_recall50": 0.9451923076923077,
+    "known_macro_recall50": 0.9461538461538461
+  },
+  "semantic_config": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "max_length": 192,
+    "description_chars": 1200,
+    "params_chars": 256,
+    "batch_size": 128,
+    "retrieval_pool": 500,
+    "temperature": 0.05,
+    "dtype": "float32"
+  },
+  "prior_manifest": {
+    "version": "v0.3.0",
+    "source_commit": "ba3fa90cf0878dc440ed745db2af90b060c03464",
+    "training_recipe": "Avito_v0.3.ipynb",
+    "input_sha256": {
+      "train.parquet": "e150ab7a5c98769f643b95ee3a02dc0f664b647facd69a7d280ec6d48ca554a7",
+      "benchmark_items.parquet": "193b3a3961464620cbf8d8797152b7f90cae1826ca749fb7817a210984a09899",
+      "benchmark_queries.parquet": "e49de4fb76f03979a4af96034817767d39ae5de9f94e254fed028243188dda06"
+    },
+    "evaluation_training_texts": 4000,
+    "final_training_texts": 6600,
+    "sha256": {
+      "evaluation_legacy.joblib": "4a7acbebb558dc468a8818b9a84c8c14fd75da5a7fa562569111054b2d53d42b",
+      "evaluation_semantic.joblib": "3f8fb1c866065dd83bbe56ccaabd2e4908c8ad6d842b3e7663a5b31b35150d5c",
+      "final_legacy.joblib": "ab51be56de3611bdf606f6a9e5f88c05dd1747898c1aa5b998e06441baa56b61",
+      "final_semantic.joblib": "db266fcf96a70459a55967d767a0b0f776228156b36f06a9050b71d9d767a2c0"
+    },
+    "purpose": "Frozen negative-mining and ensemble priors; new models are trained in Avito.ipynb."
+  },
+  "frozen_priors": true,
+  "model_manifest": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "license": "MIT",
+    "sha256": {
+      "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+      "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+      "special_tokens_map.json": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7",
+      "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+      "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+    }
+  },
+  "embedding_sha256": {
+    "items": "3e97659a1f191104fdedc5fc63eae651a662d8c3b2e375c97770f676d4f86611",
+    "queries": "11679c4575457a4b4ebfe16e1462713800fb3a6e15e1a8572e1be086ca6debd9"
+  },
+  "input_sha256": {
+    "train.parquet": "e150ab7a5c98769f643b95ee3a02dc0f664b647facd69a7d280ec6d48ca554a7",
+    "benchmark_items.parquet": "193b3a3961464620cbf8d8797152b7f90cae1826ca749fb7817a210984a09899",
+    "benchmark_queries.parquet": "e49de4fb76f03979a4af96034817767d39ae5de9f94e254fed028243188dda06"
+  },
+  "fingerprint": "c0442eeba2d244f2",
+  "code_sha256": "89e13e3e3950e203aa6b901dda5386d848fbfa9d36a7ef20be74b1baca19c927",
+  "final_model_files": [
+    "final_ranker_c0442eeba2d244f2.joblib"
+  ],
+  "answer_sha256": "c4e8b4a27c72c3222208bd3563b3d23d9ca3110f3c325332ac9f9baed016672b",
+  "metrics": {
+    "development": {
+      "model": "lgb_rank_expanded",
+      "family": "lgb_rank",
+      "scale": "expanded",
+      "trees": 200,
+      "weight": 0.75,
+      "development_recall50": 0.9481414562464411,
+      "unknown_macro_recall50": 0.9451923076923077,
+      "known_macro_recall50": 0.9461538461538461
+    },
+    "reference_development": {
+      "development_recall50": 0.9248068276709234,
+      "unknown_macro_recall50": 0.9215384615384615,
+      "known_macro_recall50": 0.921923076923077
+    },
+    "new_audit": {
+      "queries": 800,
+      "reference_recall50": 0.91375,
+      "selected_recall50": 0.9325,
+      "delta": 0.01875,
+      "paired_delta_bootstrap95": [
+        0.00875,
+        0.03
+      ],
+      "improved": 17,
+      "worsened": 2,
+      "used_for_selection": false,
+      "pool_recall": 0.99,
+      "choice": {
+        "model": "lgb_rank_expanded",
+        "family": "lgb_rank",
+        "scale": "expanded",
+        "trees": 200,
+        "weight": 0.75,
+        "development_recall50": 0.9481414562464411,
+        "unknown_macro_recall50": 0.9451923076923077,
+        "known_macro_recall50": 0.9461538461538461
+      }
+    },
+    "protocol": {
+      "training_contexts": 11949,
+      "training_texts": 7796,
+      "development_contexts": 2600,
+      "new_audit_texts": 800,
+      "direct_training_text_overlap": 0,
+      "direct_training_positive_item_overlap": 0,
+      "purged_item_overlap": 0
+    },
+    "known_query_fraction": 0.3735725938009788,
+    "final_contexts": 15349,
+    "final_texts": 11196
+  },
+  "versions": {
+    "python": "3.14.6",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "torch": "2.10.0+cu130",
+    "transformers": "4.57.6",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10",
+    "device": "cuda"
+  }
+}

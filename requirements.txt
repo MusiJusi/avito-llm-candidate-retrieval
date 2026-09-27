@@ -15,3 +15,5 @@ torch==2.10.0+cu130
 transformers==4.57.6
 tokenizers==0.22.2
 safetensors==0.8.0
+lightgbm==4.7.0
+catboost==1.2.10

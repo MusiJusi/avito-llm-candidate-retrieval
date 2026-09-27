@@ -1,0 +1,16 @@
+{
+  "known_query_fraction": 0.3735725938009788,
+  "validation_contexts_per_regime": 2600,
+  "strata": [
+    "query length",
+    "filters present",
+    "location in corpus"
+  ],
+  "unknown_effective_sample_size": 1672.8251116484892,
+  "known_effective_sample_size": 2515.692287761717,
+  "reference": {
+    "development_recall50": 0.9248068276709234,
+    "unknown_macro_recall50": 0.9215384615384615,
+    "known_macro_recall50": 0.921923076923077
+  }
+}

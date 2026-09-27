@@ -1,4 +1,10 @@
-# Поиск объявлений услуг: Recall@50, v0.4.0
+"""Write the description of the frozen ranking experiment and final recipe."""
+from pathlib import Path
+root = Path(__file__).resolve().parents[1]
+historical = root / "README_v0.3.md"
+if not historical.exists():
+    historical.write_bytes((root / "README.md").read_bytes())
+(root / "README.md").write_text('''# Поиск объявлений услуг: Recall@50, v0.4.0
 
 Самостоятельный Jupyter Notebook **Avito.ipynb** строит кандидатов по BM25,
 символьному TF-IDF и локальной multilingual E5, затем выбирает 50 объявлений
@@ -202,9 +208,39 @@ threadpoolctl, PyTorch, Transformers, CatBoost и LightGBM, открытые в�
 - [TF-IDF](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)
 - [Русский Snowball](https://snowballstem.org/algorithms/russian/stemmer.html)
 - [BM25](https://www.elastic.co/docs/reference/elasticsearch/index-settings/similarity)
+''', encoding='utf-8')
+changelog = root / "CHANGELOG.md"
+text = changelog.read_text(encoding="utf-8")
+entry = '''## v0.4.0 — ranking-loss, расширенные контексты и трудные negatives
 
-## Фактические проверки текущей версии
+- Ветка `feature/ranking-improvements`; категория в scoring не добавлялась.
+- Сравнение четырёх семейств моделей и двух объёмов данных на 2600 development-запросах.
+- Выбран LightGBM LambdaRank: 200 деревьев, 75% RRF с 25% прежнего ансамбля.
+- OOF объединяет все контексты одного текста; расширенная выборка — 11949 контекстов.
+- Новые 800 запросов зарезервированы до fit и не используются для выбора.
+- Development с согласованием распределений: 0.924807 → 0.948141.
+- Новые 800: 0.913750 → 0.932500; прирост 0.01875, парный bootstrap 95% [0.00875; 0.03].
+- Финальное обучение: 15349 контекстов, 11196 текстов; frozen v0.3 priors поставляются с кодом.
+- Сохранена полная рецептура priors в Avito_v0.3.ipynb; дефолтный Run All обучает выбранную модель.
+- Реальная оценка платформы v0.3.0: 0.858569; платформенная оценка v0.4.0 ещё неизвестна.
 
-- Полный пересчёт индексов, E5, OOF и новых моделей в новом процессе без сети: **1467.34 секунды**; метрики и байты CSV совпали.
+'''
+if "## v0.4.0" not in text:
+    changelog.write_text(text.replace("# История версий\n\n", "# История версий\n\n" + entry, 1), encoding="utf-8")
+print("Wrote ranking documentation")
 
-SHA-256 текущего answer.csv: `c4e8b4a27c72c3222208bd3563b3d23d9ca3110f3c325332ac9f9baed016672b`.
+import json
+cache = root / 'artifacts/ranking-v1'
+verification = []
+for name, description in [
+        ('reproducibility_check.json', 'Полный пересчёт индексов, E5, OOF и новых моделей в новом процессе без сети'),
+        ('portable_reproduction.json', 'Запуск распакованного архива на CPU без сети и исходных поисковых кешей')]:
+    path = cache / name
+    if path.exists():
+        report = json.loads(path.read_text(encoding='utf-8'))
+        verification.append(f'- {description}: **{report["elapsed_seconds"]} секунды**; метрики и байты CSV совпали.')
+if verification:
+    digest = json.loads((cache / 'manifest.json').read_text(encoding='utf-8'))['answer_sha256']
+    with (root / 'README.md').open('a', encoding='utf-8') as target:
+        target.write('\n## Фактические проверки текущей версии\n\n' + '\n'.join(verification) +
+                     '\n\nSHA-256 текущего answer.csv: `' + digest + '`.\n')

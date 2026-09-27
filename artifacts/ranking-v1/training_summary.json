@@ -1,0 +1,60 @@
+{
+  "expanded_training": {
+    "rows": 2172396,
+    "features": 38,
+    "retrieved_positive_rows": 12456,
+    "groups": 11874,
+    "oof_leakage_audit": [
+      {
+        "fold": 0,
+        "contexts": 4058,
+        "texts": 2599,
+        "text_overlap": 0,
+        "purged_item_overlap": 0
+      },
+      {
+        "fold": 1,
+        "contexts": 3961,
+        "texts": 2599,
+        "text_overlap": 0,
+        "purged_item_overlap": 0
+      },
+      {
+        "fold": 2,
+        "contexts": 3930,
+        "texts": 2598,
+        "text_overlap": 0,
+        "purged_item_overlap": 0
+      }
+    ]
+  },
+  "final_training": {
+    "rows": 2790528,
+    "features": 38,
+    "retrieved_positive_rows": 16106,
+    "groups": 15246,
+    "oof_leakage_audit": [
+      {
+        "fold": 0,
+        "contexts": 5165,
+        "texts": 3732,
+        "text_overlap": 0,
+        "purged_item_overlap": 0
+      },
+      {
+        "fold": 1,
+        "contexts": 5123,
+        "texts": 3732,
+        "text_overlap": 0,
+        "purged_item_overlap": 0
+      },
+      {
+        "fold": 2,
+        "contexts": 5061,
+        "texts": 3732,
+        "text_overlap": 0,
+        "purged_item_overlap": 0
+      }
+    ]
+  }
+}

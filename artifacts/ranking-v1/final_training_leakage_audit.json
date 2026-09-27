@@ -1,0 +1,23 @@
+[
+  {
+    "fold": 0,
+    "contexts": 5165,
+    "texts": 3732,
+    "text_overlap": 0,
+    "purged_item_overlap": 0
+  },
+  {
+    "fold": 1,
+    "contexts": 5123,
+    "texts": 3732,
+    "text_overlap": 0,
+    "purged_item_overlap": 0
+  },
+  {
+    "fold": 2,
+    "contexts": 5061,
+    "texts": 3732,
+    "text_overlap": 0,
+    "purged_item_overlap": 0
+  }
+]

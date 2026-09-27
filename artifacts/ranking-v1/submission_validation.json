@@ -1,0 +1,16 @@
+{
+  "valid": true,
+  "columns": [
+    "query_id",
+    "answer"
+  ],
+  "queries": 2452,
+  "min_candidates": 50,
+  "max_candidates": 50,
+  "identifier_case_and_corpus_membership_valid": true,
+  "utf8_valid": true,
+  "single_space_separator": true,
+  "answer_sha256": "c4e8b4a27c72c3222208bd3563b3d23d9ca3110f3c325332ac9f9baed016672b",
+  "changed_sets_vs_v03": 2450,
+  "mean_overlap_items_vs_v03": 39.19045676998369
+}

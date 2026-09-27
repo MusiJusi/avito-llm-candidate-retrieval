@@ -1,0 +1,45 @@
+{
+  "protocol": "cold_query_text_90pct_purged_positive_items_full_benchmark_corpus",
+  "development_queries": 700,
+  "holdout_queries": 700,
+  "development_recall50": 0.9042857142857142,
+  "baseline_development_recall50": 0.8671428571428571,
+  "baseline_holdout_recall50": 0.8911904761904762,
+  "holdout_recall50": 0.9178571428571428,
+  "holdout_recall50_bootstrap95": [
+    0.8971428571428571,
+    0.9371428571428572
+  ],
+  "holdout_pool_recall": 0.9714285714285714,
+  "mean_pool_size": 1694.7585714285715,
+  "best_config": {
+    "name": "hybrid_19",
+    "title": 0.3,
+    "body": 0.5,
+    "char": 0.2,
+    "filter": 0.03,
+    "geo": 0.5,
+    "micro": 0.5
+  },
+  "ranker_choice": {
+    "model": "hgb_leaves15_trees120",
+    "leaves": 15,
+    "iterations": 120,
+    "alpha": 0.5,
+    "development_recall50": 0.9042857142857142
+  },
+  "fresh_audit": {
+    "queries": 600,
+    "baseline_recall50": 0.8983333333333333,
+    "selected_recall50": 0.9233333333333333,
+    "delta": 0.025,
+    "paired_delta_bootstrap95": [
+      0.006666666666666667,
+      0.043333333333333335
+    ],
+    "improved_queries": 26,
+    "worsened_queries": 10,
+    "pool_recall": 0.98,
+    "used_for_model_selection": false
+  }
+}

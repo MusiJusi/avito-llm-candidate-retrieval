@@ -6,6 +6,8 @@ __pycache__/
 *.parquet
 *.joblib
 *.joblib.tmp
+# The small fitted final model is a deliverable, unlike reproducible search caches.
+!artifacts/learned-selection-v1/final_ranker_*.joblib
 .env
 .env.*
 !.env.example

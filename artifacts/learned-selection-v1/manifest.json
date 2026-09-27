@@ -1,0 +1,103 @@
+{
+  "config": {
+    "seed": 260926,
+    "validation_texts": 1400,
+    "development_fraction": 0.5,
+    "cold_item_fraction": 0.9,
+    "description_chars": 4000,
+    "params_chars": 1800,
+    "word_features": 240000,
+    "char_features": 220000,
+    "retrieval_pool": 500,
+    "version": "learned-selection-v1"
+  },
+  "ranker_config": {
+    "training_queries": 4000,
+    "audit_queries": 600,
+    "folds": 3,
+    "hard_negatives": 100,
+    "random_negatives": 60,
+    "iterations": [
+      120,
+      240
+    ],
+    "leaf_options": [
+      15,
+      31
+    ],
+    "learning_rate": 0.08,
+    "l2_regularization": 10.0,
+    "blend_options": [
+      0.5,
+      0.75,
+      1.0
+    ],
+    "feature_version": 1
+  },
+  "ranker_choice": {
+    "model": "hgb_leaves15_trees120",
+    "leaves": 15,
+    "iterations": 120,
+    "alpha": 0.5,
+    "development_recall50": 0.9042857142857142
+  },
+  "input_sha256": {
+    "train.parquet": "e150ab7a5c98769f643b95ee3a02dc0f664b647facd69a7d280ec6d48ca554a7",
+    "benchmark_items.parquet": "193b3a3961464620cbf8d8797152b7f90cae1826ca749fb7817a210984a09899",
+    "benchmark_queries.parquet": "e49de4fb76f03979a4af96034817767d39ae5de9f94e254fed028243188dda06"
+  },
+  "fingerprint": "f0cb7b5e4065eea7",
+  "code_sha256": "306602d3792b244b57610b935518ba9d6f617c312fa41b0a02dc073be68bde56",
+  "answer_sha256": "2847384387581912033850f8973619d5e75bbae60863a45ea1e32d49b75cf674",
+  "metrics": {
+    "protocol": "cold_query_text_90pct_purged_positive_items_full_benchmark_corpus",
+    "development_queries": 700,
+    "holdout_queries": 700,
+    "development_recall50": 0.9042857142857142,
+    "baseline_development_recall50": 0.8671428571428571,
+    "baseline_holdout_recall50": 0.8911904761904762,
+    "holdout_recall50": 0.9178571428571428,
+    "holdout_recall50_bootstrap95": [
+      0.8971428571428571,
+      0.9371428571428572
+    ],
+    "holdout_pool_recall": 0.9714285714285714,
+    "mean_pool_size": 1694.7585714285715,
+    "best_config": {
+      "name": "hybrid_19",
+      "title": 0.3,
+      "body": 0.5,
+      "char": 0.2,
+      "filter": 0.03,
+      "geo": 0.5,
+      "micro": 0.5
+    },
+    "ranker_choice": {
+      "model": "hgb_leaves15_trees120",
+      "leaves": 15,
+      "iterations": 120,
+      "alpha": 0.5,
+      "development_recall50": 0.9042857142857142
+    },
+    "fresh_audit": {
+      "queries": 600,
+      "baseline_recall50": 0.8983333333333333,
+      "selected_recall50": 0.9233333333333333,
+      "delta": 0.025,
+      "paired_delta_bootstrap95": [
+        0.006666666666666667,
+        0.043333333333333335
+      ],
+      "improved_queries": 26,
+      "worsened_queries": 10,
+      "pool_recall": 0.98,
+      "used_for_model_selection": false
+    }
+  },
+  "versions": {
+    "python": "3.14.6",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3",
+    "sklearn": "1.9.1"
+  }
+}

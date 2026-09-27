@@ -1,0 +1,9 @@
+{
+  "version": "v0.3.0",
+  "git_commit": "ba3fa90cf0878dc440ed745db2af90b060c03464",
+  "answer_sha256": "0fea0cfc8e71f7cc2d978df8eb7fd3a2dcaabac51dbe03c0ea78550cfb430de4",
+  "platform_recall50": 0.858569,
+  "score_source": "User-provided platform screenshot",
+  "local_fresh_audit_recall50": 0.9083333333333333,
+  "platform_labels_available": false
+}

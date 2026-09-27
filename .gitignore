@@ -3,6 +3,7 @@
 .ranking_deps/
 .downloads/
 deliverables/
+archive/releases/
 .verification/
 *.npy.tmp
 models/**/model.safetensors

@@ -1,0 +1,9 @@
+{
+  "valid": true,
+  "file": "answer.csv",
+  "queries": 2452,
+  "candidates_per_query": 50,
+  "platform_recall50": 0.897443,
+  "answer_sha256": "a256639b72ef3bd515bf5118c5e337aee23a34c9e0b261da580b1c852411a6b2",
+  "numerical_training_sources_unchanged": true
+}

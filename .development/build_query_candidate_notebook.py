@@ -6,7 +6,8 @@ import hashlib
 import json
 ROOT=Path(__file__).resolve().parents[1]
 manifest=json.loads((ROOT/'artifacts/query-encoder-candidate/manifest.json').read_text())
-document=json.loads((ROOT/'Avito_v0.5.ipynb').read_text(encoding='utf-8'))
+manifest['answer_file']='answer.csv'  # The platform-confirmed model is now primary.
+document=json.loads((ROOT/'archive/notebooks/Avito_v0.5.ipynb').read_text(encoding='utf-8'))
 cells=[]
 for original in document['cells']:
     cell=copy.deepcopy(original)
@@ -22,12 +23,7 @@ def add(kind,source):
         'id':hashlib.sha256((kind+source).encode()).hexdigest()[:12]}
     if kind=='code':cell.update(outputs=[],execution_count=None)
     cells.append(cell)
-cells[0]['source']=['# Отбор услуг: дообученный query-encoder E5\n',
-    '\nRestart Kernel → Run All создаёт отдельный answer_query_encoder.csv.\n',
-    'Веса query-encoder обучены на полном train; document-encoder и корпусные векторы E5 заморожены.\n',
-    'Параметры выбраны на development; ограничения контроля сохранены в manifest.\n',
-    'Основной answer.csv от v5 не меняется. Внешних inference API нет.\n',
-    'Исследование и рецептура полного обучения — в Avito_neural_experiments.ipynb и .development.\n']
+cells[0]['source']=['# Основное решение: дообученный query-encoder E5\n', '\nRestart Kernel → Run All создаёт answer.csv.\n', 'Описание и ограничения — README.md и docs/SOLUTION.md.\n']
 add('markdown','''## Зафиксированный нейросетевой кандидат
 
 Документы кодируются исходной multilingual-e5-small, запросы — отдельно
@@ -107,5 +103,5 @@ document['cells']=cells
 document['metadata']['frozen_query_selection']=manifest['selection']['winner']
 for cell in cells:
     if cell['cell_type']=='code':ast.parse(''.join(cell['source']))
-(ROOT/'Avito_query_encoder_candidate.ipynb').write_text(json.dumps(document,ensure_ascii=False,indent=1),encoding='utf-8')
+(ROOT/'Avito.ipynb').write_text(json.dumps(document,ensure_ascii=False,indent=1),encoding='utf-8')
 print('Created self-contained learned-query candidate notebook.')

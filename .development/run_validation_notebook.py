@@ -15,10 +15,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding='utf-8')
 os.chdir(ROOT)
 parser = argparse.ArgumentParser()
-parser.add_argument('notebook', nargs='?', default='Avito_validation_v5.ipynb',
-                    choices=['Avito_validation_v5.ipynb', 'Avito_training_v5.ipynb', 'Avito_microcat_v6.ipynb', 'Avito_microcat_candidate_v6.ipynb', 'Avito_neural_experiments.ipynb', 'Avito_query_encoder_candidate.ipynb', 'Avito.ipynb'])
+parser.add_argument('notebook', nargs='?', default='Avito.ipynb')
 arguments = parser.parse_args()
 path = ROOT / arguments.notebook
+if not path.resolve().is_relative_to(ROOT) or path.suffix != '.ipynb':
+    raise ValueError('Notebook must be an .ipynb file within the project')
 notebook = json.loads(path.read_text(encoding='utf-8'))
 network_disabled = os.environ.get('AVITO_DISABLE_NETWORK') == '1'
 if network_disabled:

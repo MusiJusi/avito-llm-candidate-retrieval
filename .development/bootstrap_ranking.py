@@ -14,14 +14,16 @@ def definitions(source, namespace):
     exec(compile(tree, '<existing notebook definitions>', 'exec'), namespace)
 
 def bootstrap(namespace):
-    snapshot = Path('Avito_v0.3.ipynb')
+    snapshot = Path('archive/notebooks/Avito_v0.3.ipynb')
+    if not snapshot.exists():
+        snapshot = Path('Avito_v0.3.ipynb')  # Compatibility with older release archives.
     document = json.loads((snapshot if snapshot.exists() else Path('Avito.ipynb')).read_text(encoding='utf-8'))
     cells = [''.join(cell['source']) for cell in document['cells'] if cell['cell_type'] == 'code']
     for position in range(6):
         print('Initialize existing notebook cell', position + 1, flush=True)
         source = cells[position]
         if position == 4 and snapshot.exists():
-            source = source.replace('ROOT / "Avito.ipynb"', 'ROOT / "Avito_v0.3.ipynb"')
+            source = source.replace('ROOT / "Avito.ipynb"', 'ROOT / ' + repr(snapshot.as_posix()))
         exec(compile(source, '<notebook initialization>', 'exec'), namespace)
     definitions(cells[6], namespace)
     namespace['best_config'] = json.loads((namespace['CACHE'] / 'best_config.json').read_text())

@@ -1,0 +1,19 @@
+{
+  "version": "v7",
+  "platform_recall50": 0.897443,
+  "platform_result_source": "user_reported",
+  "notebook": "Avito.ipynb",
+  "answer_file": "answer.csv",
+  "answer_sha256": "a256639b72ef3bd515bf5118c5e337aee23a34c9e0b261da580b1c852411a6b2",
+  "training_manifest": "artifacts/query-encoder-candidate/manifest.json",
+  "original_submitted_notebook": "archive/notebooks/Avito_query_encoder_candidate.ipynb",
+  "immutable_training_source_sha256": {
+    "ranking_v5.py": "f92b61f6e92cd3893c8043e95edabd7f9bb6985998e31024107226be193b400b",
+    "validation_protocol.py": "0fb478413a4928393ddd87349be798ec6b703f6e0021f0339443a4ed605d0434",
+    "microcat_v6.py": "03be4600ba6cfb7085aad0ee69561adcfe7cb82ffba77a1ed2918d448d1d2c34",
+    "microcat_models.py": "0f9dac7c231dc8bad183ee5a3be0ad06d357775780b05fa2d4c816e2ac8eccfd",
+    "query_encoder_pilot.py": "969047ceca6cdea7c9c4e20d4f1d76257d2e7bc49bdf2abe70c21c586bb37f99",
+    "query_encoder_rank.py": "ef54608005ab0ab5c70037db936a92a889a0f409d55cf621d4e6676f9ba78ecb",
+    "export_query_encoder_candidate.py": "1134960609095b55e013a2f59017f6c23dfb4b4dc9f108fc17329ab4d595817a"
+  }
+}

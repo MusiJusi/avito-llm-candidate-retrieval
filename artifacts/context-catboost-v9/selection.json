@@ -1,0 +1,37 @@
+{
+  "fingerprint": "7588f58c4d0cc3ee",
+  "winner": {
+    "variant": "v7_context_pool",
+    "weight": 0.0,
+    "matched_recall50": 0.9528152912874686,
+    "unseen_macro": 0.9478676470588235,
+    "held_macro": 0.9490441176470589
+  },
+  "control_used_for_selection": false,
+  "pool_recall": [
+    0.995,
+    0.995
+  ],
+  "audits": [
+    {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.03200980392156862,
+      "own_context_overlap": 0
+    },
+    {
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.7161764705882353,
+      "positive_item_seen_macro_fraction": 0.036274509803921565,
+      "own_context_overlap": 0
+    }
+  ],
+  "limitations": [
+    "Reused development/control. Frozen v4 auxiliary-prior limitation.",
+    "A 4000-context training pilot, not all-train ranker refit.",
+    "Frozen v7 miner is trained on training labels; not an OOF miner."
+  ],
+  "main_answer_unchanged": true
+}

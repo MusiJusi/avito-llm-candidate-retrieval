@@ -1,0 +1,14 @@
+{
+  "rows": 2452,
+  "candidates_per_query": 50,
+  "all_query_ids_exact": true,
+  "all_item_ids_exact": true,
+  "duplicates": 0,
+  "utf8": true,
+  "columns": [
+    "query_id",
+    "answer"
+  ],
+  "changed_top50_sets": 2143,
+  "answer_sha256": "a78cd853793bcba0087573333d830d439c5e94dbae9b3d23fc3eecc2c35fee82"
+}

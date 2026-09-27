@@ -34,14 +34,24 @@
 SHA-256 ответа:
 `a256639b72ef3bd515bf5118c5e337aee23a34c9e0b261da580b1c852411a6b2`.
 
-## Как работаем дальше
+## Как работать с текущими версиями
 
-Следующий кандидат v8 разрабатывается в ветке `feature/ranker-v8`.
-Отчёт: [docs/EXPERIMENTS_V8.md](docs/EXPERIMENTS_V8.md).
-Его отдельный ответ — `experiments/results/v8/answer.csv`, notebook —
-`experiments/Avito_v8_candidate.ipynb`, комплект для воспроизведения —
-`deliverables/avito_v8_solution.zip`. Метрика v8 на платформе пока неизвестна;
-корневые notebook и CSV остаются подтверждённой версией v7.
+| Версия | Где находится ответ | Платформа | Development / контроль |
+| --- | --- | --- | --- |
+| v7, подтверждённая | `answer.csv` | **0.897443** | 0.950171 / 0.953333 |
+| v8, отдельный кандидат | `experiments/results/v8/answer.csv` | Не отправлена | 0.952815 / 0.953333 |
+| v9, новый кандидат | `experiments/results/v9/answer.csv` | Не отправлена | 0.954043 / 0.950000 |
+
+Для проверки v9 на платформе используйте только `experiments/results/v9/answer.csv`.
+Его notebook — `experiments/Avito_v9_candidate.ipynb`, комплект с локальными весами —
+`deliverables/avito_v9_solution.zip`. Свежий запуск на CPU без сети получил
+побайтово тот же CSV за 291.60 секунд.
+Контроль v9 ухудшился: локальный выигрыш небольшой и не гарантирует роста платформы.
+Подтверждённые корневые notebook и CSV сохраняют v7.
+
+Ветка v9 — `feature/context-v9`, подробный отчёт —
+[docs/EXPERIMENTS_V9.md](docs/EXPERIMENTS_V9.md).
+Предыдущие эксперименты — [docs/EXPERIMENTS_V8.md](docs/EXPERIMENTS_V8.md).
 
 Основной notebook и ответ представляют подтверждённую лучшую версию. Новые
 эксперименты запускаем через notebook в `experiments/`, сравниваем на том же

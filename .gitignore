@@ -32,6 +32,10 @@ __pycache__/
 !artifacts/microcat-v6/final_all_*.joblib
 !artifacts/query-encoder-candidate/final_ranker_*.joblib
 !artifacts/ranker-v8/final_*.joblib
+!artifacts/context-v9/final_base_*.joblib
+!artifacts/context-v9/final_geography_*.joblib
+!artifacts/context-v9/final_neighbors_*.joblib
+!artifacts/context-v9/final_combined_*.joblib
 !models/retrieval-priors/*.joblib
 .env
 .env.*

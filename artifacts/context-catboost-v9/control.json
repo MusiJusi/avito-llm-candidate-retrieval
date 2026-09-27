@@ -1,0 +1,14 @@
+{
+  "selected_recall50": 0.9533333333333334,
+  "v8_recall50": 0.9533333333333334,
+  "pool_recall": 0.9983333333333333,
+  "history_audit": {
+    "contexts": 600,
+    "positive_pairs": 604,
+    "known_text_fraction": 0.0,
+    "positive_item_seen_macro_fraction": 0.0016666666666666668,
+    "own_context_overlap": 0
+  },
+  "previously_viewed_control": true,
+  "used_for_selection": false
+}

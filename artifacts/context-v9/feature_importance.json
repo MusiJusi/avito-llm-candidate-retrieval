@@ -1,0 +1,282 @@
+[
+  {
+    "feature": "log_baseline_rank",
+    "gain": 861989.2295656204
+  },
+  {
+    "feature": "learned_log_geo_rank",
+    "gain": 122305.38821077347
+  },
+  {
+    "feature": "baseline_score",
+    "gain": 78829.34894752502
+  },
+  {
+    "feature": "log_distance_km",
+    "gain": 43910.170786857605
+  },
+  {
+    "feature": "log_e5_geo_rank",
+    "gain": 25605.573369026184
+  },
+  {
+    "feature": "log_reviews",
+    "gain": 18359.599705696106
+  },
+  {
+    "feature": "body_idf_coverage",
+    "gain": 16620.856547355652
+  },
+  {
+    "feature": "geo_compatibility",
+    "gain": 15693.970339775085
+  },
+  {
+    "feature": "context_log_distance",
+    "gain": 15171.989946365356
+  },
+  {
+    "feature": "neighbor_centroid_cosine",
+    "gain": 14516.743312358856
+  },
+  {
+    "feature": "body_token_coverage",
+    "gain": 13683.171518325806
+  },
+  {
+    "feature": "log_body_rank",
+    "gain": 13600.971356868744
+  },
+  {
+    "feature": "log_description_characters",
+    "gain": 11147.921837329865
+  },
+  {
+    "feature": "context_log_spread50",
+    "gain": 10195.50145149231
+  },
+  {
+    "feature": "geo_transition_probability",
+    "gain": 9798.737331867218
+  },
+  {
+    "feature": "log_params_characters",
+    "gain": 9434.955286979675
+  },
+  {
+    "feature": "rating",
+    "gain": 8977.573642730713
+  },
+  {
+    "feature": "filter_bm25",
+    "gain": 8686.112662315369
+  },
+  {
+    "feature": "log_price",
+    "gain": 8682.000766277313
+  },
+  {
+    "feature": "log_title_characters",
+    "gain": 7761.376524925232
+  },
+  {
+    "feature": "neighbor_log_centroid_rank",
+    "gain": 7721.149176120758
+  },
+  {
+    "feature": "geo_transition_log_support",
+    "gain": 6650.250972270966
+  },
+  {
+    "feature": "learned_log_cosine_rank",
+    "gain": 6026.062086582184
+  },
+  {
+    "feature": "log_e5_rank",
+    "gain": 5811.699279308319
+  },
+  {
+    "feature": "log_filter_characters",
+    "gain": 5777.0004415512085
+  },
+  {
+    "feature": "body_bm25",
+    "gain": 5601.4135184288025
+  },
+  {
+    "feature": "e5_cosine",
+    "gain": 4897.828718662262
+  },
+  {
+    "feature": "neighbor_micro_probability",
+    "gain": 4698.782013893127
+  },
+  {
+    "feature": "log_char_rank",
+    "gain": 4251.595316410065
+  },
+  {
+    "feature": "log_title_rank",
+    "gain": 4113.240614891052
+  },
+  {
+    "feature": "char_tfidf",
+    "gain": 3638.067120552063
+  },
+  {
+    "feature": "neighbor_micro_entropy",
+    "gain": 3543.5966987609863
+  },
+  {
+    "feature": "title_bm25",
+    "gain": 3378.510513305664
+  },
+  {
+    "feature": "context_log_spread90",
+    "gain": 3169.3183932304382
+  },
+  {
+    "feature": "neighbor_micro_relative",
+    "gain": 3159.958740711212
+  },
+  {
+    "feature": "learned_cosine_delta",
+    "gain": 3145.86571931839
+  },
+  {
+    "feature": "e5_geo_affinity",
+    "gain": 3093.304186820984
+  },
+  {
+    "feature": "query_characters",
+    "gain": 2849.8083477020264
+  },
+  {
+    "feature": "title_idf_coverage",
+    "gain": 2536.075963497162
+  },
+  {
+    "feature": "micro_compatibility",
+    "gain": 2440.6553750038147
+  },
+  {
+    "feature": "learned_cosine",
+    "gain": 2278.1087794303894
+  },
+  {
+    "feature": "context_geo_confidence",
+    "gain": 1609.0854778289795
+  },
+  {
+    "feature": "context_location_entropy",
+    "gain": 1290.9327244758606
+  },
+  {
+    "feature": "learned_geo",
+    "gain": 1218.306104183197
+  },
+  {
+    "feature": "context_same_location_share",
+    "gain": 1146.5863995552063
+  },
+  {
+    "feature": "neighbor_effective_count",
+    "gain": 880.4061131477356
+  },
+  {
+    "feature": "context_peak_location_share",
+    "gain": 853.4357218742371
+  },
+  {
+    "feature": "context_log_support",
+    "gain": 762.7068786621094
+  },
+  {
+    "feature": "same_location",
+    "gain": 441.5424780845642
+  },
+  {
+    "feature": "learned_geo_delta",
+    "gain": 410.9395499229431
+  },
+  {
+    "feature": "neighbor_top_similarity",
+    "gain": 393.48061084747314
+  },
+  {
+    "feature": "messages_forbidden",
+    "gain": 347.5594415664673
+  },
+  {
+    "feature": "query_tokens",
+    "gain": 337.08781003952026
+  },
+  {
+    "feature": "query_in_title",
+    "gain": 272.00419902801514
+  },
+  {
+    "feature": "title_token_coverage",
+    "gain": 255.5059633255005
+  },
+  {
+    "feature": "neighbor_similarity_margin",
+    "gain": 194.7023024559021
+  },
+  {
+    "feature": "phone_hidden",
+    "gain": 172.71344757080078
+  },
+  {
+    "feature": "rating_gap",
+    "gain": 91.04250955581665
+  },
+  {
+    "feature": "neighbor_micro_coverage",
+    "gain": 71.22679996490479
+  },
+  {
+    "feature": "query_equals_title",
+    "gain": 0.0
+  },
+  {
+    "feature": "rating_required",
+    "gain": 0.0
+  },
+  {
+    "feature": "from_lexical_pool",
+    "gain": 0.0
+  },
+  {
+    "feature": "from_semantic_pool",
+    "gain": 0.0
+  },
+  {
+    "feature": "history_query_known",
+    "gain": 0.0
+  },
+  {
+    "feature": "history_query_log_pairs",
+    "gain": 0.0
+  },
+  {
+    "feature": "history_query_micro_entropy",
+    "gain": 0.0
+  },
+  {
+    "feature": "history_query_top_micro_probability",
+    "gain": 0.0
+  },
+  {
+    "feature": "geo_center_available",
+    "gain": 0.0
+  },
+  {
+    "feature": "context_center_source",
+    "gain": 0.0
+  },
+  {
+    "feature": "context_geo_available",
+    "gain": 0.0
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "model_already_selected": true,
+  "used_for_model_selection": false,
+  "queries": 600,
+  "improved": 0,
+  "worsened": 2,
+  "unchanged": 598,
+  "incumbent_recall50": 0.9533333333333334,
+  "selected_recall50": 0.95,
+  "lost_examples": [
+    {
+      "search_query": "мебель на заказ не дорого",
+      "search_infm_params_text": "",
+      "search_location_id": 637640,
+      "incumbent_recall50": 1.0,
+      "selected_recall50": 0.0,
+      "delta": -1.0,
+      "geography_source": 0.0,
+      "geography_confidence": 0.8748239278793335,
+      "positives": 1
+    },
+    {
+      "search_query": "строительство фундамента",
+      "search_infm_params_text": "Тип услуги Фундаментные и бетонные работы Чем вы занимаетесь Фундаментные работы Вид услуги Строительство",
+      "search_location_id": 637640,
+      "incumbent_recall50": 1.0,
+      "selected_recall50": 0.0,
+      "delta": -1.0,
+      "geography_source": 0.0,
+      "geography_confidence": 0.8748239278793335,
+      "positives": 1
+    }
+  ],
+  "gained_examples": []
+}

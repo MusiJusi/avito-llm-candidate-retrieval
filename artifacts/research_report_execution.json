@@ -1,0 +1,9 @@
+{
+  "notebook": "experiments/Avito_neural_experiments.ipynb",
+  "code_cells_executed": 8,
+  "code_sha256": "e25471afeb2adc4811aded3d9d3efe0c0178d58e9c619df662ae6be1cea83817",
+  "device": "not_used",
+  "network_connections_disabled": false,
+  "elapsed_seconds": 0.07,
+  "answer_sha256": "a256639b72ef3bd515bf5118c5e337aee23a34c9e0b261da580b1c852411a6b2"
+}

@@ -1,0 +1,19 @@
+{
+  "seconds": 46.7,
+  "config": {
+    "iterations": 400,
+    "depth": 6,
+    "learning_rate": 0.05,
+    "l2_leaf_reg": 12,
+    "loss_function": "YetiRank",
+    "task_type": "GPU",
+    "devices": "0",
+    "random_seed": 260926,
+    "thread_count": 6,
+    "gpu_ram_part": 0.65,
+    "allow_writing_files": false,
+    "verbose": 100
+  },
+  "sha256": "ce60c0ba19ff269e9125d0f6ffd0075996c2277f87f6ee2d9ddb105f625b5ce5",
+  "frozen_gpu_training": true
+}

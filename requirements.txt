@@ -9,6 +9,7 @@ snowballstemmer==3.1.1
 joblib==1.6.0
 threadpoolctl==3.7.0
 ipykernel==7.3.0
+nbformat==5.11.0
 # CUDA 13.0 wheel supports the RTX 5070 Ti (Blackwell); installation is a setup step.
 --extra-index-url https://download.pytorch.org/whl/cu130
 torch==2.10.0+cu130

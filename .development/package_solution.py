@@ -19,7 +19,8 @@ paths += sorted((root / "models").rglob("*"))
 paths += [path for path in (root / "artifacts" / version).iterdir()
           if path.suffix in {".json", ".csv"} or path.name in manifest["final_model_files"]
           or path.name.startswith(("e5_items_", "e5_queries_"))]
-paths += [root / ".development" / name for name in ["download_semantic_model.py", "verify_reproduction.py", "run_notebook.py"]]
+paths += [root / ".development" / name for name in ["download_semantic_model.py",
+          "verify_reproduction.py", "run_notebook.py", "check_invariants.py", "check_ranking_invariants.py"]]
 paths = sorted({path for path in paths if path.is_file() and not path.name.endswith(".tmp")})
 with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=1) as archive:
     for path in paths:

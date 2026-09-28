@@ -1,0 +1,11 @@
+{
+  "block": "metadata",
+  "recipe": "normal",
+  "weight": 0.5,
+  "baseline_recall50": 0.9583333333333334,
+  "candidate_recall50": 0.9566666666666667,
+  "improved_queries": 0,
+  "worsened_queries": 1,
+  "control_reused": true,
+  "used_for_hyperparameter_selection": false
+}

@@ -1,0 +1,10 @@
+{
+  "fresh_extraction": true,
+  "network_connections_disabled": true,
+  "answer_bytes_equal": true,
+  "answer_sha256": "8ce7401347beb1806f962ae1e72999fa93c89201b1044cd2433494f50e837d7e",
+  "notebook_code_sha256": "59ff610ed62d087b15a16c38cdd7bcfe44feb824ee906790bc29545d7a40c1b5",
+  "code_cells_executed": 31,
+  "elapsed_seconds": 446.1,
+  "verification_directory": ".verification/quality_v11_cpu_td0vfenh"
+}

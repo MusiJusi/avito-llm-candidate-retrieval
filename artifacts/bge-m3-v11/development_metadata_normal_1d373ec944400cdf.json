@@ -1,0 +1,44 @@
+{
+  "baseline": {
+    "matched_recall50": 0.9599006633423917,
+    "unseen_macro": 0.9541911764705883,
+    "held_macro": 0.9550735294117647
+  },
+  "candidate": {
+    "matched_recall50": 0.9603593882153407,
+    "unseen_macro": 0.9577205882352942,
+    "held_macro": 0.9568382352941176
+  },
+  "archived_baseline_matched_recall50": 0.9597256528572226,
+  "baseline_reconstruction_delta": 0.00017501048516910256,
+  "blends": {
+    "0.25": {
+      "matched_recall50": 0.9604805106256072,
+      "unseen_macro": 0.9553676470588235,
+      "held_macro": 0.95625
+    },
+    "0.5": {
+      "matched_recall50": 0.9611813862656442,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9574264705882353
+    },
+    "0.75": {
+      "matched_recall50": 0.9604710941834412,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9568382352941176
+    },
+    "1.0": {
+      "matched_recall50": 0.9603593882153407,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9568382352941176
+    }
+  },
+  "unseen_text": {
+    "improved_queries": 24,
+    "worsened_queries": 11
+  },
+  "held_context": {
+    "improved_queries": 16,
+    "worsened_queries": 10
+  }
+}

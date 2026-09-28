@@ -1,0 +1,68 @@
+{
+  "baseline": {
+    "matched_recall50": 0.9599006633423917,
+    "unseen_macro": 0.9541911764705883,
+    "held_macro": 0.9550735294117647
+  },
+  "recipes": {
+    "metadata_half": {
+      "weights": {
+        "v10": 0.5,
+        "metadata": 0.5
+      },
+      "matched_recall50": 0.9611813862656442,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9574264705882353
+    },
+    "hard_metadata_half": {
+      "weights": {
+        "v10": 0.5,
+        "hard_metadata": 0.5
+      },
+      "matched_recall50": 0.9608970286328504,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9572794117647059
+    },
+    "three_way_base": {
+      "weights": {
+        "v10": 0.5,
+        "metadata": 0.25,
+        "hard_base": 0.25
+      },
+      "matched_recall50": 0.9604873168340708,
+      "unseen_macro": 0.9556617647058824,
+      "held_macro": 0.9565441176470588
+    },
+    "three_way_meta": {
+      "weights": {
+        "v10": 0.5,
+        "metadata": 0.25,
+        "hard_metadata": 0.25
+      },
+      "matched_recall50": 0.9602545155397055,
+      "unseen_macro": 0.9565441176470588,
+      "held_macro": 0.9568382352941176
+    },
+    "three_way_hard": {
+      "weights": {
+        "v10": 0.5,
+        "hard_base": 0.25,
+        "hard_metadata": 0.25
+      },
+      "matched_recall50": 0.9609714500102469,
+      "unseen_macro": 0.9569852941176471,
+      "held_macro": 0.9569852941176471
+    },
+    "four_way": {
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.2,
+        "hard_base": 0.2,
+        "hard_metadata": 0.2
+      },
+      "matched_recall50": 0.9612345588228755,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9569852941176471
+    }
+  }
+}

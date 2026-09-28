@@ -1,0 +1,11 @@
+{
+  "stage": "final",
+  "block": "metadata",
+  "recipe": "normal",
+  "rows": 39672522,
+  "groups": 52943,
+  "seconds": 1386.95,
+  "ignored_columns": [],
+  "model_sha256": "4d2b124c3cf8a7894645591a60e09d9ed1cdcac4073f88f1c170dbd6d55116da",
+  "features": 104
+}

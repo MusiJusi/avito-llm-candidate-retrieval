@@ -1,0 +1,16 @@
+{
+  "unseen_text": {
+    "before": 0.9541911764705883,
+    "after": 0.9541911764705883,
+    "improved": 0,
+    "worsened": 0,
+    "excluded_candidates": 66174
+  },
+  "held_context": {
+    "before": 0.9550735294117647,
+    "after": 0.9550735294117647,
+    "improved": 0,
+    "worsened": 0,
+    "excluded_candidates": 66110
+  }
+}

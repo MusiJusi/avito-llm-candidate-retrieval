@@ -1,0 +1,9 @@
+{
+  "fingerprint": "6aabb2f45684c91b",
+  "source": "202853486a876936",
+  "rows": 140100,
+  "topk": 512,
+  "dtype": "float16",
+  "reference_file": "artifacts/bge-m3-v11/reference_6aabb2f45684c91b.npy",
+  "seconds": 3.95
+}

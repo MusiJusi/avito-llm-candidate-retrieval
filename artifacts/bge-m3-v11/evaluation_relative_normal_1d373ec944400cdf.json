@@ -1,0 +1,10 @@
+{
+  "stage": "evaluation",
+  "block": "relative",
+  "recipe": "normal",
+  "rows": 28487352,
+  "groups": 37940,
+  "seconds": 1034.68,
+  "model_sha256": "f14bad43e5a28cfb57f371323572da0e7c475c832da7ea4de5fd0c2e3e7efbfa",
+  "features": 105
+}

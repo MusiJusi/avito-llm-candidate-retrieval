@@ -46,6 +46,7 @@ __pycache__/
 !artifacts/quality-v10/final_warm_deeper_*.joblib
 !artifacts/field-ranker-v10/final_ranker_*.joblib
 !artifacts/bge-m3-v10/final_ranker_*.joblib
+!artifacts/bge-m3-v11/final_*.joblib
 !models/retrieval-priors/*.joblib
 .env
 .env.*
@@ -56,5 +57,6 @@ artifacts/quality-v10/*_training_*.json
 artifacts/quality-v10/bge_process.json
 artifacts/warm-history-v10/*_training_*.json
 artifacts/warm-history-v10/*_mixed_*.json
+artifacts/bge-m3-v11/*_X_*.json
 *.npy.partial
 *.progress.json

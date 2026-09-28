@@ -12,9 +12,10 @@
 - [Notebook](solution.ipynb) — пошаговый код применения и сохранения ответа.
 - [Эксперименты v11](docs/EXPERIMENTS_V11.md) — абляции и ограничения локальной
   оценки.
-- `deliverables/solution_v11.zip` — переносимый комплект для проверяющего с
-  notebook, весами, кодом и отправленным CSV. Архив размером около 4.6 ГБ не
-  хранится в GitHub; его нужно разместить по доступной проверяющему ссылке.
+- [Скачать solution_v11.zip (Google Drive)](https://drive.google.com/file/d/1tTm7Tkl_Mw-T3A8cxxqlqpwbRLjXV4hN/view?usp=drive_link) —
+  переносимый комплект для проверяющего с notebook, весами, кодом и отправленным
+  CSV. Размер архива — 4.61 ГБ; SHA-256:
+  `337da2857e4e89d3a2527020c7828e19256aad63e38b8252fbd26e31651fd508`.
 
 Чтобы повторить ответ, распакуйте комплект, положите в его корень исходные
 `train.parquet`, `benchmark_queries.parquet` и `benchmark_items.parquet`,

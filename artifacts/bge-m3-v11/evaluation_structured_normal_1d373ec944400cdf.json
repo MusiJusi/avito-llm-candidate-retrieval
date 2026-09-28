@@ -1,0 +1,11 @@
+{
+  "stage": "evaluation",
+  "block": "structured",
+  "recipe": "normal",
+  "rows": 28487352,
+  "groups": 37940,
+  "seconds": 2460.15,
+  "ignored_columns": [],
+  "model_sha256": "ffc59a323db05b2f1a5408ba23a6f3e7898f3609890b9b1c164758573fe05119",
+  "features": 115
+}

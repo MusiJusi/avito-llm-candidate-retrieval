@@ -16,10 +16,18 @@ sys.stdout.reconfigure(encoding='utf-8')
 os.chdir(ROOT)
 parser = argparse.ArgumentParser()
 parser.add_argument('notebook', nargs='?', default='solution.ipynb')
+parser.add_argument('--answer', default='answer.csv',
+                    help='Expected answer path relative to the project root')
+parser.add_argument('--report', default='artifacts/notebook_execution.json',
+                    help='Execution report path relative to the project root')
 arguments = parser.parse_args()
 path = ROOT / arguments.notebook
 if not path.resolve().is_relative_to(ROOT) or path.suffix != '.ipynb':
     raise ValueError('Notebook must be an .ipynb file within the project')
+answer_path = (ROOT / arguments.answer).resolve()
+report_path = (ROOT / arguments.report).resolve()
+if not answer_path.is_relative_to(ROOT) or not report_path.is_relative_to(ROOT):
+    raise ValueError('Answer and report must remain within the project')
 notebook = json.loads(path.read_text(encoding='utf-8'))
 network_disabled = os.environ.get('AVITO_DISABLE_NETWORK') == '1'
 if network_disabled:
@@ -62,8 +70,9 @@ report = {'notebook': arguments.notebook, 'code_cells_executed': execution,
           'device': namespace.get('DEVICE', 'not_used'),
           'network_connections_disabled': network_disabled,
           'elapsed_seconds': round(time.perf_counter() - started, 2)}
-if (ROOT / 'answer.csv').exists():
-    report['answer_sha256'] = hashlib.sha256((ROOT / 'answer.csv').read_bytes()).hexdigest()
-(ROOT / 'artifacts' / 'notebook_execution.json').write_text(
+if answer_path.exists():
+    report['answer_sha256'] = hashlib.sha256(answer_path.read_bytes()).hexdigest()
+report_path.parent.mkdir(parents=True, exist_ok=True)
+report_path.write_text(
     json.dumps(report, indent=2), encoding='utf-8')
 print('Notebook execution completed:', json.dumps(report), flush=True)

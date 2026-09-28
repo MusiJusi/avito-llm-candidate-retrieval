@@ -1,0 +1,9 @@
+{
+  "notebook": "experiments/solution_v12_candidate.ipynb",
+  "code_cells_executed": 31,
+  "code_sha256": "2560f0b6c220300e848859c77a91f7820b75e9c18266064cba300774322e121f",
+  "device": "cpu",
+  "network_connections_disabled": true,
+  "elapsed_seconds": 405.44,
+  "answer_sha256": "f4d83da229b9099fbe2e7725158987bf87bc7c1f68ccafb5c7c3c0e7b2d99fe8"
+}

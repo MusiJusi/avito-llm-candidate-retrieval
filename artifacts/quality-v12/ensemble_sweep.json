@@ -1,0 +1,4851 @@
+{
+  "submitted_v11": {
+    "matched_recall50": 0.9611813862656442,
+    "unseen_macro": 0.9568382352941176,
+    "held_macro": 0.9574264705882353
+  },
+  "recipe_count": 89,
+  "selection_labels": "development labels derived from train only",
+  "top": [
+    {
+      "name": "relative_c60_r0.20_m0.55",
+      "constant": 60,
+      "weights": {
+        "v10": 0.36,
+        "metadata": 0.44000000000000006,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9616458465177746,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9577205882352942,
+      "delta_matched": 0.0004644602521304275,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": 0.0002941176470588891,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 3
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c45_r0.20_m0.55",
+      "constant": 45,
+      "weights": {
+        "v10": 0.36,
+        "metadata": 0.44000000000000006,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9616140008235179,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9577205882352942,
+      "delta_matched": 0.0004326145578736895,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": 0.0002941176470588891,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 3
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c80_r0.20_m0.55",
+      "constant": 80,
+      "weights": {
+        "v10": 0.36,
+        "metadata": 0.44000000000000006,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9616140008235179,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 0.0004326145578736895,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c60_r0.15_m0.55",
+      "constant": 60,
+      "weights": {
+        "v10": 0.38249999999999995,
+        "metadata": 0.4675,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9615853634694238,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0004039772037796041,
+      "delta_unseen": 0.0008823529411765563,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c80_r0.15_m0.55",
+      "constant": 80,
+      "weights": {
+        "v10": 0.38249999999999995,
+        "metadata": 0.4675,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9615853634694238,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0004039772037796041,
+      "delta_unseen": 0.0008823529411765563,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c45_r0.15_m0.55",
+      "constant": 45,
+      "weights": {
+        "v10": 0.38249999999999995,
+        "metadata": 0.4675,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9615317015822427,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0003503153165984596,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c45_r0.20_m0.50",
+      "constant": 45,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.4,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9615188076628814,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0003374213972372475,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c45_r0.15_m0.50",
+      "constant": 45,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9614998558879859,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0003184696223417216,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c60_r0.15_m0.50",
+      "constant": 60,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9614998558879859,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0003184696223417216,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c30_m0.55",
+      "constant": 30,
+      "weights": {
+        "v10": 0.44999999999999996,
+        "metadata": 0.55
+      },
+      "matched_recall50": 0.9613777674040007,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 0.00019638113835651616,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 1
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c45_r0.10_m0.55",
+      "constant": 45,
+      "weights": {
+        "v10": 0.40499999999999997,
+        "metadata": 0.49500000000000005,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9613583736866473,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.00017698742100313858,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c60_r0.10_m0.50",
+      "constant": 60,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9613583736866473,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.00017698742100313858,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c80_r0.05_m0.50",
+      "constant": 80,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.9613583736866473,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.00017698742100313858,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 1
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c80_r0.10_m0.50",
+      "constant": 80,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9613583736866473,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.00017698742100313858,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c45_r0.10_m0.50",
+      "constant": 45,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9613265279923906,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.00014514172674640058,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c45_r0.10_m0.45",
+      "constant": 45,
+      "weights": {
+        "v10": 0.49500000000000005,
+        "metadata": 0.405,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9612948292510659,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 0.00011344298542170783,
+      "delta_unseen": 0.0,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c45_r0.15_m0.45",
+      "constant": 45,
+      "weights": {
+        "v10": 0.4675,
+        "metadata": 0.3825,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9612948292510659,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.00011344298542170783,
+      "delta_unseen": 0.0,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c45_m0.55",
+      "constant": 45,
+      "weights": {
+        "v10": 0.44999999999999996,
+        "metadata": 0.55
+      },
+      "matched_recall50": 0.9612869893781857,
+      "unseen_macro": 0.9578676470588235,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0001056031125414858,
+      "delta_unseen": 0.0010294117647059453,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 5,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 4,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c60_m0.55",
+      "constant": 60,
+      "weights": {
+        "v10": 0.44999999999999996,
+        "metadata": 0.55
+      },
+      "matched_recall50": 0.9612869893781857,
+      "unseen_macro": 0.9578676470588235,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.0001056031125414858,
+      "delta_unseen": 0.0010294117647059453,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 5,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c60_m0.60",
+      "constant": 60,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.6
+      },
+      "matched_recall50": 0.9612864266318033,
+      "unseen_macro": 0.9578676470588235,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.00010504036615910373,
+      "delta_unseen": 0.0010294117647059453,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 5,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0027359781121751026,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          -0.0014947683109118087,
+          0.0,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "hard_metadata_c45_h0.15",
+      "constant": 45,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "hard_metadata": 0.15
+      },
+      "matched_recall50": 0.9612741838090633,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 9.279754341906532e-05,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 4
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 5
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0022522522522522522,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.00291970802919708,
+          -0.0014947683109118087,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "hard_metadata_c60_h0.15",
+      "constant": 60,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "hard_metadata": 0.15
+      },
+      "matched_recall50": 0.9612741838090633,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 9.279754341906532e-05,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 4
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0022522522522522522,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.00291970802919708,
+          0.0,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "hard_metadata_c80_h0.15",
+      "constant": 80,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "hard_metadata": 0.15
+      },
+      "matched_recall50": 0.9612741838090633,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 9.279754341906532e-05,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 4
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0022522522522522522,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.00291970802919708,
+          0.0,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c60_r0.10_m0.55",
+      "constant": 60,
+      "weights": {
+        "v10": 0.40499999999999997,
+        "metadata": 0.49500000000000005,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9612675956608322,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": 8.62093951879972e-05,
+      "delta_unseen": 0.0008823529411765563,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c80_r0.10_m0.55",
+      "constant": 80,
+      "weights": {
+        "v10": 0.40499999999999997,
+        "metadata": 0.49500000000000005,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9612675956608322,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": 8.62093951879972e-05,
+      "delta_unseen": 0.0008823529411765563,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c45_r0.05_m0.50",
+      "constant": 45,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.961248955789858,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 6.756952421382856e-05,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c60_r0.05_m0.50",
+      "constant": 60,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.961248955789858,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 6.756952421382856e-05,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c30_m0.60",
+      "constant": 30,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.6
+      },
+      "matched_recall50": 0.9612327647446222,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 5.137847897795922e-05,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 3
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          -0.0014947683109118087,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          -0.0014947683109118087,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c45_m0.60",
+      "constant": 45,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.6
+      },
+      "matched_recall50": 0.9612327647446222,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 5.137847897795922e-05,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          -0.0014947683109118087,
+          0.0,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c60_r0.10_m0.45",
+      "constant": 60,
+      "weights": {
+        "v10": 0.49500000000000005,
+        "metadata": 0.405,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9612272597268519,
+      "unseen_macro": 0.9565441176470588,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 4.587346120765723e-05,
+      "delta_unseen": -0.0002941176470587781,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.003003003003003003,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    }
+  ],
+  "all": [
+    {
+      "name": "relative_c60_r0.20_m0.55",
+      "constant": 60,
+      "weights": {
+        "v10": 0.36,
+        "metadata": 0.44000000000000006,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9616458465177746,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9577205882352942,
+      "delta_matched": 0.0004644602521304275,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": 0.0002941176470588891,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 3
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c45_r0.20_m0.55",
+      "constant": 45,
+      "weights": {
+        "v10": 0.36,
+        "metadata": 0.44000000000000006,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9616140008235179,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9577205882352942,
+      "delta_matched": 0.0004326145578736895,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": 0.0002941176470588891,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 3
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c80_r0.20_m0.55",
+      "constant": 80,
+      "weights": {
+        "v10": 0.36,
+        "metadata": 0.44000000000000006,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9616140008235179,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 0.0004326145578736895,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c60_r0.15_m0.55",
+      "constant": 60,
+      "weights": {
+        "v10": 0.38249999999999995,
+        "metadata": 0.4675,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9615853634694238,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0004039772037796041,
+      "delta_unseen": 0.0008823529411765563,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c80_r0.15_m0.55",
+      "constant": 80,
+      "weights": {
+        "v10": 0.38249999999999995,
+        "metadata": 0.4675,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9615853634694238,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0004039772037796041,
+      "delta_unseen": 0.0008823529411765563,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c45_r0.15_m0.55",
+      "constant": 45,
+      "weights": {
+        "v10": 0.38249999999999995,
+        "metadata": 0.4675,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9615317015822427,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0003503153165984596,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c45_r0.20_m0.50",
+      "constant": 45,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.4,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9615188076628814,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0003374213972372475,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c45_r0.15_m0.50",
+      "constant": 45,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9614998558879859,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0003184696223417216,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c60_r0.15_m0.50",
+      "constant": 60,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9614998558879859,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0003184696223417216,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c30_m0.55",
+      "constant": 30,
+      "weights": {
+        "v10": 0.44999999999999996,
+        "metadata": 0.55
+      },
+      "matched_recall50": 0.9613777674040007,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 0.00019638113835651616,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 1
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c45_r0.10_m0.55",
+      "constant": 45,
+      "weights": {
+        "v10": 0.40499999999999997,
+        "metadata": 0.49500000000000005,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9613583736866473,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.00017698742100313858,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c60_r0.10_m0.50",
+      "constant": 60,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9613583736866473,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.00017698742100313858,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c80_r0.05_m0.50",
+      "constant": 80,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.9613583736866473,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.00017698742100313858,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 1
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c80_r0.10_m0.50",
+      "constant": 80,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9613583736866473,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.00017698742100313858,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c45_r0.10_m0.50",
+      "constant": 45,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9613265279923906,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.00014514172674640058,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c45_r0.10_m0.45",
+      "constant": 45,
+      "weights": {
+        "v10": 0.49500000000000005,
+        "metadata": 0.405,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9612948292510659,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 0.00011344298542170783,
+      "delta_unseen": 0.0,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c45_r0.15_m0.45",
+      "constant": 45,
+      "weights": {
+        "v10": 0.4675,
+        "metadata": 0.3825,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9612948292510659,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.00011344298542170783,
+      "delta_unseen": 0.0,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c45_m0.55",
+      "constant": 45,
+      "weights": {
+        "v10": 0.44999999999999996,
+        "metadata": 0.55
+      },
+      "matched_recall50": 0.9612869893781857,
+      "unseen_macro": 0.9578676470588235,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 0.0001056031125414858,
+      "delta_unseen": 0.0010294117647059453,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 5,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 4,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c60_m0.55",
+      "constant": 60,
+      "weights": {
+        "v10": 0.44999999999999996,
+        "metadata": 0.55
+      },
+      "matched_recall50": 0.9612869893781857,
+      "unseen_macro": 0.9578676470588235,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.0001056031125414858,
+      "delta_unseen": 0.0010294117647059453,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 5,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c60_m0.60",
+      "constant": 60,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.6
+      },
+      "matched_recall50": 0.9612864266318033,
+      "unseen_macro": 0.9578676470588235,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.00010504036615910373,
+      "delta_unseen": 0.0010294117647059453,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 5,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0027359781121751026,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          -0.0014947683109118087,
+          0.0,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "hard_metadata_c45_h0.15",
+      "constant": 45,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "hard_metadata": 0.15
+      },
+      "matched_recall50": 0.9612741838090633,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 9.279754341906532e-05,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 4
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 5
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0022522522522522522,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.00291970802919708,
+          -0.0014947683109118087,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "hard_metadata_c60_h0.15",
+      "constant": 60,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "hard_metadata": 0.15
+      },
+      "matched_recall50": 0.9612741838090633,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 9.279754341906532e-05,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 4
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0022522522522522522,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.00291970802919708,
+          0.0,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "hard_metadata_c80_h0.15",
+      "constant": 80,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "hard_metadata": 0.15
+      },
+      "matched_recall50": 0.9612741838090633,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 9.279754341906532e-05,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 4
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0022522522522522522,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.00291970802919708,
+          0.0,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "relative_c60_r0.10_m0.55",
+      "constant": 60,
+      "weights": {
+        "v10": 0.40499999999999997,
+        "metadata": 0.49500000000000005,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9612675956608322,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": 8.62093951879972e-05,
+      "delta_unseen": 0.0008823529411765563,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c80_r0.10_m0.55",
+      "constant": 80,
+      "weights": {
+        "v10": 0.40499999999999997,
+        "metadata": 0.49500000000000005,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9612675956608322,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": 8.62093951879972e-05,
+      "delta_unseen": 0.0008823529411765563,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c45_r0.05_m0.50",
+      "constant": 45,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.961248955789858,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 6.756952421382856e-05,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c60_r0.05_m0.50",
+      "constant": 60,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.961248955789858,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 6.756952421382856e-05,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c30_m0.60",
+      "constant": 30,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.6
+      },
+      "matched_recall50": 0.9612327647446222,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 5.137847897795922e-05,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 3
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          -0.0014947683109118087,
+          0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          -0.0014947683109118087,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c45_m0.60",
+      "constant": 45,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.6
+      },
+      "matched_recall50": 0.9612327647446222,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 5.137847897795922e-05,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          -0.0014947683109118087,
+          0.0,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c60_r0.10_m0.45",
+      "constant": 60,
+      "weights": {
+        "v10": 0.49500000000000005,
+        "metadata": 0.405,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9612272597268519,
+      "unseen_macro": 0.9565441176470588,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 4.587346120765723e-05,
+      "delta_unseen": -0.0002941176470587781,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.003003003003003003,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c60_r0.15_m0.45",
+      "constant": 60,
+      "weights": {
+        "v10": 0.4675,
+        "metadata": 0.3825,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9612272597268519,
+      "unseen_macro": 0.9565441176470588,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 4.587346120765723e-05,
+      "delta_unseen": -0.0002941176470587781,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.003003003003003003,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "relative_c80_r0.10_m0.45",
+      "constant": 80,
+      "weights": {
+        "v10": 0.49500000000000005,
+        "metadata": 0.405,
+        "relative": 0.1
+      },
+      "matched_recall50": 0.9612272597268519,
+      "unseen_macro": 0.9565441176470588,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 4.587346120765723e-05,
+      "delta_unseen": -0.0002941176470587781,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.003003003003003003,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "relative_c80_r0.15_m0.45",
+      "constant": 80,
+      "weights": {
+        "v10": 0.4675,
+        "metadata": 0.3825,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9612272597268519,
+      "unseen_macro": 0.9565441176470588,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 4.587346120765723e-05,
+      "delta_unseen": -0.0002941176470587781,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.003003003003003003,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "relative_c45_r0.05_m0.55",
+      "constant": 45,
+      "weights": {
+        "v10": 0.42749999999999994,
+        "metadata": 0.5225,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.9612257472882572,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": 4.436102261295982e-05,
+      "delta_unseen": 0.0008823529411765563,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0027359781121751026,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c60_r0.20_m0.50",
+      "constant": 60,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.4,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9611996360904295,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": 1.8249824785265822e-05,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "relative_c80_r0.20_m0.50",
+      "constant": 80,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.4,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9611996360904295,
+      "unseen_macro": 0.9571323529411765,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 1.8249824785265822e-05,
+      "delta_unseen": 0.0002941176470588891,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "hard_metadata_c45_h0.05",
+      "constant": 45,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "hard_metadata": 0.05
+      },
+      "matched_recall50": 0.96119736224939,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 1.5975983745808442e-05,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "two_c30_m0.45",
+      "constant": 30,
+      "weights": {
+        "v10": 0.55,
+        "metadata": 0.45
+      },
+      "matched_recall50": 0.9611813862656442,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": 0.0,
+      "delta_unseen": 0.0,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 0,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c45_m0.50",
+      "constant": 45,
+      "weights": {
+        "v10": 0.5,
+        "metadata": 0.5
+      },
+      "matched_recall50": 0.9611813862656442,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 0.0,
+      "delta_unseen": 0.0,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 0,
+      "negative_fold_count": 0
+    },
+    {
+      "name": "two_c60_m0.50",
+      "constant": 60,
+      "weights": {
+        "v10": 0.5,
+        "metadata": 0.5
+      },
+      "matched_recall50": 0.9611813862656442,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9574264705882353,
+      "delta_matched": 0.0,
+      "delta_unseen": 0.0,
+      "delta_held": 0.0,
+      "improved": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 0,
+      "negative_fold_count": 0
+    },
+    {
+      "name": "relative_c80_r0.15_m0.50",
+      "constant": 80,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "relative": 0.15
+      },
+      "matched_recall50": 0.9611806843155339,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": -7.019501102600856e-07,
+      "delta_unseen": 0.0,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "hard_metadata_c45_h0.10",
+      "constant": 45,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "hard_metadata": 0.1
+      },
+      "matched_recall50": 0.9611670672719257,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": -1.4318993718509532e-05,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "hard_metadata_c60_h0.10",
+      "constant": 60,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "hard_metadata": 0.1
+      },
+      "matched_recall50": 0.9611670672719257,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": -1.4318993718509532e-05,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "hard_metadata_c80_h0.05",
+      "constant": 80,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "hard_metadata": 0.05
+      },
+      "matched_recall50": 0.9611670672719257,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -1.4318993718509532e-05,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.00145985401459854,
+          0.0,
+          -0.0027359781121751026,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "hard_metadata_c80_h0.10",
+      "constant": 80,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "hard_metadata": 0.1
+      },
+      "matched_recall50": 0.9611670672719257,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": -1.4318993718509532e-05,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.00145985401459854,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c60_r0.05_m0.55",
+      "constant": 60,
+      "weights": {
+        "v10": 0.42749999999999994,
+        "metadata": 0.5225,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.9611581777640431,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": -2.320850160109078e-05,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c80_r0.05_m0.55",
+      "constant": 80,
+      "weights": {
+        "v10": 0.42749999999999994,
+        "metadata": 0.5225,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.9611581777640431,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": -2.320850160109078e-05,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "hard_base_c45_h0.05",
+      "constant": 45,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "hard_base": 0.05
+      },
+      "matched_recall50": 0.9611437003622086,
+      "unseen_macro": 0.9569852941176471,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -3.768590343555811e-05,
+      "delta_unseen": 0.00014705882352950006,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c45_r0.20_m0.45",
+      "constant": 45,
+      "weights": {
+        "v10": 0.44000000000000006,
+        "metadata": 0.36000000000000004,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9611320665662153,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -4.93196994288958e-05,
+      "delta_unseen": 0.0,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0027359781121751026,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "relative_c60_r0.20_m0.45",
+      "constant": 60,
+      "weights": {
+        "v10": 0.44000000000000006,
+        "metadata": 0.36000000000000004,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9611320665662153,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -4.93196994288958e-05,
+      "delta_unseen": 0.0,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0027359781121751026,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "hard_base_c60_h0.05",
+      "constant": 60,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "hard_base": 0.05
+      },
+      "matched_recall50": 0.9611030067644295,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": -7.837950121469817e-05,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "two_c30_m0.50",
+      "constant": 30,
+      "weights": {
+        "v10": 0.5,
+        "metadata": 0.5
+      },
+      "matched_recall50": 0.961077639950427,
+      "unseen_macro": 0.9565441176470588,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": -0.00010374631521714583,
+      "delta_unseen": -0.0002941176470587781,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 1
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 0,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c80_r0.20_m0.45",
+      "constant": 80,
+      "weights": {
+        "v10": 0.44000000000000006,
+        "metadata": 0.36000000000000004,
+        "relative": 0.2
+      },
+      "matched_recall50": 0.9610644970420014,
+      "unseen_macro": 0.9565441176470588,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.00011688922364283538,
+      "delta_unseen": -0.0002941176470587781,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 4,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.003003003003003003,
+          0.00145985401459854,
+          0.0,
+          -0.0027359781121751026,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "hard_metadata_c60_h0.05",
+      "constant": 60,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "hard_metadata": 0.05
+      },
+      "matched_recall50": 0.9610529223363937,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": -0.00012846392925047745,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 3,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0027359781121751026,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c80_m0.50",
+      "constant": 80,
+      "weights": {
+        "v10": 0.5,
+        "metadata": 0.5
+      },
+      "matched_recall50": 0.9610369463526479,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": -0.0001444399129962859,
+      "delta_unseen": 0.0,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 0,
+        "held_context": 1
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 0,
+      "negative_fold_count": 1
+    },
+    {
+      "name": "two_c110_m0.50",
+      "constant": 110,
+      "weights": {
+        "v10": 0.5,
+        "metadata": 0.5
+      },
+      "matched_recall50": 0.961023038715615,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": -0.00015834755002919199,
+      "delta_unseen": 0.0,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 1
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "relative_c45_r0.05_m0.45",
+      "constant": 45,
+      "weights": {
+        "v10": 0.5225,
+        "metadata": 0.4275,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.9610073564199386,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": -0.0001740298457055811,
+      "delta_unseen": 0.0,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 1
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "relative_c60_r0.05_m0.45",
+      "constant": 60,
+      "weights": {
+        "v10": 0.5225,
+        "metadata": 0.4275,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.9610073564199386,
+      "unseen_macro": 0.9568382352941176,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": -0.0001740298457055811,
+      "delta_unseen": 0.0,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 1
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "two_c80_m0.60",
+      "constant": 80,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.6
+      },
+      "matched_recall50": 0.9609966524410246,
+      "unseen_macro": 0.9578676470588235,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": -0.00018473382461958732,
+      "delta_unseen": 0.0010294117647059453,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 5,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0027359781121751026,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          -0.0014947683109118087,
+          0.0,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "two_c110_m0.60",
+      "constant": 110,
+      "weights": {
+        "v10": 0.4,
+        "metadata": 0.6
+      },
+      "matched_recall50": 0.9609966524410246,
+      "unseen_macro": 0.9578676470588235,
+      "held_macro": 0.95625,
+      "delta_matched": -0.00018473382461958732,
+      "delta_unseen": 0.0010294117647059453,
+      "delta_held": -0.0011764705882352233,
+      "improved": {
+        "unseen_text": 5,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 5
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0027359781121751026,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          -0.0014947683109118087,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "relative_c80_r0.05_m0.45",
+      "constant": 80,
+      "weights": {
+        "v10": 0.5225,
+        "metadata": 0.4275,
+        "relative": 0.05
+      },
+      "matched_recall50": 0.9609397868957246,
+      "unseen_macro": 0.9565441176470588,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": -0.0002415993699196317,
+      "delta_unseen": -0.0002941176470587781,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 1
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.003003003003003003,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0030816640986132513
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "hard_base_c45_h0.15",
+      "constant": 45,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "hard_base": 0.15
+      },
+      "matched_recall50": 0.9609044284315902,
+      "unseen_macro": 0.9577205882352942,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.00027695783405401464,
+      "delta_unseen": 0.0008823529411765563,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 7,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0023112480739599386
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 4,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c45_m0.45",
+      "constant": 45,
+      "weights": {
+        "v10": 0.55,
+        "metadata": 0.45
+      },
+      "matched_recall50": 0.9608622146931922,
+      "unseen_macro": 0.9565441176470588,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.0003191715724519817,
+      "delta_unseen": -0.0002941176470587781,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 0,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "two_c60_m0.45",
+      "constant": 60,
+      "weights": {
+        "v10": 0.55,
+        "metadata": 0.45
+      },
+      "matched_recall50": 0.9608622146931922,
+      "unseen_macro": 0.9565441176470588,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.0003191715724519817,
+      "delta_unseen": -0.0002941176470587781,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 1,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 0,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "hard_base_c80_h0.05",
+      "constant": 80,
+      "weights": {
+        "v10": 0.475,
+        "metadata": 0.475,
+        "hard_base": 0.05
+      },
+      "matched_recall50": 0.9608374970791589,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.0003438891864853133,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0013679890560875513,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "two_c80_m0.55",
+      "constant": 80,
+      "weights": {
+        "v10": 0.44999999999999996,
+        "metadata": 0.55
+      },
+      "matched_recall50": 0.9608253366015934,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.00035604966405078375,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c110_m0.55",
+      "constant": 110,
+      "weights": {
+        "v10": 0.44999999999999996,
+        "metadata": 0.55
+      },
+      "matched_recall50": 0.9608253366015934,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.00035604966405078375,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 2,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          0.0,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          0.0,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "hard_base_c45_h0.10",
+      "constant": 45,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "hard_base": 0.1
+      },
+      "matched_recall50": 0.9607950105348009,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.00038637573084332466,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 6,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0007507507507507507,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0023112480739599386
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "hard_base_c60_h0.10",
+      "constant": 60,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "hard_base": 0.1
+      },
+      "matched_recall50": 0.9607950105348009,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.00038637573084332466,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 6,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0007507507507507507,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0023112480739599386
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "hard_base_c60_h0.15",
+      "constant": 60,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "hard_base": 0.15
+      },
+      "matched_recall50": 0.9607950105348009,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.00038637573084332466,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 6,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0007507507507507507,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          0.0023112480739599386
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "hard_base_c80_h0.10",
+      "constant": 80,
+      "weights": {
+        "v10": 0.45,
+        "metadata": 0.45,
+        "hard_base": 0.1
+      },
+      "matched_recall50": 0.9607592867048436,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.00042209956080063726,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 6,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0022522522522522522,
+          0.00145985401459854,
+          0.0,
+          0.0013679890560875513,
+          0.0023112480739599386
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 4,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "hard_base_c80_h0.15",
+      "constant": 80,
+      "weights": {
+        "v10": 0.425,
+        "metadata": 0.425,
+        "hard_base": 0.15
+      },
+      "matched_recall50": 0.9607592867048436,
+      "unseen_macro": 0.9574264705882353,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.00042209956080063726,
+      "delta_unseen": 0.0005882352941176672,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 6,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0022522522522522522,
+          0.00145985401459854,
+          0.0,
+          0.0013679890560875513,
+          0.0023112480739599386
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.00145985401459854,
+          0.0,
+          0.0,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 4,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "two_c80_m0.45",
+      "constant": 80,
+      "weights": {
+        "v10": 0.55,
+        "metadata": 0.45
+      },
+      "matched_recall50": 0.9607270756447641,
+      "unseen_macro": 0.9559558823529412,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.0004543106208800829,
+      "delta_unseen": -0.0008823529411764452,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 2
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0045045045045045045,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 0,
+      "negative_fold_count": 3
+    },
+    {
+      "name": "two_c110_m0.45",
+      "constant": 110,
+      "weights": {
+        "v10": 0.55,
+        "metadata": 0.45
+      },
+      "matched_recall50": 0.9607270756447641,
+      "unseen_macro": 0.9559558823529412,
+      "held_macro": 0.9571323529411765,
+      "delta_matched": -0.0004543106208800829,
+      "delta_unseen": -0.0008823529411764452,
+      "delta_held": -0.0002941176470587781,
+      "improved": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 1
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0045045045045045045,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "held_context": [
+          0.0,
+          0.0,
+          0.0,
+          -0.0013679890560875513,
+          0.0
+        ]
+      },
+      "positive_fold_count": 0,
+      "negative_fold_count": 2
+    },
+    {
+      "name": "two_c30_m0.65",
+      "constant": 30,
+      "weights": {
+        "v10": 0.35,
+        "metadata": 0.65
+      },
+      "matched_recall50": 0.9605989857119077,
+      "unseen_macro": 0.9575735294117647,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.000582400553736484,
+      "delta_unseen": 0.0007352941176470562,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 6,
+        "held_context": 3
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 5
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0037537537537537537,
+          0.0,
+          -0.0014947683109118087,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0015015015015015015,
+          0.0,
+          -0.0014947683109118087,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c45_m0.40",
+      "constant": 45,
+      "weights": {
+        "v10": 0.6,
+        "metadata": 0.4
+      },
+      "matched_recall50": 0.960524401336183,
+      "unseen_macro": 0.9556617647058824,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": -0.0006569849294612018,
+      "delta_unseen": -0.0011764705882352233,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 5,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.003003003003003003,
+          0.0,
+          0.0,
+          -0.004103967168262654,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c45_m0.65",
+      "constant": 45,
+      "weights": {
+        "v10": 0.35,
+        "metadata": 0.65
+      },
+      "matched_recall50": 0.9604895678151186,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.000691818450525572,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 5,
+        "held_context": 3
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 5
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0022522522522522522,
+          0.0,
+          -0.0014947683109118087,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0015015015015015015,
+          0.0,
+          -0.0014947683109118087,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c30_m0.40",
+      "constant": 30,
+      "weights": {
+        "v10": 0.6,
+        "metadata": 0.4
+      },
+      "matched_recall50": 0.960482552963608,
+      "unseen_macro": 0.9556617647058824,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": -0.0006988333020362392,
+      "delta_unseen": -0.0011764705882352233,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 0,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 4,
+        "held_context": 3
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.004103967168262654,
+          0.0
+        ],
+        "held_context": [
+          -0.0015015015015015015,
+          0.0,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 0,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c110_m0.35",
+      "constant": 110,
+      "weights": {
+        "v10": 0.65,
+        "metadata": 0.35
+      },
+      "matched_recall50": 0.9604439378926077,
+      "unseen_macro": 0.9553676470588235,
+      "held_macro": 0.9559558823529412,
+      "delta_matched": -0.0007374483730364645,
+      "delta_unseen": -0.0014705882352941124,
+      "delta_held": -0.0014705882352941124,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 6,
+        "held_context": 6
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0045045045045045045,
+          0.0,
+          0.0,
+          -0.004103967168262654,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.003003003003003003,
+          0.00145985401459854,
+          0.0,
+          -0.004103967168262654,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 5
+    },
+    {
+      "name": "two_c80_m0.65",
+      "constant": 80,
+      "weights": {
+        "v10": 0.35,
+        "metadata": 0.65
+      },
+      "matched_recall50": 0.9604338118055109,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.0007475744601332934,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 5,
+        "held_context": 3
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 5
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          -0.0014947683109118087,
+          0.0013679890560875513,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0015015015015015015,
+          0.0,
+          -0.0014947683109118087,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 4,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c110_m0.65",
+      "constant": 110,
+      "weights": {
+        "v10": 0.35,
+        "metadata": 0.65
+      },
+      "matched_recall50": 0.9604338118055109,
+      "unseen_macro": 0.9572794117647059,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": -0.0007475744601332934,
+      "delta_unseen": 0.00044117647058827814,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 5,
+        "held_context": 2
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 5
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          -0.0014947683109118087,
+          0.0013679890560875513,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0015015015015015015,
+          0.0,
+          -0.0014947683109118087,
+          -0.0013679890560875513,
+          -0.0030816640986132513
+        ]
+      },
+      "positive_fold_count": 4,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c60_m0.65",
+      "constant": 60,
+      "weights": {
+        "v10": 0.35,
+        "metadata": 0.65
+      },
+      "matched_recall50": 0.9603801499183297,
+      "unseen_macro": 0.9569852941176471,
+      "held_macro": 0.9568382352941176,
+      "delta_matched": -0.000801236347314549,
+      "delta_unseen": 0.00014705882352950006,
+      "delta_held": -0.0005882352941176672,
+      "improved": {
+        "unseen_text": 4,
+        "held_context": 3
+      },
+      "worsened": {
+        "unseen_text": 3,
+        "held_context": 5
+      },
+      "fold_delta": {
+        "unseen_text": [
+          0.0007507507507507507,
+          0.0,
+          -0.0014947683109118087,
+          0.0,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          0.0015015015015015015,
+          0.0,
+          -0.0014947683109118087,
+          -0.0013679890560875513,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c60_m0.40",
+      "constant": 60,
+      "weights": {
+        "v10": 0.6,
+        "metadata": 0.4
+      },
+      "matched_recall50": 0.960329792957076,
+      "unseen_macro": 0.9553676470588235,
+      "held_macro": 0.95625,
+      "delta_matched": -0.0008515933085682104,
+      "delta_unseen": -0.0014705882352941124,
+      "delta_held": -0.0011764705882352233,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 6,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0045045045045045045,
+          0.0,
+          0.0,
+          -0.004103967168262654,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.003003003003003003,
+          0.0,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c80_m0.40",
+      "constant": 80,
+      "weights": {
+        "v10": 0.6,
+        "metadata": 0.4
+      },
+      "matched_recall50": 0.960329792957076,
+      "unseen_macro": 0.9553676470588235,
+      "held_macro": 0.95625,
+      "delta_matched": -0.0008515933085682104,
+      "delta_unseen": -0.0014705882352941124,
+      "delta_held": -0.0011764705882352233,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 6,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0045045045045045045,
+          0.0,
+          0.0,
+          -0.004103967168262654,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.003003003003003003,
+          0.0,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c110_m0.40",
+      "constant": 110,
+      "weights": {
+        "v10": 0.6,
+        "metadata": 0.4
+      },
+      "matched_recall50": 0.960329792957076,
+      "unseen_macro": 0.9553676470588235,
+      "held_macro": 0.9559558823529412,
+      "delta_matched": -0.0008515933085682104,
+      "delta_unseen": -0.0014705882352941124,
+      "delta_held": -0.0014705882352941124,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 0
+      },
+      "worsened": {
+        "unseen_text": 6,
+        "held_context": 5
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0045045045045045045,
+          0.0,
+          0.0,
+          -0.004103967168262654,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.003003003003003003,
+          0.0,
+          0.0,
+          -0.0027359781121751026,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 1,
+      "negative_fold_count": 5
+    },
+    {
+      "name": "two_c80_m0.35",
+      "constant": 80,
+      "weights": {
+        "v10": 0.65,
+        "metadata": 0.35
+      },
+      "matched_recall50": 0.9602094981650864,
+      "unseen_macro": 0.9553676470588235,
+      "held_macro": 0.9559558823529412,
+      "delta_matched": -0.0009718881005578162,
+      "delta_unseen": -0.0014705882352941124,
+      "delta_held": -0.0014705882352941124,
+      "improved": {
+        "unseen_text": 2,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 7,
+        "held_context": 6
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0045045045045045045,
+          0.00145985401459854,
+          0.0,
+          -0.005471956224350205,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.003003003003003003,
+          0.00145985401459854,
+          0.0,
+          -0.004103967168262654,
+          -0.0015408320493066256
+        ]
+      },
+      "positive_fold_count": 3,
+      "negative_fold_count": 5
+    },
+    {
+      "name": "two_c30_m0.35",
+      "constant": 30,
+      "weights": {
+        "v10": 0.65,
+        "metadata": 0.35
+      },
+      "matched_recall50": 0.9601776524708296,
+      "unseen_macro": 0.9550735294117647,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": -0.0010037337948145542,
+      "delta_unseen": -0.0017647058823528905,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 7,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0045045045045045045,
+          0.0,
+          0.0,
+          -0.005471956224350205,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.003003003003003003,
+          0.00145985401459854,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c60_m0.35",
+      "constant": 60,
+      "weights": {
+        "v10": 0.65,
+        "metadata": 0.35
+      },
+      "matched_recall50": 0.9601776524708296,
+      "unseen_macro": 0.9550735294117647,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": -0.0010037337948145542,
+      "delta_unseen": -0.0017647058823528905,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 7,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.0045045045045045045,
+          0.0,
+          0.0,
+          -0.005471956224350205,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.003003003003003003,
+          0.00145985401459854,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 4
+    },
+    {
+      "name": "two_c45_m0.35",
+      "constant": 45,
+      "weights": {
+        "v10": 0.65,
+        "metadata": 0.35
+      },
+      "matched_recall50": 0.9600739061556127,
+      "unseen_macro": 0.9547794117647059,
+      "held_macro": 0.9565441176470588,
+      "delta_matched": -0.001107480110031478,
+      "delta_unseen": -0.0020588235294116686,
+      "delta_held": -0.0008823529411764452,
+      "improved": {
+        "unseen_text": 1,
+        "held_context": 1
+      },
+      "worsened": {
+        "unseen_text": 8,
+        "held_context": 4
+      },
+      "fold_delta": {
+        "unseen_text": [
+          -0.006006006006006006,
+          0.0,
+          0.0,
+          -0.005471956224350205,
+          0.0015408320493066256
+        ],
+        "held_context": [
+          -0.003003003003003003,
+          0.00145985401459854,
+          0.0,
+          -0.0027359781121751026,
+          0.0
+        ]
+      },
+      "positive_fold_count": 2,
+      "negative_fold_count": 4
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "fresh_extraction": true,
+  "network_connections_disabled": true,
+  "answer_bytes_equal": true,
+  "answer_sha256": "f4d83da229b9099fbe2e7725158987bf87bc7c1f68ccafb5c7c3c0e7b2d99fe8",
+  "notebook_code_sha256": "67b66c41dc735b4da8e8e29c7e83c7a700dd7a308c103e8e7422d22f517f0573",
+  "code_cells_executed": 31,
+  "elapsed_seconds": 467.36,
+  "verification_directory": ".verification/quality_v12_cpu_j_t5035s"
+}

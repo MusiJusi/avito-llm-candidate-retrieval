@@ -1,0 +1,18 @@
+{
+  "version": "v12",
+  "block": "structured",
+  "recipe": "normal",
+  "weight": 0.5,
+  "rrf_constant": 60,
+  "trees": 600,
+  "ranker": "artifacts/bge-m3-v11/final_structured_normal_1d373ec944400cdf.joblib",
+  "ranker_sha256": "650f64a90990b000cd3ce22982a1ce3811414f79f92abb4805f05c903b4b67c6",
+  "reference": "artifacts/bge-m3-v11/benchmark_reference_1d373ec944400cdf.joblib",
+  "reference_sha256": "1463b9170518b22f6a30728756d30284b0d76ad652fca295dddec1926b43d48b",
+  "answer_file": "answer.csv",
+  "answer_sha256": "f4d83da229b9099fbe2e7725158987bf87bc7c1f68ccafb5c7c3c0e7b2d99fe8",
+  "selection_report": "artifacts/quality-v12/structured_ensemble_sweep.json",
+  "local_matched_recall50": 0.9622251746975228,
+  "submitted_v11_local_matched_recall50": 0.9611813862656442,
+  "platform_recall50": null
+}

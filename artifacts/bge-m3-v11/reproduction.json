@@ -5,7 +5,7 @@
   "answer_sha256": "8ce7401347beb1806f962ae1e72999fa93c89201b1044cd2433494f50e837d7e",
   "notebook_code_sha256": "03f3c15e73fceb1d08703ac44d5b489cb942bb45a59fddb0eae98ebad92084c9",
   "code_cells_executed": 31,
-  "elapsed_seconds": 439.94,
-  "verification_directory": ".verification/quality_v11_cpu_iqezfp77",
+  "elapsed_seconds": 920.68,
+  "verification_directory": ".verification/quality_v11_cpu_dakbh4l0",
   "temporary_extraction_removed_after_verification": true
 }

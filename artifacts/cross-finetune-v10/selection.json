@@ -1,0 +1,20 @@
+{
+  "winner": {
+    "weight": 0.1,
+    "matched_recall50": 0.9550520205052287,
+    "unseen_macro": 0.9509558823529412,
+    "held_macro": 0.9522794117647059
+  },
+  "baseline": {
+    "weight": 0.0,
+    "matched_recall50": 0.9541465603008474,
+    "unseen_macro": 0.9493382352941176,
+    "held_macro": 0.9508088235294118
+  },
+  "control_used_for_selection": false,
+  "model": "artifacts/cross-finetune-v10/pilot_44fdd936daa01b5d",
+  "fingerprint": "44fdd936daa01b5d",
+  "limitations": [
+    "Reused development/control; fixed v9 shortlist of 200 candidates."
+  ]
+}

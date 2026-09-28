@@ -7,6 +7,8 @@ archive/releases/
 .verification/
 *.npy.tmp
 models/**/model.safetensors
+models/**/pytorch_model.bin
+models/**/.cache/
 models/**/tokenizer.json
 models/**/sentencepiece.bpe.model
 models/**/*.tmp
@@ -36,8 +38,23 @@ __pycache__/
 !artifacts/context-v9/final_geography_*.joblib
 !artifacts/context-v9/final_neighbors_*.joblib
 !artifacts/context-v9/final_combined_*.joblib
+!artifacts/quality-v10/final_coverage_*.joblib
+!artifacts/quality-v10/final_quality_*.joblib
+!artifacts/quality-v10/final_quality_deeper_*.joblib
+!artifacts/quality-v10/final_quality_without_pop_*.joblib
+!artifacts/quality-v10/final_warm_mixed_*.joblib
+!artifacts/quality-v10/final_warm_deeper_*.joblib
+!artifacts/field-ranker-v10/final_ranker_*.joblib
+!artifacts/bge-m3-v10/final_ranker_*.joblib
 !models/retrieval-priors/*.joblib
 .env
 .env.*
 !.env.example
 *.log
+# Expanded training manifests contain per-group metadata; summary reports are tracked.
+artifacts/quality-v10/*_training_*.json
+artifacts/quality-v10/bge_process.json
+artifacts/warm-history-v10/*_training_*.json
+artifacts/warm-history-v10/*_mixed_*.json
+*.npy.partial
+*.progress.json

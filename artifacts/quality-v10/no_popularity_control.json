@@ -1,0 +1,12 @@
+{
+  "selected_recall50": 0.95,
+  "winner": {
+    "variant": "quality_without_pop",
+    "weight": 1.0,
+    "matched_recall50": 0.9550993353875566,
+    "unseen_macro": 0.9516911764705882,
+    "held_macro": 0.95375
+  },
+  "primary_selection_updated": false,
+  "used_for_selection": false
+}

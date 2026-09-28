@@ -1,0 +1,34 @@
+{
+  "results": [
+    {
+      "policy": "v9_without_category_prior",
+      "matched_recall50": 0.9540428139856305,
+      "unseen_macro": 0.9490441176470589,
+      "held_macro": 0.9508088235294118
+    },
+    {
+      "policy": "unspecified_as_mismatch",
+      "matched_recall50": 0.9563726551677694,
+      "unseen_macro": 0.9521323529411765,
+      "held_macro": 0.9524264705882353
+    },
+    {
+      "policy": "unspecified_as_compatible",
+      "matched_recall50": 0.9563726551677694,
+      "unseen_macro": 0.9521323529411765,
+      "held_macro": 0.9524264705882353
+    },
+    {
+      "policy": "actual_queries_wildcard_policy",
+      "matched_recall50": 0.9563726551677694,
+      "unseen_macro": 0.9521323529411765,
+      "held_macro": 0.9524264705882353
+    }
+  ],
+  "benchmark_unspecified_category_fraction": 0.09053833605220228,
+  "actual_development_unspecified_queries": 1,
+  "weights_fixed": true,
+  "source_sha256": "c86e8624e02ad31950aa5a012ee3ce38457d8e5c1877a0034ad4111915312008",
+  "policy": "Category 0 means no category constraint; treat compatibility as true.",
+  "limitation": "Counterfactual stress proxy, not an independent labeled sample of category-0 searches."
+}

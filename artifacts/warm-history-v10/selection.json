@@ -1,0 +1,32 @@
+{
+  "winner": {
+    "variant": "quality_deeper",
+    "weight": 0.75,
+    "matched_recall50": 0.9563726551677694,
+    "unseen_macro": 0.9521323529411765,
+    "held_macro": 0.9524264705882353
+  },
+  "previous_winner": {
+    "variant": "quality_deeper",
+    "weight": 0.75,
+    "matched_recall50": 0.9563726551677694,
+    "unseen_macro": 0.9521323529411765,
+    "held_macro": 0.9524264705882353
+  },
+  "fingerprint": "e74036f63c9ad6d0",
+  "cold_development_gain": 0.0,
+  "control_used_for_selection": false,
+  "config": {
+    "evaluation_contexts": 6000,
+    "final_contexts": 8000,
+    "warm_weight": 0.4,
+    "fractions": [
+      0.0,
+      0.5
+    ],
+    "cold_groups_per_context": 1,
+    "trees": 500,
+    "category_dropout_fraction": 0.09053833605220228,
+    "seed": 263127
+  }
+}

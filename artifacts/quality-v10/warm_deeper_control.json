@@ -1,0 +1,12 @@
+{
+  "winner": {
+    "variant": "warm_deeper",
+    "weight": 0.75,
+    "matched_recall50": 0.9550936067434792,
+    "unseen_macro": 0.95125,
+    "held_macro": 0.9506617647058824
+  },
+  "selected_recall50": 0.95,
+  "primary_selection_updated": false,
+  "used_for_selection": false
+}

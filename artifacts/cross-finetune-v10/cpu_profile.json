@@ -1,0 +1,12 @@
+{
+  "float32": {
+    "seconds_per_32_pairs": 1.049469140000292,
+    "pairs_per_second": 30.49160645161143,
+    "estimated_benchmark_seconds": 16083.114570504475
+  },
+  "bfloat16": {
+    "seconds_per_32_pairs": 0.624530959999538,
+    "pairs_per_second": 51.23845261414049,
+    "estimated_benchmark_seconds": 9570.93696199292
+  }
+}

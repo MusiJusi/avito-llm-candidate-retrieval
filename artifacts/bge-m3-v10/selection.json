@@ -1,0 +1,27 @@
+{
+  "fingerprint": "1d373ec944400cdf",
+  "winner": {
+    "kind": "ranker",
+    "variant": "deep",
+    "weight": 1.0,
+    "matched_recall50": 0.9597256528572226,
+    "unseen_macro": 0.9536029411764706,
+    "held_macro": 0.954485294117647
+  },
+  "baseline": {
+    "kind": "baseline",
+    "variant": "none",
+    "weight": 0.0,
+    "matched_recall50": 0.9577905827668249,
+    "unseen_macro": 0.9527205882352942,
+    "held_macro": 0.9540441176470589
+  },
+  "control_used_for_selection": false,
+  "trees": 600,
+  "model": "BAAI/bge-m3",
+  "source": "https://huggingface.co/BAAI/bge-m3",
+  "license": "MIT",
+  "limitations": [
+    "Reused development/control and inherited auxiliary priors; noisy unchosen negatives."
+  ]
+}

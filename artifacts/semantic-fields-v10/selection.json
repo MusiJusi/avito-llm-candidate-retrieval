@@ -1,0 +1,40 @@
+{
+  "winner": {
+    "document": "baseline",
+    "query_kind": "plain",
+    "weight": 0.0,
+    "matched_recall50": 0.9541465603008474,
+    "unseen_macro": 0.9493382352941176,
+    "held_macro": 0.9508088235294118
+  },
+  "baseline": {
+    "document": "baseline",
+    "query_kind": "plain",
+    "weight": 0.0,
+    "matched_recall50": 0.9541465603008474,
+    "unseen_macro": 0.9493382352941176,
+    "held_macro": 0.9508088235294118
+  },
+  "control_used_for_selection": false,
+  "grid_weights": [
+    0.025,
+    0.05,
+    0.1
+  ],
+  "configs": {
+    "service_fields": {
+      "length": 192,
+      "params_chars": 1800,
+      "description_chars": 0
+    },
+    "long_description": {
+      "length": 384,
+      "params_chars": 600,
+      "description_chars": 3500
+    }
+  },
+  "source_sha256": "7c79806b27cfbee14690136023fa7c0377665dd1127956407e1b2ce34dc35b64",
+  "limitations": [
+    "Reused development/control; inherited v9 auxiliary-prior limitation."
+  ]
+}

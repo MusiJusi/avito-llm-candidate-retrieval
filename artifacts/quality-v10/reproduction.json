@@ -1,0 +1,14 @@
+{
+  "fresh_extraction": true,
+  "existing_answer_removed": true,
+  "original_pool_caches_available": false,
+  "device": "cpu",
+  "network_connections_disabled": true,
+  "answer_bytes_equal": true,
+  "answer_sha256": "f75d1a1358a1a1c2b40d30d608c4f8a56e88fada5b0d186b203f023b301fb0be",
+  "notebook_code_sha256": "70d3435d0ebd2e5fe5cf479d89f6694a1134568818934f40c6c336b9753906c3",
+  "code_cells_executed": 30,
+  "elapsed_seconds": 380.09,
+  "cross_encoder_device_if_selected": "cpu",
+  "verification_directory": ".verification/quality_v10_cpu_og8soyiw"
+}

@@ -1,0 +1,20 @@
+{
+  "service_fields": {
+    "path": "artifacts/semantic-fields-v10/service_fields_c8cbbd2b7247b667.npy",
+    "sha256": "64f1e7420d1462b5f3f67fe67151541c381f065c51b6931b56121d720b06117a",
+    "config": {
+      "length": 192,
+      "params_chars": 1800,
+      "description_chars": 0
+    }
+  },
+  "long_description": {
+    "path": "artifacts/semantic-fields-v10/long_description_74a07a091bb3c2c4.npy",
+    "sha256": "ad75e7246e3facc5c77961b16beb53731061595318f05cb88902e83fd267ab8c",
+    "config": {
+      "length": 384,
+      "params_chars": 600,
+      "description_chars": 3500
+    }
+  }
+}

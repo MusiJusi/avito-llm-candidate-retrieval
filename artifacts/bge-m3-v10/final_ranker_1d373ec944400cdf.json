@@ -1,0 +1,15 @@
+{
+  "seconds": 1431.94,
+  "model_sha256": "efb4cad4d14dba20d50295f44f826712377d7861276b98c9eed3cc57f3663060",
+  "features": 94,
+  "bge_features": [
+    "bge_query_cosine",
+    "bge_query_delta_e5",
+    "bge_query_filter_cosine",
+    "bge_query_filter_delta_e5"
+  ],
+  "variant": "deep",
+  "trees": 600,
+  "leaves": 63,
+  "min_child_samples": 150
+}

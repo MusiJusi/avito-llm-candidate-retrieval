@@ -1,0 +1,230 @@
+{
+  "rows": [
+    {
+      "cold_fraction": 0.0,
+      "version": "v9",
+      "matched_recall50": 0.9535754250864037,
+      "unseen_macro": 0.9488970588235294,
+      "held_macro": 0.9508088235294118,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 0.0,
+      "version": "v10",
+      "matched_recall50": 0.9539796323027865,
+      "unseen_macro": 0.9489705882352941,
+      "held_macro": 0.9489705882352941,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 0.0,
+      "version": "warm_mixed",
+      "matched_recall50": 0.9548433388867338,
+      "unseen_macro": 0.9509558823529412,
+      "held_macro": 0.9511029411764705,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 0.0,
+      "version": "warm_deeper",
+      "matched_recall50": 0.9562122304664422,
+      "unseen_macro": 0.9521323529411765,
+      "held_macro": 0.9527205882352942,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 0.5,
+      "version": "v9",
+      "matched_recall50": 0.9540561675449808,
+      "unseen_macro": 0.9491911764705883,
+      "held_macro": 0.9508088235294118,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 0.5,
+      "version": "v10",
+      "matched_recall50": 0.9549158276654446,
+      "unseen_macro": 0.9504411764705882,
+      "held_macro": 0.9506617647058824,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 0.5,
+      "version": "warm_mixed",
+      "matched_recall50": 0.9546553912662791,
+      "unseen_macro": 0.9503676470588235,
+      "held_macro": 0.9499264705882353,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 0.5,
+      "version": "warm_deeper",
+      "matched_recall50": 0.9556529625756817,
+      "unseen_macro": 0.9518382352941176,
+      "held_macro": 0.95125,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 0.9,
+      "version": "v9",
+      "matched_recall50": 0.9540428139856305,
+      "unseen_macro": 0.9490441176470589,
+      "held_macro": 0.9508088235294118,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 0.9,
+      "version": "v10",
+      "matched_recall50": 0.9563726551677694,
+      "unseen_macro": 0.9521323529411765,
+      "held_macro": 0.9524264705882353,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 0.9,
+      "version": "warm_mixed",
+      "matched_recall50": 0.95420996281288,
+      "unseen_macro": 0.9503676470588235,
+      "held_macro": 0.9493382352941176,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 0.9,
+      "version": "warm_deeper",
+      "matched_recall50": 0.9550936067434792,
+      "unseen_macro": 0.95125,
+      "held_macro": 0.9506617647058824,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 1.0,
+      "version": "v9",
+      "matched_recall50": 0.9539799210996572,
+      "unseen_macro": 0.9490441176470589,
+      "held_macro": 0.9508088235294118,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 1.0,
+      "version": "v10",
+      "matched_recall50": 0.9572795378749315,
+      "unseen_macro": 0.9527205882352942,
+      "held_macro": 0.9533088235294118,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 1.0,
+      "version": "warm_mixed",
+      "matched_recall50": 0.9541492097774696,
+      "unseen_macro": 0.9503676470588235,
+      "held_macro": 0.9493382352941176,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    },
+    {
+      "cold_fraction": 1.0,
+      "version": "warm_deeper",
+      "matched_recall50": 0.955032853708069,
+      "unseen_macro": 0.95125,
+      "held_macro": 0.9506617647058824,
+      "pool_unseen": 0.995,
+      "pool_held": 0.995
+    }
+  ],
+  "audits": [
+    {
+      "cold_fraction": 0.0,
+      "mode": "unseen_text",
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.3233186274509804,
+      "own_context_overlap": 0
+    },
+    {
+      "cold_fraction": 0.0,
+      "mode": "held_context",
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.7188235294117648,
+      "positive_item_seen_macro_fraction": 0.3770147058823529,
+      "own_context_overlap": 0
+    },
+    {
+      "cold_fraction": 0.5,
+      "mode": "unseen_text",
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.16589215686274508,
+      "own_context_overlap": 0
+    },
+    {
+      "cold_fraction": 0.5,
+      "mode": "held_context",
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.7176470588235294,
+      "positive_item_seen_macro_fraction": 0.19095098039215685,
+      "own_context_overlap": 0
+    },
+    {
+      "cold_fraction": 0.9,
+      "mode": "unseen_text",
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.03200980392156862,
+      "own_context_overlap": 0
+    },
+    {
+      "cold_fraction": 0.9,
+      "mode": "held_context",
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.7161764705882353,
+      "positive_item_seen_macro_fraction": 0.036274509803921565,
+      "own_context_overlap": 0
+    },
+    {
+      "cold_fraction": 1.0,
+      "mode": "unseen_text",
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.0,
+      "positive_item_seen_macro_fraction": 0.0,
+      "own_context_overlap": 0
+    },
+    {
+      "cold_fraction": 1.0,
+      "mode": "held_context",
+      "contexts": 3400,
+      "positive_pairs": 3480,
+      "known_text_fraction": 0.7152941176470589,
+      "positive_item_seen_macro_fraction": 0.0,
+      "own_context_overlap": 0
+    }
+  ],
+  "weights_fixed": true,
+  "encoders_fixed": true,
+  "warm_weights": {
+    "warm_mixed": 0.75,
+    "warm_deeper": 0.75
+  },
+  "source_sha256": "fbd23edb3c5230c8f420c73adacccd0a3a0682f3d492b9fa582507e8789a98b4",
+  "limitation": "Inference-history sensitivity, not encoder/ranker retraining or hidden-test history inference."
+}

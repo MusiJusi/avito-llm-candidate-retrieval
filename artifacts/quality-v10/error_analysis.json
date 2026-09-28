@@ -1,0 +1,73 @@
+{
+  "counts": [
+    {
+      "mode": "unseen_text",
+      "queries": 3400,
+      "queries_with_missed_positive": 157,
+      "retrieval_missed_positive_items": 17,
+      "ranking_missed_positive_items": 140
+    },
+    {
+      "mode": "held_context",
+      "queries": 3400,
+      "queries_with_missed_positive": 156,
+      "retrieval_missed_positive_items": 17,
+      "ranking_missed_positive_items": 139
+    }
+  ],
+  "gold_source": "development derived from train only; no benchmark labels",
+  "unselected_items_not_proven_irrelevant": true,
+  "cross_validation_precision": "Cached CUDA BF16 pilot if selected",
+  "primary_model_top_features_by_gain": [
+    {
+      "feature": "log_baseline_rank",
+      "gain_share": 0.6589892317642322
+    },
+    {
+      "feature": "baseline_score",
+      "gain_share": 0.06689666101931634
+    },
+    {
+      "feature": "learned_log_geo_rank",
+      "gain_share": 0.04811209852663203
+    },
+    {
+      "feature": "log_distance_km",
+      "gain_share": 0.02646904051564933
+    },
+    {
+      "feature": "log_e5_geo_rank",
+      "gain_share": 0.02374063778061832
+    },
+    {
+      "feature": "body_token_coverage",
+      "gain_share": 0.015174039059177595
+    },
+    {
+      "feature": "geo_compatibility",
+      "gain_share": 0.013560693017242274
+    },
+    {
+      "feature": "log_reviews",
+      "gain_share": 0.00999465845946462
+    },
+    {
+      "feature": "context_log_distance",
+      "gain_share": 0.009735204024589135
+    },
+    {
+      "feature": "log_body_rank",
+      "gain_share": 0.008691703067866072
+    },
+    {
+      "feature": "neighbor_centroid_cosine",
+      "gain_share": 0.0077897845962459295
+    },
+    {
+      "feature": "body_idf_coverage",
+      "gain_share": 0.006890355718876333
+    }
+  ],
+  "importance_is_descriptive_not_causal": true,
+  "ranking_misses_same_location_fraction": 0.4014336917562724
+}

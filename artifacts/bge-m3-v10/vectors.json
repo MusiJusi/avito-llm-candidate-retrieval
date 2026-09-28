@@ -1,0 +1,53 @@
+{
+  "fingerprint": "202853486a876936",
+  "config": {
+    "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "doc_max_length": 256,
+    "query_max_length": 128,
+    "batch_size": 32,
+    "pooling": "normalized CLS",
+    "params_chars": 1000,
+    "description_chars": 2400,
+    "source_sha256": "ed7157eea2fe8ee3b4844cbb389bf7c7e4b899741cc5830c8bedd374c9e8558b",
+    "input_sha256": {
+      "train.parquet": "e150ab7a5c98769f643b95ee3a02dc0f664b647facd69a7d280ec6d48ca554a7",
+      "benchmark_items.parquet": "193b3a3961464620cbf8d8797152b7f90cae1826ca749fb7817a210984a09899",
+      "benchmark_queries.parquet": "e49de4fb76f03979a4af96034817767d39ae5de9f94e254fed028243188dda06"
+    },
+    "dtype": "bfloat16 encoder, normalized float32 vectors"
+  },
+  "model": {
+    "model": "BAAI/bge-m3",
+    "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "license": "MIT",
+    "source": "https://huggingface.co/BAAI/bge-m3",
+    "files_sha256": {
+      "config.json": "26159e7ad065073448460117eb24b7a4572f6f4e78eadff65dc0a11c052449fa",
+      "tokenizer.json": "21106b6d7dab2952c1d496fb21d5dc9db75c28ed361a05f5020bbba27810dd08",
+      "tokenizer_config.json": "a62b2b6784f990259fddef5f16388693a8043be4f69179e6a5257eeb3f9abac4",
+      "special_tokens_map.json": "8c785abebea9ae3257b61681b4e6fd8365ceafde980c21970d001e834cf10835",
+      "sentencepiece.bpe.model": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865",
+      "README.md": "0b81ccf9134e5874d620a86e6905062ea999e779c34eb1a7e65eaeb7fe00e450",
+      "1_Pooling/config.json": "e54c164a07274f2eb45bb724f54a79d1efcc90c41573887cd9a29aeee0597352",
+      "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+      "pytorch_model.bin": "b5e0ce3470abf5ef3831aa1bd5553b486803e83251590ab7ff35a117cf6aad38"
+    },
+    "task_data_sent": false,
+    "external_inference_api_used": false,
+    "download": "Official CDN byte ranges, LFS SHA checked"
+  },
+  "documents": {
+    "path": "artifacts/bge-m3-v10/documents_202853486a876936.npy",
+    "sha256": "6ca9f56c533c0f3532f2bc3cde408b54ae0539fc130b36b0a460ae4e8435338f"
+  },
+  "queries": {
+    "path": "artifacts/bge-m3-v10/queries_202853486a876936.npy",
+    "sha256": "999c1a6b64b333c5045cc439cb852a071f17dc074a0db41e66e52b7fa904d13a"
+  },
+  "query_texts": {
+    "path": "artifacts/bge-m3-v10/query_texts_202853486a876936.joblib",
+    "sha256": "6a49534926a9cba8b143d1c4c7dcfb33142d128ad55e5299deb15837813f83e2"
+  },
+  "task_data_sent": false,
+  "external_inference_api_used": false
+}

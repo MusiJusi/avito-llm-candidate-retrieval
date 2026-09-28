@@ -1,0 +1,23 @@
+{
+  "winner": {
+    "variant": "warm_deeper",
+    "weight": 0.15,
+    "matched_recall50": 0.9599342432434034,
+    "unseen_macro": 0.954485294117647,
+    "held_macro": 0.9550735294117647
+  },
+  "baseline": {
+    "variant": "baseline",
+    "weight": 0.0,
+    "matched_recall50": 0.9597256528572226,
+    "unseen_macro": 0.9536029411764706,
+    "held_macro": 0.954485294117647
+  },
+  "control_used_for_selection": false,
+  "upstream_quality_sha256": "ffb03f60a00d557b78bebf6bd703f6ea67bc1d5ab2069caaa1043f0da56aa202",
+  "upstream_field_sha256": "b4c1d43ed46c58dbae87bc41b6b3fb19dd9f46ae8d7fe42660bd5f75b8ac10ff",
+  "fingerprint": "ee1509f557ccb6d2",
+  "warm_training_fingerprint": "e74036f63c9ad6d0",
+  "source_sha256": "ec0d38f5876fcd8df955d116c6127462ebe761f7cdcc24ed115943b82b0e0346",
+  "limitation": "Reused development/control; fixed cold evaluation and fixed auxiliary encoders."
+}

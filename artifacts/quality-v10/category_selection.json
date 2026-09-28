@@ -1,0 +1,28 @@
+{
+  "winner": {
+    "category_boost": 0.0016,
+    "matched_recall50": 0.9541465603008474,
+    "unseen_macro": 0.9493382352941176,
+    "held_macro": 0.9508088235294118
+  },
+  "baseline": {
+    "category_boost": 0.0,
+    "matched_recall50": 0.9540428139856305,
+    "unseen_macro": 0.9490441176470589,
+    "held_macro": 0.9508088235294118
+  },
+  "control_used_for_selection": false,
+  "category_grid": [
+    0.0,
+    5e-05,
+    0.0001,
+    0.0002,
+    0.0004,
+    0.0008,
+    0.0016
+  ],
+  "source_sha256": "48f260aa37e25abccd5fc4e552ea9afb25035cb7df6c81abd9ea68d8bf2d2bfa",
+  "limitations": [
+    "Reused development and control; existing auxiliary-prior limitations remain."
+  ]
+}

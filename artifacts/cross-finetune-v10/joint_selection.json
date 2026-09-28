@@ -1,0 +1,24 @@
+{
+  "winner": {
+    "weight": 0.0,
+    "matched_recall50": 0.9599342432434034,
+    "unseen_macro": 0.954485294117647,
+    "held_macro": 0.9550735294117647
+  },
+  "baseline": {
+    "weight": 0.0,
+    "matched_recall50": 0.9599342432434034,
+    "unseen_macro": 0.954485294117647,
+    "held_macro": 0.9550735294117647
+  },
+  "control_used_for_selection": false,
+  "model": "artifacts/cross-finetune-v10/pilot_44fdd936daa01b5d",
+  "fingerprint": "44fdd936daa01b5d",
+  "shortlist": "Frozen v9 + category top-200; candidates outside receive the fixed low score.",
+  "upstream_quality_selection_sha256": "ffb03f60a00d557b78bebf6bd703f6ea67bc1d5ab2069caaa1043f0da56aa202",
+  "upstream_warm_aux_selection_sha256": "ea9aba2ad6552a5b53423fe59ebc8ec04d6af31116348e49d50dc45d6903d4ff",
+  "upstream_field_selection_sha256": "b4c1d43ed46c58dbae87bc41b6b3fb19dd9f46ae8d7fe42660bd5f75b8ac10ff",
+  "limitations": [
+    "Reused development/control; pilot trained on 6000 contexts only."
+  ]
+}

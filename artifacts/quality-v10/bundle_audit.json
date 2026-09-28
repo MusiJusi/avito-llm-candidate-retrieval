@@ -1,0 +1,25 @@
+{
+  "archive": "deliverables/avito_v10_solution.zip",
+  "archive_bytes": 4607583472,
+  "answer_sha256": "f75d1a1358a1a1c2b40d30d608c4f8a56e88fada5b0d186b203f023b301fb0be",
+  "all_new_dependencies_present_and_hash_match": true,
+  "executed_notebook_code_matches_cpu_proof": true,
+  "executed_cells": 30,
+  "v7_and_v9_answers_unchanged": true,
+  "raw_data_excluded": true,
+  "csv_validation": {
+    "valid": true,
+    "rows": 2452,
+    "columns": [
+      "query_id",
+      "answer"
+    ],
+    "encoding": "utf-8",
+    "minimum_candidates": 50,
+    "maximum_candidates": 50,
+    "unknown_items": 0,
+    "duplicate_items": 0,
+    "answer_sha256": "f75d1a1358a1a1c2b40d30d608c4f8a56e88fada5b0d186b203f023b301fb0be",
+    "changed_sets_vs_v9": 2433
+  }
+}

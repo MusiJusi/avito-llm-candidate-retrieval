@@ -1,0 +1,21 @@
+{
+  "rows": [
+    {
+      "mode": "unseen_text",
+      "original_pool_recall": 0.995,
+      "with_bge_pool_recall": 0.995,
+      "improved_queries": 0,
+      "mean_extra_candidates": 245.43529411764706
+    },
+    {
+      "mode": "held_context",
+      "original_pool_recall": 0.995,
+      "with_bge_pool_recall": 0.995,
+      "improved_queries": 0,
+      "mean_extra_candidates": 245.18323529411765
+    }
+  ],
+  "diagnostic_only": true,
+  "submission_pool_unchanged": true,
+  "limitation": "An increased recall ceiling is not measured Recall@50 after selection."
+}

@@ -1,6 +1,6 @@
 # Отбор кандидатов с дообученным query-encoder E5
 
-`Avito_query_encoder_candidate.ipynb` создаёт **answer_query_encoder.csv**.
+`solution_query_encoder_candidate.ipynb` создаёт **answer_query_encoder.csv**.
 Идентичная копия с именем для отправки — `deliverables/query_encoder_submission/answer.csv`.
 Основной `answer.csv` v5 сохранён отдельно. Новый файл — самостоятельный кандидат
 для следующей отправки; метрика платформы для него ещё неизвестна.
@@ -53,14 +53,14 @@ Microcat-классификаторы дали неоднозначную про
 
 1. Распаковать `deliverables/avito_query_encoder_solution.zip`.
 2. Положить рядом три исходных Parquet и установить `requirements.txt`.
-3. Открыть `Avito_query_encoder_candidate.ipynb`: Restart Kernel → Run All.
+3. Открыть `solution_query_encoder_candidate.ipynb`: Restart Kernel → Run All.
 
 Обычный запуск работает на CPU без сети: в архиве есть исходная E5, собственные
 веса, document/query-векторы и версии старых компонентов. Query-векторы получены
 инференсом обученной модели, а не из разметки бенчмарка. Notebook проверяет hashes
 весов, исходных файлов и итогового CSV. Свежая распаковка на CPU с отключённой сетью и удалённым CSV получила идентичные байты за 263.26 секунд.
 Большие OOF-пулы в архив не входят. Рецептура обучения и ablation запускается из
-`Avito_neural_experiments.ipynb`; полный refit —
+`solution_neural_experiments.ipynb`; полный refit —
 `.development/export_query_encoder_candidate.py`. Эти исходники сопровождаются
 комментариями и журналами исключения меток.
 

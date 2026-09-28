@@ -1,8 +1,8 @@
 # Отбор кандидатов услуг Авито: v0.6.0
 
-**Avito_microcat_candidate_v6.ipynb** — самостоятельный notebook, который создаёт **answer_microcat_v6.csv**.
+**solution_microcat_candidate_v6.ipynb** — самостоятельный notebook, который создаёт **answer_microcat_v6.csv**.
 Это экспериментальный кандидат: development улучшился, контроль немного ухудшился.
-Основной **answer.csv** и **Avito.ipynb** от v5 сохранены без изменения.
+Основной **answer.csv** и **solution.ipynb** от v5 сохранены без изменения.
 Новый сигнал предсказывает распределение `item_microcat_id` из текста запроса и фильтров,
 используя большую часть train, включая выбранные объявления вне benchmark_items.
 `search_category` не входит в scoring. Идентификаторы, локация и признаки объявления не входят в текстовые классификаторы.
@@ -64,23 +64,23 @@ NB и MLP сравниваются отдельно; наличие нового
 Microcat-версия сохраняет исходную E5. Отдельно уже выполнен пилот дообучения query-encoder
 и диагностика cold items; география по типу услуги и OOF-оценки learned E5 исследуются отдельно.
 Текущий статус и численные результаты — в [IMPROVEMENT_PROGRESS.md](IMPROVEMENT_PROGRESS.md)
-и `Avito_neural_experiments.ipynb`. Обучаемая интеграция CE пока не выполнена.
+и `solution_neural_experiments.ipynb`. Обучаемая интеграция CE пока не выполнена.
 Этот microcat-этап не закрывает весь IMPROVEMENT_PLAN.md.
 
 ## Локальное воспроизведение
 
 1. Распаковать deliverables/avito_v6_experiments.zip; положить рядом три Parquet из задания.
 2. Установить requirements.txt (проверенная среда Python 3.14.6).
-3. Открыть Avito_microcat_candidate_v6.ipynb: Restart Kernel → Run All.
+3. Открыть solution_microcat_candidate_v6.ipynb: Restart Kernel → Run All.
 
 Нормальный запуск использует поставляемые веса и E5-векторы и работает на CPU без inference API.
 Свежая распаковка архива на CPU без сети создала идентичные байты CSV за 303.48 с.
 AVITO_RUN_MODEL_SEARCH=1 повторяет исследование; AVITO_REBUILD_CACHE=1 перестраивает новые индексы,
 векторы и финальный microcat-ранкер. Собственные компоненты v5 остаются замороженными и поставляются
-с весами: исходные рецептуры в Avito_v0.3.ipynb, Avito_v0.4.ipynb, Avito_v0.5.ipynb.
+с весами: исходные рецептуры в solution_v0.3.ipynb, solution_v0.4.ipynb, solution_v0.5.ipynb.
 Большие OOF-пулы и sampled datasets не входят в архив; при полном переобучении строятся из Parquet.
 Контрольные суммы компонентов и исходных данных — artifacts/microcat-v6/weights_manifest.json.
-Avito_microcat_v6.ipynb содержит самостоятельное воспроизведение исследовательского этапа.
+solution_microcat_v6.ipynb содержит самостоятельное воспроизведение исследовательского этапа.
 
 Формат CSV: 2452 query_id, две колонки, 50 уникальных существующих item_id на строку, исходный регистр,
 UTF-8, пробел между IDs, окончания строк LF. SHA256: `592e33efa8828f7bd1158de2e7e599c845519d5534e0f16aa9f3b2eb265ef020`.

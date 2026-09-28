@@ -1,10 +1,10 @@
 {
-  "notebook": "Avito.ipynb",
+  "notebook": "solution.ipynb",
   "code_cells_executed": 31,
-  "code_sha256": "59ff610ed62d087b15a16c38cdd7bcfe44feb824ee906790bc29545d7a40c1b5",
+  "code_sha256": "03f3c15e73fceb1d08703ac44d5b489cb942bb45a59fddb0eae98ebad92084c9",
   "device": "cpu",
   "network_connections_disabled": true,
-  "elapsed_seconds": 446.1,
+  "elapsed_seconds": 439.94,
   "answer_sha256": "8ce7401347beb1806f962ae1e72999fa93c89201b1044cd2433494f50e837d7e",
   "fresh_extraction": true,
   "answer_bytes_equal": true

@@ -1,6 +1,6 @@
 # Эксперименты после подтверждённой v7
 
-Основной answer.csv: платформа **0.897443**, сохранён без изменения. Эксперименты доступны в experiments/Avito_neural_experiments.ipynb.
+Основной answer.csv: платформа **0.897443**, сохранён без изменения. Эксперименты доступны в experiments/solution_neural_experiments.ipynb.
 
 | Эксперимент | Локальный результат |
 | --- | --- |
@@ -33,6 +33,6 @@ CSV: `experiments/results/v8/answer.csv`. Его SHA-256: `b7c15a6b09210e4bd7702
 
 ## Готовые файлы и оставшаяся работа
 
-Для следующей проверки подготовлен `experiments/results/v8/answer.csv`. Его notebook: `experiments/Avito_v8_candidate.ipynb`. Переносимый комплект с одним основным notebook, моделями и CSV: `deliverables/avito_v8_solution.zip`. Корневые Avito.ipynb и answer.csv остаются подтверждённой версией v7.
+Для следующей проверки подготовлен `experiments/results/v8/answer.csv`. Его notebook: `experiments/solution_v8_candidate.ipynb`. Переносимый комплект с одним основным notebook, моделями и CSV: `deliverables/avito_v8_solution.zip`. Корневые solution.ipynb и answer.csv остаются подтверждённой версией v7.
 
 Это завершённый блок ограниченных экспериментов, а не закрытие всех направлений плана. Ранкер использует прежние OOF-пулы и признаки; новые отрицательные примеры, выбранные сильным OOF-ранкером, и обучение на расширенных OOF-пулах здесь не реализованы. Новый большой encoder, полное дообучение cross-encoder, дополнительные географические признаки и новые политики холодных объявлений требуют отдельных экспериментов.

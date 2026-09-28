@@ -11,5 +11,5 @@
   "answer_file": "experiments/results/v11/answer.csv",
   "answer_sha256": "8ce7401347beb1806f962ae1e72999fa93c89201b1044cd2433494f50e837d7e",
   "selection_report": "artifacts/bge-m3-v11/development_metadata_normal_1d373ec944400cdf.json",
-  "platform_recall50": null
+  "platform_recall50": 0.914682
 }

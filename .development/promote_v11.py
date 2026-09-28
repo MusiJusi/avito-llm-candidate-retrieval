@@ -14,16 +14,18 @@ def promote():
     answer = (ROOT/manifest['answer_file']).read_bytes()
     digest = hashlib.sha256(answer).hexdigest()
     assert digest == manifest['answer_sha256'] == report['answer_sha256']
-    with zipfile.ZipFile(ROOT/'deliverables/avito_v11_solution.zip') as archive:
+    with zipfile.ZipFile(ROOT/'deliverables/solution_v11.zip') as archive:
         assert archive.read('answer.csv') == answer
-        notebook = archive.read('Avito.ipynb')
+        notebook = archive.read('solution.ipynb')
+        config = json.loads(archive.read('config/solution_v11.json'))
     parsed = json.loads(notebook)
-    assert any("'answer_file': 'answer.csv'" in ''.join(cell['source'])
-               for cell in parsed['cells'] if cell['cell_type'] == 'code')
+    assert config['quality_v11']['answer_file'] == 'answer.csv'
+    assert config['quality_v11']['answer_sha256'] == digest
+    assert sum(cell['cell_type'] == 'code' for cell in parsed['cells']) == report['code_cells_executed']
     (ROOT/'answer.csv').write_bytes(answer)
-    (ROOT/'Avito.ipynb').write_bytes(notebook)
+    (ROOT/'solution.ipynb').write_bytes(notebook)
     details = {
-        'notebook': 'Avito.ipynb',
+        'notebook': 'solution.ipynb',
         'code_cells_executed': report['code_cells_executed'],
         'code_sha256': report['notebook_code_sha256'],
         'device': 'cpu',

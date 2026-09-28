@@ -1,10 +1,11 @@
 # Архив версий
 
-Основная подтверждённая версия находится в родительской папке: Avito.ipynb и
-answer.csv, Recall@50 = 0.897443. Файлы здесь сохранены для истории и рецептур.
+Основная подтверждённая версия находится в родительской папке:
+`solution.ipynb` и `answer.csv`, Recall@50 = **0.914682**. Файлы здесь
+сохранены для истории и рецептур прежних версий.
 
-- notebooks/: прежние основные и исследовательские notebooks; Avito.ipynb здесь
-  является прежним основным v5, а Avito_query_encoder_candidate.ipynb — точным
+- notebooks/: прежние основные и исследовательские notebooks; solution.ipynb здесь
+  является прежним основным v5, а solution_query_encoder_candidate.ipynb — точным
   исходным notebook v7 до переименования и смены имени выходного CSV.
 - answers/: прежние CSV, включая исходный answer_query_encoder.csv версии v7.
 - submitted/: копия фактически отправленного v7 answer.csv.

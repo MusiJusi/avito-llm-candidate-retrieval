@@ -246,7 +246,7 @@
 
 ## Отправка и воспроизведение
 
-Ответ: `experiments/results/v10/answer.csv`. SHA-256: `f75d1a1358a1a1c2b40d30d608c4f8a56e88fada5b0d186b203f023b301fb0be`. Notebook: `experiments/Avito_v10_candidate.ipynb`; архив с локальными весами: `deliverables/avito_v10_solution.zip`.
+Ответ: `experiments/results/v10/answer.csv`. SHA-256: `f75d1a1358a1a1c2b40d30d608c4f8a56e88fada5b0d186b203f023b301fb0be`. Notebook: `experiments/solution_v10_candidate.ipynb`; архив с локальными весами: `deliverables/avito_v10_solution.zip`.
 
 Свежий запуск cpu без сети и готового CSV: 380.09 с, 30 ячеек, побайтовое совпадение ответа.
 

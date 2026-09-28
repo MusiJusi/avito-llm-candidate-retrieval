@@ -19,7 +19,7 @@ def verify():
     directory = Path(tempfile.mkdtemp(prefix='quality_v11_cpu_',
                                       dir=ROOT/'.verification'))
     assert directory.resolve().is_relative_to(ROOT/'.verification')
-    with zipfile.ZipFile(ROOT/'deliverables/avito_v11_solution.zip') as archive:
+    with zipfile.ZipFile(ROOT/'deliverables/solution_v11.zip') as archive:
         for name in archive.namelist():
             assert (directory/name).resolve().is_relative_to(directory)
         archive.extractall(directory)
@@ -40,7 +40,7 @@ def verify():
     with log.open('w', encoding='utf-8') as stream:
         subprocess.run([sys.executable, '-u',
             str(directory/'.development/run_validation_notebook.py'),
-            'Avito.ipynb'], cwd=directory, env=environment,
+            'solution.ipynb'], cwd=directory, env=environment,
             stdout=stream, stderr=subprocess.STDOUT, check=True)
     execution = json.loads((directory/'artifacts/notebook_execution.json').read_text())
     assert execution['device'] == 'cpu' and execution['network_connections_disabled']
@@ -53,7 +53,6 @@ def verify():
               'verification_directory': directory.relative_to(ROOT).as_posix()}
     (ROOT/'artifacts/bge-m3-v11/reproduction.json').write_text(
         json.dumps(report, indent=2), encoding='utf-8')
-    (ROOT/'deliverables/v11/Avito.ipynb').write_bytes((directory/'Avito.ipynb').read_bytes())
     print('v11 reproduced', json.dumps(report), flush=True)
 
 

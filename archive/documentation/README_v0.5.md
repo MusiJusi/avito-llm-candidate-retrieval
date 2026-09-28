@@ -1,6 +1,6 @@
 # Кандидатогенерация услуг Авито, v0.5.0
 
-Самостоятельный Jupyter Notebook **Avito.ipynb** создаёт кандидатов с помощью BM25,
+Самостоятельный Jupyter Notebook **solution.ipynb** создаёт кандидатов с помощью BM25,
 символьного TF-IDF и локальной multilingual E5, затем отбирает 50 объявлений.
 Новая модель LightGBM LambdaRank использует два режима истории и дополнительные
 трудные отрицательные примеры. Итог — RRF: 75% нового ранкера, 25% ансамбля v4.
@@ -74,7 +74,7 @@ development_positive_ranks.csv, error_summary.json и feature_importance.csv
 
 1. Распаковать deliverables/avito_v5_solution.zip и положить рядом три Parquet задания.
 2. Установить requirements.txt; проверенная среда — Python 3.14.6.
-3. Открыть Avito.ipynb: Restart Kernel → Run All.
+3. Открыть solution.ipynb: Restart Kernel → Run All.
 
 GPU RTX 5070 Ti 12 ГБ использовалась для кодирования отсутствующих E5-векторов.
 С приложенными векторами и весами итоговый inference работает на CPU.
@@ -86,7 +86,7 @@ AVITO_RUN_MODEL_SEARCH=1 до запуска ядра повторяет пол�
 AVITO_REBUILD_CACHE=1 перестраивает индексы, векторы и финальную модель.
 Четыре HGB-priors, два ранкера v4 и собственный пилот для mining поставляются как
 замороженные компоненты. Их источники и SHA256 — weights_manifest.json.
-Рецептуры: Avito_v0.3.ipynb, Avito_v0.4.ipynb, Avito_training_v5.ipynb.
+Рецептуры: solution_v0.3.ipynb, solution_v0.4.ipynb, solution_training_v5.ipynb.
 Большие поисковые кеши и исходные Parquet в архив не включены.
 
 CSV проверен: ровно 2452 query_id, две колонки, по 50 уникальных существующих

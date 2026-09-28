@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding='utf-8')
 os.chdir(ROOT)
 parser = argparse.ArgumentParser()
-parser.add_argument('notebook', nargs='?', default='Avito.ipynb')
+parser.add_argument('notebook', nargs='?', default='solution.ipynb')
 arguments = parser.parse_args()
 path = ROOT / arguments.notebook
 if not path.resolve().is_relative_to(ROOT) or path.suffix != '.ipynb':

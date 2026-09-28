@@ -72,12 +72,12 @@ development-контекстах: shortlist 300/500, 500000 пар, около 6
 
 ## 5. Воспроизводимость и артефакты
 
-`Avito.ipynb` и основной ответ v5 прошли offline/CPU-воспроизведение.
-`Avito_microcat_candidate_v6.ipynb` отдельно воспроизводит
+`solution.ipynb` и основной ответ v5 прошли offline/CPU-воспроизведение.
+`solution_microcat_candidate_v6.ipynb` отдельно воспроизводит
 `answer_microcat_v6.csv`: свежая распаковка, CPU, сеть отключена, байты равны,
 около 303 секунд. SHA256 и полная проверка CSV сохранены в manifest/validation.
-Самостоятельный исследовательский notebook — `Avito_microcat_v6.ipynb`.
-Jupyter-запуск новых пилотов — `Avito_neural_experiments.ipynb`, с комментированными
+Самостоятельный исследовательский notebook — `solution_microcat_v6.ipynb`.
+Jupyter-запуск новых пилотов — `solution_neural_experiments.ipynb`, с комментированными
 локальными исходниками в `.development`. По умолчанию показывает фактические
 отчёты; переключатели `RUN_*` повторяют обучение.
 

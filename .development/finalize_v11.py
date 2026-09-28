@@ -24,6 +24,9 @@ def freeze(answer=False):
     assert ranker.is_file() and reference.is_file()
     if answer:
         assert output.is_file()
+    path = CACHE / 'manifest.json'
+    recorded_platform_score = (json.loads(path.read_text(encoding='utf-8')).get('platform_recall50')
+                               if path.exists() else None)
     manifest = {
         'version': 'v11',
         'block': 'metadata',
@@ -37,9 +40,8 @@ def freeze(answer=False):
         'answer_file': output.relative_to(ROOT).as_posix(),
         'answer_sha256': sha256(output) if answer else None,
         'selection_report': 'artifacts/bge-m3-v11/development_metadata_normal_'+FINGERPRINT+'.json',
-        'platform_recall50': None,
+        'platform_recall50': recorded_platform_score,
     }
-    path = CACHE / 'manifest.json'
     path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding='utf-8')
     print('Frozen v11 manifest', path, 'answer_hash', manifest['answer_sha256'])
 

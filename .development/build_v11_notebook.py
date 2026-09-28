@@ -21,7 +21,7 @@ def cell(kind, source, identifier):
 
 def build():
     manifest = json.loads(MANIFEST.read_text(encoding='utf-8'))
-    path = ROOT / 'experiments/Avito_v10_candidate.ipynb'
+    path = ROOT / 'experiments/solution_v10_candidate.ipynb'
     notebook = json.loads(path.read_text(encoding='utf-8'))
     notebook['cells'][0]['source'] = [
         '# Avito v11: признаки фильтров, географии и отбор трудных кандидатов\n',
@@ -75,7 +75,7 @@ def build():
                             "    output.parent.mkdir(parents=True,exist_ok=True)\n")
     ast.parse(source)
     last['source'] = source.splitlines(True)
-    output = ROOT / 'experiments/Avito_v11_candidate.ipynb'
+    output = ROOT / 'experiments/solution_v11_candidate.ipynb'
     output.write_text(json.dumps(notebook, ensure_ascii=False, indent=1),
                       encoding='utf-8')
     print('Notebook ready', output)
